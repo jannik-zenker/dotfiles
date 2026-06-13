@@ -3,6 +3,7 @@
 {
   den.aspects.hauler = { host, ... }: {
     includes = [
+      den.aspects.fonts
       den.aspects.networkManager
       den.aspects.plymouth
       den.aspects.niri
