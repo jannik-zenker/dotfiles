@@ -2,9 +2,10 @@
 { den, lib, ... }:
 {
   den.aspects.hauler = { host, ... }: {
-    includes = with den.aspects; [
-      networkManager
-      plymouth
+    includes = [
+      den.aspects.networkManager
+      den.aspects.plymouth
+      den.aspects.niri
     ];
 
     nixos =
