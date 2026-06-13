@@ -8,6 +8,7 @@
         den.aspects.bootloader
         den.aspects.defaultPackages
         den.aspects.disko
+        den.aspects.graphics
         den.aspects.journald
         den.aspects.nixos
         den.batteries.hostname
