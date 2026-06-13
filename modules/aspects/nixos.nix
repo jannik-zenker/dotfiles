@@ -46,7 +46,7 @@
       # TTY console settings
       console = {
         keyMap = "de-latin1";
-        font = "iso01-12x22";
+        font = "Lat2-Terminus16";
       };
     };
   };
