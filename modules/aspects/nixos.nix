@@ -42,6 +42,12 @@
 
       # Take local time for desktops, UTC for servers and as a fallback
       time.timeZone = if host.profile == "desktop" then "Europe/Berlin" else "UTC";
+
+      # TTY console settings
+      console = {
+        keyMap = "de-latin1";
+        font = "iso01-12x22";
+      };
     };
   };
 }
