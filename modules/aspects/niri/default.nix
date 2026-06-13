@@ -18,7 +18,7 @@
         wantedBy = [ "graphical-session.target" ];
         wants = [ "graphical-session.target" ];
         after = [ "graphical-session.target" ];
-        conditionEnvironment = "XDG_SESSION_DESKTOP=niri";
+        unitConfig.ConditionEnvironment = "XDG_SESSION_DESKTOP=niri";
         serviceConfig = {
           Type = "simple";
           ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
