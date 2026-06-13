@@ -1,7 +1,7 @@
 # Contains global settings across all hosts, users and standalone homes
 { lib, den, ... }:
 {
-  den.schema = {
+  den.schema = { host, ... }: {
     host = {
       # Set hostnames from host declarations, install bootloader and the disko module
       includes = [

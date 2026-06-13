@@ -4,6 +4,7 @@
   den.aspects.hauler = { host, ... }: {
     includes = with den.aspects; [
       networkManager
+      plymouth
     ];
 
     nixos =
