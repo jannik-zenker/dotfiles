@@ -48,7 +48,11 @@
         gum spin --spinner dot --title "Starting in 2..." -- sleep 1
         gum spin --spinner dot --title "Starting in 1..." -- sleep 1
 
-        sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount --flake "github:jannik-zenker/dotfiles#''${SELECTION}"
+        nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- \
+            --mode destroy,format,mount \
+            --yes-wipe-all-disks \
+            --flake "github:jannik-zenker/dotfiles#''${SELECTION}"
+
         nixos-install --flake "github:jannik-zenker/dotfiles#''${SELECTION}"
       '';
     };
