@@ -9,6 +9,7 @@
         den.aspects.defaultPackages
         den.aspects.disko
         den.aspects.journald
+        den.aspects.nixos
         den.batteries.hostname
       ];
     };
