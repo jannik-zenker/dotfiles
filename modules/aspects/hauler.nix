@@ -40,12 +40,12 @@
                 partitions = {
                   EFI = {
                     type = "EF00";
-                    size = "1GiB";
+                    size = "1G";
                     content = {
                       type = "filesystem";
                       format = "vfat";
                       mountpoint = "/boot";
-                      mountOptions = [ "umask 0077" ];
+                      mountOptions = [ "umask=0077" ];
                     };
                   };
                   NIXOS = {
