@@ -2,7 +2,9 @@
 { den, lib, ... }:
 {
   den.aspects.hauler = { host, ... }: {
-    includes = with den.aspects; [ ];
+    includes = with den.aspects; [
+      networkManager
+    ];
 
     nixos =
       {
