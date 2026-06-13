@@ -35,7 +35,7 @@
 
         SELECTION=$(echo "$SELECTION" | tr '[:upper:]' '[:lower:]')
 
-        gum style --foreground "#ff5555" "WARNING: This action will erase all data on the specified system disk!"
+        gum style --foreground "#ff5555" "WARNING: This action will erase all data on the specified disks!"
 
         if ! gum confirm "Continue?"; then
             gum style --foreground "#889ac8" "Exiting..."
@@ -48,7 +48,7 @@
         gum spin --spinner dot --title "Starting in 2..." -- sleep 1
         gum spin --spinner dot --title "Starting in 1..." -- sleep 1
 
-        sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount --disk system --flake "github:jannik-zenker/dotfiles#''${SELECTION}"
+        sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount --flake "github:jannik-zenker/dotfiles#''${SELECTION}"
         nixos-install --flake "github:jannik-zenker/dotfiles#''${SELECTION}"
       '';
     };
