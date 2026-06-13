@@ -13,6 +13,8 @@
         export GUM_SPIN_SPINNER_FOREGROUND="#ff79c6"
         export GUM_CHOOSE_HEADER_FOREGROUND="#889ac8"
 
+        clear
+
         gum style \
             --foreground "#889ac8" \
             --border-foreground "#ff79c6" \
