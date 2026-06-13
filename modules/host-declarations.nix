@@ -1,6 +1,6 @@
 {
   den.hosts.x86_64-linux.hauler = {
-    bootloader = "grub";
+    bootloader = "systemd-boot";
     gpu = "amd";
     profile = "desktop";
 
