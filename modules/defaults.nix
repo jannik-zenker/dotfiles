@@ -6,7 +6,9 @@
       # Set hostnames from host declarations, install bootloader and the disko module
       includes = [
         den.aspects.bootloader
+        den.aspects.defaultPackages
         den.aspects.disko
+        den.aspects.journald
         den.batteries.hostname
       ];
     };
