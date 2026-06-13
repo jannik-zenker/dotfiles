@@ -9,6 +9,8 @@
       # Install dependencies
       security.polkit.enable = true;
       services.gnome.gnome-keyring.enable = true;
+      programs.xwayland.enable = true;
+      environment.systemPackages = [ pkgs.xwayland-satellite ];
 
       # polkit-gnome service
       systemd.user.services.polkit-gnome-authentication-agent-1 = {
