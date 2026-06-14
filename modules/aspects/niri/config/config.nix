@@ -6,7 +6,6 @@
         //---------------ROOT CONFIG FILE----------------//
         //-----------------------------------------------//
         include "./configuration/animations.kdl"
-        include "./configuration/autostart.kdl"
         include "./configuration/blur.kdl"
         include "./configuration/cursor.kdl"
         include "./configuration/environment.kdl"
