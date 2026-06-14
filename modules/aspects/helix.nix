@@ -6,9 +6,8 @@
 
         settings = {
           editor = {
-            line-number = "relative";
+            line-number = "absolute";
             lsp.display-messages = true;
-            modes.insert.line-number = "absolute";
           };
 
           keys.normal = {
@@ -30,7 +29,7 @@
               name = "nix";
               language-servers = [ "nixd" ];
               formatter = {
-                command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+                command = "${pkgs.nixfmt}/bin/nixfmt";
               };
               auto-format = true;
             }
