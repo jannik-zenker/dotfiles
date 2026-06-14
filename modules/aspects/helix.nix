@@ -19,24 +19,24 @@
           };
 
           theme = "base16";
-
-          languages = {
-            language-server.nixd = {
-              command = "${pkgs.nixd}/bin/nixd";
-            };
-
-            language = [
-              {
-                name = "nix";
-                language-servers = [ "nixd" ];
-                formatter = {
-                  command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
-                };
-                auto-format = true;
-              }
-            ];
-          };
         };
+        languages = {
+          language-server.nixd = {
+            command = "${pkgs.nixd}/bin/nixd";
+          };
+
+          language = [
+            {
+              name = "nix";
+              language-servers = [ "nixd" ];
+              formatter = {
+                command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+              };
+              auto-format = true;
+            }
+          ];
+        };
+
       };
     };
   };
