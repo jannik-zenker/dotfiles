@@ -6,6 +6,7 @@
       den.aspects.fonts
       den.aspects.networkManager
       den.aspects.plymouth
+      den.aspects.sddm
       den.aspects.niri
     ];
 
