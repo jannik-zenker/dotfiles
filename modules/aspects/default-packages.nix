@@ -8,7 +8,6 @@
           btop
           curl
           dnsutils
-          git
           tree
           vim
           wget

@@ -4,6 +4,9 @@
     gpu = "amd";
     profile = "desktop";
 
-    users.jannik = { };
+    users.jannik = {
+      gitName = "Jannik Zenker";
+      gitMail = "accounts@jannikzenker.de";
+    };
   };
 }

@@ -9,7 +9,6 @@
             "grub"
             "systemd-boot"
           ];
-          default = "systemd-boot";
         };
         gpu = lib.mkOption {
           type = lib.types.enum [
@@ -26,6 +25,21 @@
             "server"
           ];
           description = "What the host is used as";
+        };
+      };
+    };
+
+    user = {
+      options = {
+        gitName = lib.mkOption {
+          type = lib.types.nullOr lib.types.str;
+          default = null;
+          description = "Git username";
+        };
+        gitMail = lib.mkOption {
+          type = lib.types.nullOr lib.types.str;
+          default = null;
+          description = "Git email-adress";
         };
       };
     };
