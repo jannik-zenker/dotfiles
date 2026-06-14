@@ -21,6 +21,7 @@
           den.aspects.graphics
           den.aspects.journald
           den.aspects.nixos
+          den.aspects.security
           den.batteries.hostname
         ];
       };
