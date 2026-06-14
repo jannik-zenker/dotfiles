@@ -115,12 +115,12 @@
                 type = "gradient";
                 colors = [
                   {
-                    red = 85;
-                    green = 252;
-                    blue = 91;
+                    red = 50;
+                    green = 140;
+                    blue = 55;
                     algorithm = "floating";
                     type = "explicit-lightness";
-                    lightness = 30;
+                    lightness = 50;
                   }
                 ];
                 opacity = 0.8;
@@ -135,12 +135,12 @@
                 type = "gradient";
                 colors = [
                   {
-                    red = 57;
-                    green = 201;
-                    blue = 255;
+                    red = 30;
+                    green = 110;
+                    blue = 180;
                     algorithm = "floating";
                     type = "explicit-lightness";
-                    lightness = 30;
+                    lightness = 50;
                   }
                 ];
                 opacity = 0.8;
@@ -155,9 +155,9 @@
                 type = "gradient";
                 colors = [
                   {
-                    red = 237;
-                    green = 234;
-                    blue = 42;
+                    red = 160;
+                    green = 140;
+                    blue = 25;
                     algorithm = "floating";
                     type = "explicit-lightness";
                     lightness = 50;
