@@ -17,7 +17,7 @@
 
   den.aspects.noctalia = { host, ... }: {
     # Enable laptop services for power management
-    provides.to-host.nixos = { pkgs, ... }: {
+    provides.to-hosts.nixos = { pkgs, ... }: {
       services = {
         power-profiles-daemon.enable = host.profile == "laptop";
         upower.enable = host.profile == "laptop";
