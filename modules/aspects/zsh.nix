@@ -1,9 +1,9 @@
-{ den, ... }:
 {
   den.aspects.zsh = {
-    includes = [ den.aspects.fzf ];
-
     homeManager = { pkgs, ... }: {
+      # Install dependencies
+      home.packages = with pkgs; [ fzf ];
+
       programs.zsh = {
         enable = true;
         autosuggestion.enable = true;
