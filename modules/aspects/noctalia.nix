@@ -200,7 +200,10 @@
           widget = {
             battery.show_label = false;
             brightness.show_label = false;
-            media.title_scroll = "on_hover";
+            media = {
+              hide_when_no_media = true;
+              title_scroll = "on_hover";
+            };
             network.show_label = false;
             workspaces.font_family = "MonaspiceNe Nerd Font Propo";
           };
