@@ -10,6 +10,7 @@
             "systemd-boot"
           ];
         };
+
         gpu = lib.mkOption {
           type = lib.types.enum [
             "nvidia"
@@ -19,6 +20,7 @@
           ];
           description = "GPU manufacturer";
         };
+
         profile = lib.mkOption {
           type = lib.types.enum [
             "desktop"
@@ -31,11 +33,30 @@
 
     user = {
       options = {
+        defaultBrowser = lib.mkOption {
+          type = lib.types.str;
+          default = "";
+          description = "Default browser command";
+        };
+
+        defaultFileBrowser = lib.mkOption {
+          type = lib.types.str;
+          default = "";
+          description = "Default file-browser command";
+        };
+
+        defaultTerminal = lib.mkOption {
+          type = lib.types.str;
+          default = "";
+          description = "Default terminal command";
+        };
+
         gitName = lib.mkOption {
           type = lib.types.nullOr lib.types.str;
           default = null;
           description = "Git username";
         };
+
         gitMail = lib.mkOption {
           type = lib.types.nullOr lib.types.str;
           default = null;

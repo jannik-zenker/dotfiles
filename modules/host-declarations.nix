@@ -5,6 +5,8 @@
     profile = "desktop";
 
     users.jannik = {
+      defaultBrowser = "zen-beta";
+      defaultTerminal = "ghostty";
       gitName = "Jannik Zenker";
       gitMail = "accounts@jannikzenker.de";
     };
