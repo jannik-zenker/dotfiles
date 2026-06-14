@@ -1,8 +1,10 @@
 { inputs, ... }:
 {
   flake-file.inputs = {
-    pixie-sddm = "github:xCaptaiN09/pixie-sddm";
-    inputs.nixpkgs.follows = "nixpkgs";
+    pixie-sddm = {
+      url = "github:xCaptaiN09/pixie-sddm";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   den.aspects.sddm = {
@@ -36,7 +38,7 @@
       ];
 
       # Install needed font
-      font.packages = with pkgs; [ inter ];
+      fonts.packages = with pkgs; [ inter ];
     };
   };
 }
