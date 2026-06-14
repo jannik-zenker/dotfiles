@@ -4,7 +4,7 @@
     nixos = {
       programs.git = {
         enable = true;
-        config.defaultBranch = "main";
+        config.init.defaultBranch = "main";
       };
     };
 
