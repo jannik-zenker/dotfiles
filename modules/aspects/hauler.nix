@@ -8,6 +8,7 @@
       den.aspects.plymouth
       den.aspects.sddm
       den.aspects.niri
+      den.aspects.zswap
     ];
 
     nixos =
@@ -52,6 +53,12 @@
                       format = "vfat";
                       mountpoint = "/boot";
                       mountOptions = [ "umask=0077" ];
+                    };
+                  };
+                  SWAP = {
+                    size = "4G";
+                    content = {
+                      type = "swap";
                     };
                   };
                   NIXOS = {
