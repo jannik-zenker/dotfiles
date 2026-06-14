@@ -13,11 +13,9 @@
           wget
         ]
         ++ lib.optionals (host.profile == "desktop") [
-          bat
           nh
           nix-output-monitor
           nvd
-          ripgrep
         ]
         ++ lib.optionals (host.profile == "server") [
           tmux
