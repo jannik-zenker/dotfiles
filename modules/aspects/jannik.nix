@@ -8,7 +8,7 @@
       den.aspects.helix
       den.aspects.modernCli
       den.aspects.niri
-      den.aspects.noctaliaShell
+      den.aspects.noctalia
       den.aspects.starship
       den.aspects.zsh
       den.aspects.zenBrowser
