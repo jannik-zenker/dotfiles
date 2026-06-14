@@ -32,7 +32,7 @@
         (inputs.pixie-sddm.packages.${pkgs.stdenv.hostPlatform.system}.pixie-sddm.override {
           background = ./wallpaper.png;
           # avatar = ./my-avatar.jpg;
-          fontFamily = "JetBrains Mono";
+          fontFamily = "Inter Display";
           fontSize = 13;
         })
       ];
