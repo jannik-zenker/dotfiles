@@ -8,6 +8,15 @@
           editor = {
             line-number = "absolute";
             lsp.display-messages = true;
+            cursor-shape = {
+              normal = "block";
+              insert = "bar";
+            };
+
+            inline-diagnostics = {
+              cursor-line = "hint";
+              other-lines = "warning";
+            };
           };
 
           keys.normal = {
