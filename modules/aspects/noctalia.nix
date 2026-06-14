@@ -16,24 +16,24 @@
   };
 
   den.aspects.noctalia = { host, ... }: {
+    # Enable laptop services for power management
+    provides.to-host.nixos = { pkgs, ... }: {
+      services = {
+        power-profiles-daemon.enable = host.profile == "laptop";
+        upower.enable = host.profile == "laptop";
+        environment.systemPackages = lib.mkIf (host.profile == "desktop") [
+          pkgs.ddcutil
+        ];
+      };
+    };
+
     homeManager = { pkgs, ... }: {
       imports = [ inputs.noctalia.homeModules.default ];
 
       # Install dependencies
-      home.packages =
-        with pkgs;
-        [
-          nerd-fonts.roboto-mono
-        ]
-        ++ lib.optionals (host.profile == "desktop") [
-          ddcutil
-        ];
-
-      # Enable laptop services for power management
-      services = {
-        power-profiles-daemon.enable = host.profile == "laptop";
-        upower.enable = host.profile == "laptop";
-      };
+      home.packages = with pkgs; [
+        nerd-fonts.roboto-mono
+      ];
 
       programs.noctalia = {
         enable = true;
