@@ -31,7 +31,7 @@
         # fall back to theme defaults if not set.
         (inputs.pixie-sddm.packages.${pkgs.stdenv.hostPlatform.system}.pixie-sddm.override {
           background = ./wallpaper.png;
-          # avatar = ./my-avatar.jpg;
+          avatar = ./avatar.png;
           fontFamily = "Inter Display";
           fontSize = 13;
         })
