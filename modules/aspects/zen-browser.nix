@@ -71,6 +71,7 @@
             "zen.view.compact.hide-tabbar" = true;
             "zen.urlbar.behavior" = "float";
             "zen.welcome-screen.seen" = true;
+            "zen.mods.AudioIndicatorEnhanced.audioWave.enabled" = true;
           };
 
           mods = [
