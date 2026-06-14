@@ -9,6 +9,7 @@
       den.aspects.niri
       den.aspects.starship
       den.aspects.zsh
+      den.aspects.zenBrowser
       den.batteries.primary-user
       (den.batteries.user-shell "zsh")
     ];
