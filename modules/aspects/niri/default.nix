@@ -31,9 +31,5 @@
         };
       };
     };
-
-    homeManager = {
-      xdg.configFile."niri".source = ./config;
-    };
   };
 }

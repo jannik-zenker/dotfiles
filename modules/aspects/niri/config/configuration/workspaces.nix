@@ -1,0 +1,24 @@
+{
+  den.aspects.niri = {
+    homeManager = {
+      xdg.configFile."niri/configuration/workspaces.kdl".text = ''
+        workspace "terminal"
+        workspace "work"
+        workspace "code"
+        workspace "gaming"
+        workspace "browser" {
+            open-on-output "LG Electronics 24GM79G 0x0008040D"
+        }
+        workspace "chat" {
+            open-on-output "LG Electronics 24GM79G 0x0008040D"
+        }
+        workspace "mail" {
+            open-on-output "LG Electronics 24GM79G 0x0008040D"
+        }
+        workspace "music" {
+            open-on-output "LG Electronics 24GM79G 0x0008040D"
+        }
+      '';
+    };
+  };
+}
