@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 {
   flake-file = {
     inputs = {
@@ -23,14 +23,17 @@
       home.packages =
         with pkgs;
         [
-          roboto-mono
+          nerd-fonts.roboto-mono
         ]
         ++ lib.optionals (host.profile == "desktop") [
           ddcutil
-        ]
-        ++ lib.optionals (host.profile == "laptop") [
-          upower
         ];
+
+      # Enable laptop services for power management
+      services = {
+        power-profiles-daemon.enable = host.profile == "laptop";
+        upower.enable = host.profile == "laptop";
+      };
 
       programs.noctalia = {
         enable = true;
