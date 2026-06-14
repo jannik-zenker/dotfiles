@@ -1,13 +1,13 @@
 {
-  den.aspects.niri = {
+  den.aspects.niri = { user, ... }: {
     homeManager = {
       xdg.configFile."niri/configuration/keymaps.kdl".text = ''
         binds {
             Mod+K { show-hotkey-overlay; }
 
             // Binds for running programs: terminal, app launcher, screen locker.
-            Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
-            Mod+B hotkey-overlay-title="Run an Application: librewolf" { spawn "librewolf"; }
+            Mod+Return hotkey-overlay-title="Open a Terminal: ${user.defaultTerminal}" { spawn ${user.defaultTerminal}; }
+            Mod+B hotkey-overlay-title="Run an Application: ${user.defaultBrowser}" { spawn ${user.defaultBrowser}; }
             Mod+E hotkey-overlay-title="Run an Application: nemo" { spawn "nemo"; }
             Mod+D hotkey-overlay-title="Run an Application: rofi-dmenu" { spawn "~/.local/bin/rofi-dmenu"; }
             Mod+T hotkey-overlay-title="Run an Application: theme-switch" { spawn-sh "~/.local/bin/theme-switch ~/Pictures/Wallpapers/"; }
