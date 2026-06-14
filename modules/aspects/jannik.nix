@@ -5,6 +5,7 @@
     includes = [
       den.aspects.fonts
       den.aspects.ghostty
+      den.aspects.modernCli
       den.aspects.niri
       den.aspects.zsh
       den.batteries.primary-user
