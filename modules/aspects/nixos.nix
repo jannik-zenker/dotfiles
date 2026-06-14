@@ -41,7 +41,16 @@
       };
 
       # Take local time for desktops, UTC for servers and as a fallback
-      time.timeZone = if host.profile == "desktop" then "Europe/Berlin" else "UTC";
+      time.timeZone =
+        if
+          (builtins.elem host.profile [
+            "desktop"
+            "laptop"
+          ])
+        then
+          "Europe/Berlin"
+        else
+          "UTC";
 
       # TTY console settings
       console = {

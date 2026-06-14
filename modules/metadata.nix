@@ -24,6 +24,7 @@
         profile = lib.mkOption {
           type = lib.types.enum [
             "desktop"
+            "laptop"
             "server"
           ];
           description = "What the host is used as";

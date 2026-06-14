@@ -12,11 +12,17 @@
           vim
           wget
         ]
-        ++ lib.optionals (host.profile == "desktop") [
-          nh
-          nix-output-monitor
-          nvd
-        ]
+        ++
+          lib.optionals
+            (builtins.elem host.profile [
+              "desktop"
+              "laptop"
+            ])
+            [
+              nh
+              nix-output-monitor
+              nvd
+            ]
         ++ lib.optionals (host.profile == "server") [
           tmux
           smartmontools
