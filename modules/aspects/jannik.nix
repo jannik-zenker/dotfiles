@@ -4,6 +4,7 @@
   den.aspects.jannik = {
     includes = [
       den.aspects.cava
+      den.aspects.desktopTools
       den.aspects.fonts
       den.aspects.ghostty
       den.aspects.gtk
@@ -14,6 +15,7 @@
       den.aspects.noctalia
       den.aspects.qt
       den.aspects.starship
+      den.aspects.thunderbird
       den.aspects.zsh
       den.aspects.zenBrowser
       den.batteries.primary-user
