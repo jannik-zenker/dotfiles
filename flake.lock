@@ -240,7 +240,7 @@
         "type": "github"
       }
     },
-    "millenium": {
+    "millennium": {
       "inputs": {
         "luajit-src": "luajit-src",
         "millennium-src": "millennium-src",
@@ -389,7 +389,7 @@
         "home-manager": "home-manager",
         "import-tree": "import-tree",
         "mac-style-plymouth": "mac-style-plymouth",
-        "millenium": "millenium",
+        "millennium": "millennium",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable",
         "noctalia": "noctalia",

@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   flake-file.inputs = {
-    millenium = {
+    millennium = {
       url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     };
   };
