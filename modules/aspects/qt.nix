@@ -6,11 +6,12 @@
     homeManager = { pkgs, config, ... }: {
       qt = {
         enable = true;
-        platformTheme.name = "gtk";
+        platformTheme.name = "adwaita";
       };
 
       home.file.".config/qt6ct/qt6ct.conf".text = ''
         [Appearance]
+        style=Fusion
         icon_theme=Papirus-Dark
       '';
 
