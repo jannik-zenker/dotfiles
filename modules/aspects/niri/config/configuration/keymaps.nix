@@ -157,11 +157,11 @@
 
       ''
       + lib.optionalString (lib.attrByPath [ "programs" "noctalia" "enable" ] false config) ''
-        Mod+D hotkey-overlay-title="Run an Application: noctalia-launcher" { spawn "noctalia msg panel-toggle launcher"; }
-        Mod+T hotkey-overlay-title="Run an Application: noctalia-wallpaper" { spawn "noctalia msg panel-toggle wallpaper"; }
-        Mod+Y hotkey-overlay-title="Run an Application: rofi-cliphist" { spawn "noctalia msg panel-toggle clipboard"; }
-        Mod+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "noctalia msg session lock"; }
-        Mod+P hotkey-overlay-title="Call powermenu: wlogout" { spawn-sh "noctalia msg panel-toggle session"; }
+            Mod+D hotkey-overlay-title="Run an Application: noctalia-launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
+            Mod+T hotkey-overlay-title="Run an Application: noctalia-wallpaper" { spawn-sh "noctalia msg panel-toggle wallpaper"; }
+            Mod+Y hotkey-overlay-title="Run an Application: rofi-cliphist" { spawn-sh "noctalia msg panel-toggle clipboard"; }
+            Mod+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn-sh "noctalia msg session lock"; }
+            Mod+P hotkey-overlay-title="Call powermenu: wlogout" { spawn-sh "noctalia msg panel-toggle session"; }
       ''
       + ''
         }
