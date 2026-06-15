@@ -6,7 +6,7 @@
     homeManager = { pkgs, config, ... }: {
       qt = {
         enable = true;
-        platformTheme.name = "adwaita";
+        platformTheme.name = "gtk3";
       };
 
       home.file.".config/qt6ct/qt6ct.conf".text = ''
