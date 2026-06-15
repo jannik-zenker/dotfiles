@@ -23,7 +23,7 @@
             ];
           };
 
-          theme = "base16_default";
+          theme = "base16_transparent";
         };
       };
     };
