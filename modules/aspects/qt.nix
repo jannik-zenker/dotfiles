@@ -1,5 +1,5 @@
 {
-  den.aspects.qtTheming = {
+  den.aspects.qt = {
     homeManager = { config, ... }: {
       qt = {
         enable = true;
