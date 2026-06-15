@@ -33,6 +33,7 @@
       # Install dependencies
       home.packages = with pkgs; [
         nerd-fonts.roboto-mono
+        inter
       ];
 
       programs.noctalia = {
