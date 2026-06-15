@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   den.aspects.pywalfox = {
     homeManager = { pkgs, ... }: {
