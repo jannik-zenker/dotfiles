@@ -3,26 +3,16 @@
     homeManager = {
       xdg.configFile."niri/configuration/blur.kdl".text = ''
         blur {
-            passes 2
-            offset 5
-            noise 0.02
-            saturation 1.0
+            passes 3
+            offset 16
+            noise 0.00
+            saturation 1.5
         }
         window-rule { 
             background-effect {
                 blur true
                 xray false
             }
-        }
-
-        window-rule { 
-            background-effect {
-                blur false
-                xray false
-            }
-
-            match app-id="zen-beta"
-            match app-id="zen-twilight"
         }
 
         layer-rule {

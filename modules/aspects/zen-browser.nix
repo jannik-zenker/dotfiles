@@ -118,8 +118,6 @@
               icon = "🏠";
               theme = {
                 type = "gradient";
-                opacity = 0.8;
-                texture = 0.5;
               };
             };
             "Work" = {
@@ -128,8 +126,6 @@
               icon = "💼";
               theme = {
                 type = "gradient";
-                opacity = 0.8;
-                texture = 0.5;
               };
             };
             "Shopping" = {
@@ -138,8 +134,6 @@
               icon = "💸";
               theme = {
                 type = "gradient";
-                opacity = 0.8;
-                texture = 0.5;
               };
             };
           };
