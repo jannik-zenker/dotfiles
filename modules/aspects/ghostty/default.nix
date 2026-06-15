@@ -7,7 +7,10 @@
         systemd.enable = true;
         settings = {
           # Import color file if existent
-          config-file = "?colors.ghostty";
+          config-file = [
+            "?themes/colors"
+            "?themes/noctalia"
+          ];
           # Font settings
           font-family = "MonaspiceNe Nerd Font Mono";
           font-size = 12;
