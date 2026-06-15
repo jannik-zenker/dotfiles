@@ -2,7 +2,7 @@
   den.aspects.nemo = {
     homeManager = { pkgs, ... }: {
       home.packages = with pkgs; [
-        nemo
+        nemo-with-extensions
         file-roller
       ];
     };
