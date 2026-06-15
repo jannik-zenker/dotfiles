@@ -3,6 +3,7 @@
   # user aspect
   den.aspects.jannik = {
     includes = [
+      den.aspects.dolphin
       den.aspects.fonts
       den.aspects.ghostty
       den.aspects.helix
