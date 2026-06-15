@@ -4,7 +4,6 @@
     homeManager = { config, ... }: {
       qt = {
         enable = true;
-        platformTheme.name = "qtct";
       };
 
       home.sessionVariables.QT_QPA_PLATFORMTHEME = lib.mkDefault "qt6ct";
