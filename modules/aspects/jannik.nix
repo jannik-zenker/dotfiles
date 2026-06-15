@@ -13,6 +13,7 @@
       den.aspects.nemo
       den.aspects.niri
       den.aspects.noctalia
+      den.aspects.pywalfox
       den.aspects.qt
       den.aspects.starship
       den.aspects.thunderbird

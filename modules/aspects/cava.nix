@@ -1,7 +1,11 @@
 { lib, ... }:
 {
   den.aspects.cava = {
-    homeManager = { config, ... }: {
+    homeManager = { config, pkgs, ... }: {
+      home.activation.cavaConfig = lib.hm.dag.entryBefore [ "writeBoundary" ] ''
+        rm -f "${config.xdg.configHome}/cava/config"
+      '';
+
       programs.cava = {
         enable = true;
         settings = {
