@@ -1,19 +1,17 @@
-{ lib, ... }:
+{ den, ... }:
 {
   den.aspects.qt = {
+    includes = [ den.aspects.gtk ];
+
     homeManager = { pkgs, config, ... }: {
       qt = {
         enable = true;
-        platformTheme.name = "qtct";
+        platformTheme.name = "gtk";
       };
-
-      home.sessionVariables.QT_QPA_PLATFORMTHEME = lib.mkForce "qt6ct";
 
       home.file.".config/qt6ct/qt6ct.conf".text = ''
         [Appearance]
         icon_theme=Papirus-Dark
-        custom_palette=true
-        color_scheme_path=${config.home.homeDirectory}/.config/qt6ct/colors/noctalia.conf
       '';
 
       home.file.".config/kdeglobals".text = ''
