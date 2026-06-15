@@ -17,6 +17,7 @@
       den.aspects.qt
       den.aspects.starship
       den.aspects.thunderbird
+      den.aspects.vesktop
       den.aspects.zsh
       den.aspects.zenBrowser
       den.batteries.primary-user
