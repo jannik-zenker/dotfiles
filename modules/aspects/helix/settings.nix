@@ -13,10 +13,7 @@
               insert = "bar";
             };
 
-            inline-diagnostics = {
-              cursor-line = "hint";
-              other-lines = "warning";
-            };
+            end-of-line-diagnostics = "hint";
           };
 
           keys.normal = {
@@ -26,7 +23,7 @@
             ];
           };
 
-          theme = "base16";
+          theme = "base16_default";
         };
       };
     };
