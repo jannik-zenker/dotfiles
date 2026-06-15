@@ -1,11 +1,17 @@
 { lib, ... }:
 {
   den.aspects.qt = {
-    homeManager = { config, ... }: {
+    homeManager = { pkgs, config, ... }: {
       qt = {
         enable = true;
         platformTheme.name = "qtct";
       };
+
+      home.packages = [
+        (pkgs.kdePackages.qt6ct.overrideAttrs (old: {
+          patches = (old.patches or [ ]) ++ [ ./qt6ct-0.11.patch ];
+        }))
+      ];
 
       home.sessionVariables.QT_QPA_PLATFORMTHEME = lib.mkForce "qt6ct";
 
