@@ -205,7 +205,7 @@
               title_scroll = "on_hover";
             };
             network.show_label = false;
-            workspaces.font_family = "MonaspiceNe Nerd Font Propo";
+            workspaces.font_family = "RobotoMono Nerd Font Propo";
           };
         };
       };
