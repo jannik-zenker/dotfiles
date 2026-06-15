@@ -40,10 +40,10 @@
           description = "Default browser command";
         };
 
-        defaultFileBrowser = lib.mkOption {
+        defaultFileManager = lib.mkOption {
           type = lib.types.str;
           default = "";
-          description = "Default file-browser command";
+          description = "Default file-manager command";
         };
 
         defaultTerminal = lib.mkOption {

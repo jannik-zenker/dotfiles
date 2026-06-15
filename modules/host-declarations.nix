@@ -6,6 +6,7 @@
 
     users.jannik = {
       defaultBrowser = "zen-beta";
+      defaultFileManager = "nemo";
       defaultTerminal = "ghostty";
       gitName = "Jannik Zenker";
       gitMail = "accounts@jannikzenker.de";

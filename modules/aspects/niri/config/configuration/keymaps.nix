@@ -1,6 +1,7 @@
+{ lib, ... }:
 {
   den.aspects.niri = { user, ... }: {
-    homeManager = {
+    homeManager = { config, ... }: {
       xdg.configFile."niri/configuration/keymaps.kdl".text = ''
         binds {
             Mod+K { show-hotkey-overlay; }
@@ -8,12 +9,7 @@
             // Binds for running programs: terminal, app launcher, screen locker.
             Mod+Return hotkey-overlay-title="Open a Terminal: ${user.defaultTerminal}" { spawn "${user.defaultTerminal}"; }
             Mod+B hotkey-overlay-title="Run an Application: ${user.defaultBrowser}" { spawn "${user.defaultBrowser}"; }
-            Mod+E hotkey-overlay-title="Run an Application: nemo" { spawn "nemo"; }
-            Mod+D hotkey-overlay-title="Run an Application: rofi-dmenu" { spawn "~/.local/bin/rofi-dmenu"; }
-            Mod+T hotkey-overlay-title="Run an Application: theme-switch" { spawn-sh "~/.local/bin/theme-switch ~/Pictures/Wallpapers/"; }
-            Mod+Y hotkey-overlay-title="Run an Application: rofi-cliphist" { spawn "~/.local/bin/rofi-cliphist"; }
-            Mod+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
-            Mod+P hotkey-overlay-title="Call powermenu: wlogout" { spawn-sh "wlogout -b 5"; }
+            Mod+E hotkey-overlay-title="Run an Application: ${user.defaultFileManager}" { spawn "${user.defaultFileManager}"; }
 
             XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "~/.local/bin/osdctl volume increase 5"; }
             XF86AudioLowerVolume allow-when-locked=true { spawn-sh "~/.local/bin/osdctl volume decrease 5"; }
@@ -159,6 +155,13 @@
 
             Mod+Shift+P { power-off-monitors; }
         }
+      ''
+      + lib.optionalString (lib.attrByPath [ "programs" "nictalia" "enable" ] false config) ''
+        Mod+D hotkey-overlay-title="Run an Application: noctalia-launcher" { spawn "noctalia msg panel-toggle launcher"; }
+        Mod+T hotkey-overlay-title="Run an Application: noctalia-wallpaper" { spawn "noctalia msg panel-toggle wallpaper"; }
+        Mod+Y hotkey-overlay-title="Run an Application: rofi-cliphist" { spawn "noctalia msg panel-toggle clipboard"; }
+        Mod+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "noctalia msg session lock"; }
+        Mod+P hotkey-overlay-title="Call powermenu: wlogout" { spawn-sh "noctalia msg panel-toggle session"; }
       '';
     };
   };
