@@ -11,7 +11,6 @@
       den.aspects.nemo
       den.aspects.niri
       den.aspects.noctalia
-      den.aspects.papirusIconTheme
       den.aspects.qt
       den.aspects.starship
       den.aspects.zsh
