@@ -9,6 +9,7 @@
       den.aspects.modernCli
       den.aspects.niri
       den.aspects.noctalia
+      den.aspects.papirusIconTheme
       den.aspects.starship
       den.aspects.zsh
       den.aspects.zenBrowser
