@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   den.aspects.qt = {
     homeManager = { config, ... }: {
@@ -6,7 +7,7 @@
         platformTheme.name = "qtct";
       };
 
-      home.sessionVariables.QT_QPA_PLATFORMTHEME = "qt6ct";
+      home.sessionVariables.QT_QPA_PLATFORMTHEME = lib.mkDefault "qt6ct";
 
       home.file.".config/qt6ct/qt6ct.conf".text = ''
         [Appearance]
