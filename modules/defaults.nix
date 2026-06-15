@@ -8,6 +8,10 @@
         hardware.enableAllFirmware = true;
         services.fwupd.enable = true;
       };
+
+      homeManager = {
+        nixpkgs.config.allowUnfree = true;
+      };
     };
 
     schema = {
