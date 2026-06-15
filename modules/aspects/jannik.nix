@@ -3,12 +3,12 @@
   # user aspect
   den.aspects.jannik = {
     includes = [
-      den.aspects.dolphin
       den.aspects.fonts
       den.aspects.ghostty
       den.aspects.gtk
       den.aspects.helix
       den.aspects.modernCli
+      den.aspects.nemo
       den.aspects.niri
       den.aspects.noctalia
       den.aspects.papirusIconTheme
