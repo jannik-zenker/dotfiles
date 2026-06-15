@@ -48,8 +48,12 @@
                 Status = "locked";
               };
               "browser.tabs.warnOnClose" = {
-                Value = true;
+                Value = false;
                 Status = "locked"; # User cannot change this
+              };
+              "toolkit.legacyUserProfileCustomizations.stylesheets" = {
+                Value = true;
+                Status = "default";
               };
             };
 
@@ -113,16 +117,6 @@
               icon = "🏠";
               theme = {
                 type = "gradient";
-                colors = [
-                  {
-                    red = 50;
-                    green = 140;
-                    blue = 55;
-                    algorithm = "floating";
-                    type = "explicit-lightness";
-                    lightness = 50;
-                  }
-                ];
                 opacity = 0.8;
                 texture = 0.5;
               };
@@ -133,16 +127,6 @@
               icon = "💼";
               theme = {
                 type = "gradient";
-                colors = [
-                  {
-                    red = 30;
-                    green = 110;
-                    blue = 180;
-                    algorithm = "floating";
-                    type = "explicit-lightness";
-                    lightness = 50;
-                  }
-                ];
                 opacity = 0.8;
                 texture = 0.5;
               };
@@ -153,16 +137,6 @@
               icon = "💸";
               theme = {
                 type = "gradient";
-                colors = [
-                  {
-                    red = 160;
-                    green = 140;
-                    blue = 25;
-                    algorithm = "floating";
-                    type = "explicit-lightness";
-                    lightness = 50;
-                  }
-                ];
                 opacity = 0.8;
                 texture = 0.5;
               };
