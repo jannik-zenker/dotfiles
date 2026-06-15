@@ -185,6 +185,7 @@
                 "zen-browser"
                 "discord"
                 "papirus-icons"
+                "pywalfox"
                 "steam"
               ];
             };
