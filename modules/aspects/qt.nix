@@ -1,10 +1,13 @@
-{ ... }:
+{ lib, ... }:
 {
   den.aspects.qt = {
     homeManager = { ... }: {
       qt = {
         enable = true;
-        platformTheme.name = "gtk3";
+      };
+
+      home.sessionVariables = {
+        QT_QPA_PLATFORMTHEME = lib.mkDefault "gtk3";
       };
     };
   };
