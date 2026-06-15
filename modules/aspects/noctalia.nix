@@ -128,6 +128,34 @@
               major_interval = 4;
               visible = true;
             };
+
+            widget = {
+              # Clock
+              lockscreen-widget-0000000000000001 = {
+                box_height = 128.0;
+                box_width = 384.0;
+                cx = 960.0;
+                cy = 348.0;
+                rotation = 0.0;
+                type = "clock";
+                settings = {
+                  background = false;
+                  color = "primary";
+                };
+              };
+              lockscreen-widget-0000000000000002 = {
+                box_height = 0.0;
+                box_width = 0.0;
+                cx = 960.0;
+                cy = 233.5;
+                rotation = 0.0;
+                type = "clock";
+                settings = {
+                  background = false;
+                  format = "{:%A, %d. %B %Y}";
+                };
+              };
+            };
           };
 
           nightlight = {
@@ -200,6 +228,7 @@
           widget = {
             battery.show_label = false;
             brightness.show_label = false;
+            control-center.glyph = "snowflake";
             media = {
               hide_when_no_media = true;
               title_scroll = "on_hover";
