@@ -13,10 +13,18 @@
                 blur true
                 xray false
             }
+        }
+
+        window-rule { 
+            background-effect {
+                blur false
+                xray false
+            }
 
             match app-id="zen-beta"
             match app-id="zen-twilight"
         }
+
         layer-rule {
             match namespace="logout_dialog"
             background-effect {
