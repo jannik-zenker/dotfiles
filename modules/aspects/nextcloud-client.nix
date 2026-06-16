@@ -1,7 +1,10 @@
 {
   den.aspects.nextcloudClient = {
-    homeManager = { pkgs, ... }: {
-      home.packages = with pkgs; [ nextcloud-client ];
+    homeManager = {
+      services.nextcloud-client = {
+        enable = true;
+        startInBackground = true;
+      };
     };
   };
 }
