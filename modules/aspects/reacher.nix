@@ -119,6 +119,11 @@
         systemd.tmpfiles.rules = [
           "d /games 0775 root gaming - -"
         ];
+
+        # Add local adress for server to /etc/hosts
+        networking.hosts = {
+          "192.168.0.2" = [ "cloud.jannikzenker.de" ];
+        };
       };
 
     # Set home.stateVersion to system.Stateversion since hm is a nixos module
