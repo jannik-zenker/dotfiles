@@ -26,6 +26,7 @@
           den.aspects.journald
           den.aspects.nixos
           den.aspects.security
+          den.aspects.xdgUserDirs
           den.batteries.hostname
         ];
       };
