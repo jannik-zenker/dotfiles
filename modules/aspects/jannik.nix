@@ -3,10 +3,12 @@
   # user aspect
   den.aspects.jannik = {
     includes = [
+      den.aspects.bitwardenDesktop
       den.aspects.cava
       den.aspects.desktopTools
       den.aspects.fonts
       den.aspects.ghostty
+      den.aspects.git
       den.aspects.gtk
       den.aspects.helix
       den.aspects.modernCli

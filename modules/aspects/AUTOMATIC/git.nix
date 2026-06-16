@@ -8,6 +8,10 @@
       };
     };
 
+    homeManager = { pkgs, ... }: {
+      home.packages = with pkgs; [ lazygit ];
+    };
+
     provides.to-users.homeManager = {
       programs.git = {
         enable = true;
