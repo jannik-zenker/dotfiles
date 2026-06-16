@@ -1,15 +1,17 @@
+{ lib, ... }:
 {
   den.aspects.xdgUserDirs = {
-    # Only create user dirs on desktops and laptops
-    provied.to-users.homeManager.xdg.userDirs =
-      { host, ... }:
-      (builtins.elem host.profile [
-        "desktop"
-        "laptop"
-      ])
-        {
-          enable = true;
-          createDirectories = true;
-        };
+    provides.to-users.homeManager = { host, ... }: {
+      xdg.userDirs =
+        lib.mkIf
+          (builtins.elem host.profile [
+            "desktop"
+            "laptop"
+          ])
+          {
+            enable = true;
+            createDirectories = true;
+          };
+    };
   };
 }
