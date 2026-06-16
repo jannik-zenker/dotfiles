@@ -9,17 +9,9 @@
         services.fwupd.enable = true;
 
         # Enable numlock in tty consoles
-        systemd.services.numlock = {
-          description = "Enable numlock on TTYs";
-          wantedBy = [ "multi-user.target" ];
+        systemd.services."getty@" = {
           serviceConfig = {
-            Type = "oneshot";
-            RemainAfterExit = true;
-            ExecStart = pkgs.writeShellScript "numlock" ''
-              for tty in /dev/tty{1..6}; do
-                ${pkgs.kbd}/bin/setleds +num < "$tty"
-              done
-            '';
+            ExecStartPre = "-${pkgs.kbd}/bin/setleds +num";
           };
         };
       };
