@@ -1,6 +1,6 @@
 { den, lib, ... }:
 {
-  den.aspects.hauler = { host, ... }: {
+  den.aspects.reacher = { host, ... }: {
     includes = [
       den.aspects.fonts
       den.aspects.gaming

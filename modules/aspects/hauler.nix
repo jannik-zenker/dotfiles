@@ -3,7 +3,6 @@
   den.aspects.hauler = { host, ... }: {
     includes = [
       den.aspects.fonts
-      den.aspects.gaming
       den.aspects.networkManager
       den.aspects.plymouth
       den.aspects.sddm
