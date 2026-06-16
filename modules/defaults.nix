@@ -3,10 +3,14 @@
 {
   den = {
     default = {
-      nixos = {
+      nixos = { pkgs, ... }: {
         nixpkgs.config.allowUnfree = true; # needed for proprietary firmware
         hardware.enableAllFirmware = true;
         services.fwupd.enable = true;
+
+        boot.initrd.preLVMCommands = ''
+          ${pkgs.kbd}/bin/setleds +num
+        '';
       };
 
       homeManager = {
