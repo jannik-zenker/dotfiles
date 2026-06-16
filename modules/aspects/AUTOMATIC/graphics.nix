@@ -28,7 +28,7 @@
         (lib.mkIf (host.gpu == "nvidia") {
           services.xserver.videoDrivers = [ "nvidia" ];
           hardware.nvidia = {
-            open = if lib.versionOlder config.hardware.nvidia.package.version "560" then false else null;
+            open = if lib.versionOlder config.hardware.nvidia.package.version "560" then false else true;
             powerManagement.enable = true;
           };
           boot.initrd.kernelModules = [ "nvidia" ];
