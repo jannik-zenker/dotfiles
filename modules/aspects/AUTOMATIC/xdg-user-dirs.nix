@@ -1,7 +1,7 @@
 {
   den.aspects.xdgUserDirs = {
     # Only create user dirs on desktops and laptops
-    xdg.userDirs =
+    provied.to-users.homeManager.xdg.userDirs =
       { host, ... }:
       (builtins.elem host.profile [
         "desktop"
