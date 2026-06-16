@@ -8,9 +8,20 @@
         hardware.enableAllFirmware = true;
         services.fwupd.enable = true;
 
-        boot.initrd.preLVMCommands = ''
-          ${pkgs.kbd}/bin/setleds +num
-        '';
+        # Enable numlock in tty consoles
+        systemd.services.numlock = {
+          description = "Enable numlock on TTYs";
+          wantedBy = [ "multi-user.target" ];
+          serviceConfig = {
+            Type = "oneshot";
+            RemainAfterExit = true;
+            ExecStart = pkgs.writeShellScript "numlock" ''
+              for tty in /dev/tty{1..6}; do
+                ${pkgs.kbd}/bin/setleds +num < "$tty"
+              done
+            '';
+          };
+        };
       };
 
       homeManager = {
