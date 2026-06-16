@@ -7,13 +7,6 @@
         nixpkgs.config.allowUnfree = true; # needed for proprietary firmware
         hardware.enableAllFirmware = true;
         services.fwupd.enable = true;
-
-        # Enable numlock in tty consoles
-        systemd.services."getty@" = {
-          serviceConfig = {
-            ExecStartPre = "-${pkgs.kbd}/bin/setleds +num";
-          };
-        };
       };
 
       homeManager = {
