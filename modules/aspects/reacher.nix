@@ -26,22 +26,22 @@
         imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
         boot = {
           initrd.availableKernelModules = [
-            "nvme"
             "xhci_pci"
-            "usb_storage"
-            "sd_mod"
+            "ahci"
+            "nvme"
+            "usbhid"
           ];
-          kernelModules = [ "kvm-amd" ];
+          kernelModules = [ "kvm-intel" ];
         };
 
         nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-        hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+        hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
         # Filesystem configuration with disko
         disko.devices = {
           disk = {
             system = {
-              device = "/dev/disk/by-id/nvme-eui.e8238fa6bf530001001b448b4c28d80e";
+              device = "/dev/disk/by-id/nvme-eui.e8238fa6bf530001001b448b46dff49d";
               type = "disk";
               content = {
                 type = "gpt";
@@ -76,13 +76,55 @@
                 };
               };
             };
+
+            games = {
+              device = "/dev/disk/by-id/nvme-eui.00000000000000000026b76866e30415";
+              type = "disk";
+              content = {
+                type = "gpt";
+                partitions = {
+                  GAMES = {
+                    size = "100%";
+                    content = {
+                      type = "ext4";
+                      mountpoint = "/games";
+                    };
+                  };
+                };
+              };
+            };
+
+            misc = {
+              device = "/dev/disk/by-id/wwn-0x5000c500cf89d9bf";
+              type = "disk";
+              content = {
+                type = "gpt";
+                partitions = {
+                  MISC = {
+                    size = "100%";
+                    content = {
+                      type = "ext4";
+                      mountpoint = "/misc";
+                    };
+                  };
+                };
+              };
+            };
           };
         };
+
+        # Add access to /games drive for "gaming" group
+        systemd.tmpfiles.rules = [
+          "d /games 0775 root gaming - -"
+        ];
       };
 
     # Set home.stateVersion to system.Stateversion since hm is a nixos module
-    provides.to-users.homeManager = {
-      home.stateVersion = "26.11";
+    provides.to-users = {
+      homeManager.home.stateVersion = "26.11";
+
+      # Provide "gaming" group to users for access to /games drive
+      extraGroups = [ "gaming" ];
     };
   };
 }

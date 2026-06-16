@@ -13,6 +13,9 @@
         enable = true;
         package = pkgs.millennium-steam;
       };
+
+      # Create group "gaming" for multi-user access to game drives
+      users.groups.gaming = { };
     };
 
     provides.to-users.homeManager = { pkgs, ... }: {
