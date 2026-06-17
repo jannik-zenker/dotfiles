@@ -12,6 +12,9 @@
       programs.steam = {
         enable = true;
         package = pkgs.millennium-steam;
+        extraCompatPackages = with pkgs; [
+          proton-ge-bin
+        ];
       };
 
       # Create group "gaming" for multi-user access to game drives
