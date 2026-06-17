@@ -1,0 +1,12 @@
+keys:
+  - hosts:
+    - &reacher age1qu45ggdnwc5wwa76kwgpr75fgjcelmtep835mve8pspms08wqy5spe47p8
+  - users:
+    - &admin age164anyv82py96qhkgu0rfrylha0gkpg4cgez68ul8s0rth9kd45rsdgptwu
+
+creation_rules:
+  - path_regex: secrets/reacher/.*\.(yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *admin
+      - *reacher
