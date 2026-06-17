@@ -5,7 +5,9 @@
         // Open on workspace: browser
         window-rule {
             open-on-workspace "browser"
+            match app-id="firefox"
             match app-id="librewolf"
+            match app-id="zen-beta"
         }
         // Open on workspace: chat
         window-rule {

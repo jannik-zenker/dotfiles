@@ -183,7 +183,6 @@
                 "qt"
               ];
               community_ids = [
-                "zen-browser"
                 "discord"
                 "papirus-icons"
                 "pywalfox"
