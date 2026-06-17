@@ -7,6 +7,9 @@
         nixpkgs.config.allowUnfree = true; # needed for proprietary firmware
         hardware.enableAllFirmware = true;
         services.fwupd.enable = true;
+
+        # Generate host ssh-keys by default
+        services.openssh.generateHostKeys = true;
       };
 
       homeManager = {
