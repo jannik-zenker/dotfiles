@@ -1,6 +1,8 @@
 {
   den.aspects.gtk = {
     nixos = { pkgs, ... }: {
+
+      # Fix gtk3 apps not finding schemas
       environment.sessionVariables.XDG_DATA_DIRS = [
         "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
       ];
