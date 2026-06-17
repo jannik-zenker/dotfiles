@@ -1,7 +1,8 @@
 { den, lib, ... }:
 {
-  den.aspects.reacher = { host, ... }: {
+  den.aspects.reacher = {
     includes = [
+      den.aspects.bluetooth
       den.aspects.fonts
       den.aspects.gaming
       den.aspects.networkManager
@@ -15,7 +16,6 @@
     nixos =
       {
         config,
-        den,
         modulesPath,
         ...
       }:
