@@ -3,14 +3,49 @@
 {
   den = {
     default = {
-      nixos = { pkgs, ... }: {
-        nixpkgs.config.allowUnfree = true; # needed for proprietary firmware
-        hardware.enableAllFirmware = true;
-        services.fwupd.enable = true;
+      nixos =
+        {
+          config,
+          host,
+          lib,
+          ...
+        }:
+        {
+          nixpkgs.config.allowUnfree = true; # needed for proprietary firmware
+          hardware.enableAllFirmware = true;
+          services.fwupd.enable = true;
 
-        # Generate host ssh-keys by default
-        services.openssh.generateHostKeys = true;
-      };
+          # Generate host ssh-keys by default
+          services.openssh.generateHostKeys = true;
+
+          # Turn off mutable users since they are managed decleratively
+          users.mutableUsers = false;
+
+          # Get user/root password sops secrets
+          sops.secrets =
+            lib.mapAttrs' (
+              name: _:
+              lib.nameValuePair "${name}-password" {
+                sopsFile = ../secrets/${host.name}/passwords.yaml;
+                neededForUsers = true;
+              }
+            ) host.users
+            // {
+              "root-password" = {
+                sopsFile = ../secrets/${host.name}/passwords.yaml;
+                neededForUsers = true;
+              };
+            };
+
+          # Set passwords for root and users
+          users.users =
+            lib.mapAttrs (name: _: {
+              hashedPasswordFile = config.sops.secrets."${name}-password".path;
+            }) host.users
+            // {
+              root.hashedPasswordFile = config.sops.secrets."root-password".path;
+            };
+        };
 
       homeManager = {
         nixpkgs.config.allowUnfree = true;
@@ -19,7 +54,7 @@
 
     schema = {
       host = {
-        # Set hostnames from host declarations, install bootloader and the disko module
+        # Include host modules that should be active by default
         includes = [
           den.aspects.bootloader
           den.aspects.defaultPackages
@@ -29,6 +64,7 @@
           den.aspects.journald
           den.aspects.nixos
           den.aspects.security
+          den.aspects.sopsNix
           den.aspects.xdgUserDirs
           den.batteries.hostname
         ];
