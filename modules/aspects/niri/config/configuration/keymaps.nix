@@ -11,19 +11,6 @@
             Mod+B hotkey-overlay-title="Run an Application: ${user.defaultBrowser}" { spawn "${user.defaultBrowser}"; }
             Mod+E hotkey-overlay-title="Run an Application: ${user.defaultFileManager}" { spawn "${user.defaultFileManager}"; }
 
-            XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "~/.local/bin/osdctl volume increase 5"; }
-            XF86AudioLowerVolume allow-when-locked=true { spawn-sh "~/.local/bin/osdctl volume decrease 5"; }
-            XF86AudioMute        allow-when-locked=true { spawn-sh "~/.local/bin/osdctl volume toggle"; }
-            XF86AudioMicMute     allow-when-locked=true { spawn-sh "~/.local/bin/osdctl mic toggle"; }
-
-            XF86AudioPlay        allow-when-locked=true { spawn-sh "~/.local/bin/osdctl player toggle"; }
-            XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-            XF86AudioPrev        allow-when-locked=true { spawn-sh "~/.local/bin/osdctl player previous"; }
-            XF86AudioNext        allow-when-locked=true { spawn-sh "~/.local/bin/osdctl player next"; }
-
-            XF86MonBrightnessUp allow-when-locked=true { spawn "~/.local/bin/osdctl brightness increase 5"; }
-            XF86MonBrightnessDown allow-when-locked=true { spawn "~/.local/bin/osdctl brightness decrease 5"; }
-
             Mod+O repeat=false { toggle-overview; }
             Mod+Q repeat=false { close-window; }
 
@@ -162,6 +149,20 @@
             Mod+Y hotkey-overlay-title="Run an Application: rofi-cliphist" { spawn-sh "noctalia msg panel-toggle clipboard"; }
             Mod+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn-sh "noctalia msg session lock"; }
             Mod+P hotkey-overlay-title="Call powermenu: wlogout" { spawn-sh "noctalia msg panel-toggle session"; }
+
+            XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up 5"; }
+            XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down 5"; }
+            XF86AudioMute        allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
+            XF86AudioMicMute     allow-when-locked=true { spawn-sh "noctalia msg mic-volume mute"; }
+
+            XF86AudioPlay        allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
+            XF86AudioStop        allow-when-locked=true { spawn-sh "noctalia msg media stop"; }
+            XF86AudioPrev        allow-when-locked=true { spawn-sh "noctalia msg media previous"; }
+            XF86AudioNext        allow-when-locked=true { spawn-sh "noctalia msg media next"; }
+
+            XF86MonBrightnessUp allow-when-locked=true { spawn-sh "noctalia msg brightness-up current 5"; }
+            XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia msg brightness-down current 5"; }
+
       ''
       + ''
         }
