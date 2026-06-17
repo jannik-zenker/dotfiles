@@ -1,5 +1,6 @@
 keys:
   - hosts:
+    - &hauler age1jvluk2m8pmcsl69jhx6ranshf7hawqzef8j9drv74k4854fqvessnrpnwa
     - &reacher age1qu45ggdnwc5wwa76kwgpr75fgjcelmtep835mve8pspms08wqy5spe47p8
   - users:
     - &admin age164anyv82py96qhkgu0rfrylha0gkpg4cgez68ul8s0rth9kd45rsdgptwu
@@ -10,3 +11,8 @@ creation_rules:
     - age:
       - *admin
       - *reacher
+  - path_regex: secrets/hauler/.*\.(yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *admin
+      - *hauler
