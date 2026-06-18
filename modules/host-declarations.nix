@@ -26,4 +26,18 @@
       gitMail = "accounts@jannikzenker.de";
     };
   };
+
+  den.hosts.x86_64-linux.sirene = {
+    bootloader = "grub";
+    gpu = "intel";
+    profile = "desktop";
+
+    users.jannik = {
+      defaultBrowser = "zen-beta";
+      defaultFileManager = "nemo";
+      defaultTerminal = "ghostty";
+      gitName = "Jannik Zenker";
+      gitMail = "accounts@jannikzenker.de";
+    };
+  };
 }
