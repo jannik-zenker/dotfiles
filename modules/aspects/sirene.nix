@@ -1,6 +1,6 @@
 { den, lib, ... }:
 {
-  den.aspects.hauler = {
+  den.aspects.sirene = {
     includes = [
       den.aspects.bluetooth
       den.aspects.fonts
