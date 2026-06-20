@@ -7,7 +7,6 @@
       den.aspects.networkManager
       den.aspects.plymouth
       den.aspects.sddm
-      den.aspects.niri
       den.aspects.texlive
       den.aspects.zswap
     ];
