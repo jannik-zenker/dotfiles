@@ -6,18 +6,18 @@
         url = "github:noctalia-dev/noctalia";
       };
     };
-
-    nixConfig = {
-      extra-substituters = [ "https://noctalia.cachix.org" ];
-      extra-trusted-public-keys = [
-        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-      ];
-    };
   };
 
   den.aspects.noctalia = { host, ... }: {
-    # Enable laptop services for power management
     provides.to-hosts.nixos = { pkgs, ... }: {
+      # Enable binary cache for noctalia to avoid building from source
+      nix.settings = {
+        extra-substituters = [ "https://noctalia.cachix.org" ];
+        extra-trusted-public-keys = [
+          "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+        ];
+      };
+      # Enable laptop services for power management
       services = {
         power-profiles-daemon.enable = host.profile == "laptop";
         upower.enable = host.profile == "laptop";
