@@ -35,10 +35,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
-    niri-flake = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    niri-flake.url = "github:sodiboo/niri-flake";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-26.05";
     noctalia.url = "github:noctalia-dev/noctalia";

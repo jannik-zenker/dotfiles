@@ -14,6 +14,7 @@
       den.aspects.modernCli
       den.aspects.nemo
       den.aspects.nextcloudClient
+      den.aspects.niri
       den.aspects.noctalia
       den.aspects.office
       den.aspects.pywalfox
