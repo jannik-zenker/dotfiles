@@ -26,16 +26,16 @@
         else if (host.name == "sirene") then
           ''
             workspace "browser" {
-                open-on-output "Dell Inc. DELL P2725D DB7HRC4"
+                open-on-output "Dell Inc. DELL P2725HE BY7J584"
             }
             workspace "chat" {
-                open-on-output "Dell Inc. DELL P2725D DB7HRC4"
+                open-on-output "Dell Inc. DELL P2725HE BY7J584"
             }
             workspace "mail" {
-                open-on-output "Dell Inc. DELL P2725D DB7HRC4"
+                open-on-output "Dell Inc. DELL P2725HE BY7J584"
             }
             workspace "music" {
-                open-on-output "Dell Inc. DELL P2725D DB7HRC4"
+                open-on-output "Dell Inc. DELL P2725HE BY7J584"
             }
           ''
         else
