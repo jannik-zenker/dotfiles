@@ -65,7 +65,7 @@
           den.aspects.nixos
           den.aspects.security
           den.aspects.sopsNix
-          den.aspects.xdgUserDirs
+          den.aspects.xdg
           den.batteries.hostname
         ];
       };
