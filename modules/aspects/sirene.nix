@@ -3,6 +3,7 @@
   den.aspects.sirene = {
     includes = [
       den.aspects.bluetooth
+      den.aspects.documentIo
       den.aspects.fonts
       den.aspects.networkManager
       den.aspects.plymouth

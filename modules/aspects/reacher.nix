@@ -3,6 +3,7 @@
   den.aspects.reacher = {
     includes = [
       den.aspects.bluetooth
+      den.aspects.documentIo
       den.aspects.fonts
       den.aspects.gaming
       den.aspects.networkManager
