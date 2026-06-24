@@ -31,7 +31,7 @@
         window-rule {
             open-on-workspace "mail"
 
-            match app-id="org.mozilla.Thunderbird"
+            match app-id="thunderbird"
             match app-id="eu.betterbird.Betterbird"
         }
         // Open on workspace: music
@@ -54,7 +54,7 @@
 
             match app-id="firefox"
             match app-id="librewolf"
-            match app-id="org.mozilla.Thunderbird"
+            match app-id="thunderbird"
             match app-id="eu.betterbird.Betterbird"
             match app-id="steam"
             match app-id="vesktop"
