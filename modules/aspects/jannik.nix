@@ -22,8 +22,9 @@
       den.aspects.starship
       den.aspects.thunderbird
       den.aspects.vesktop
-      den.aspects.zsh
+      den.aspects.zedEditor
       den.aspects.zenBrowser
+      den.aspects.zsh
       den.batteries.primary-user
       (den.batteries.user-shell "zsh")
     ];
