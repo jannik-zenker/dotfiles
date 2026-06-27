@@ -8,6 +8,7 @@
           editor = {
             line-number = "absolute";
             lsp.display-messages = true;
+            soft-wrap.enable = true;
             cursor-shape = {
               normal = "block";
               insert = "bar";
@@ -23,7 +24,7 @@
             ];
           };
 
-          theme = "base16_transparent";
+          theme = "tokyonight";
         };
       };
     };
