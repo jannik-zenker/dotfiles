@@ -6,6 +6,7 @@
         "latex"
         "nix"
         "tokyo-night"
+        "log"
       ];
     };
   };

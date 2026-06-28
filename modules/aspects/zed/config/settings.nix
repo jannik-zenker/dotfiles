@@ -103,6 +103,7 @@
             include_warnings = true;
             inline.enabled = true;
           };
+          soft_wrap = "editor_width";
 
           #--- Agent window ---#
           agent_buffer_font_family = "MonaspiceNe Nerd Font Mono";

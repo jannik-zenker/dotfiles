@@ -9,8 +9,11 @@
             "space g" = "git_panel::ToggleFocus";
             "space t" = "terminal_panel::ToggleFocus";
 
-            "space h" = "pane::ActivatePrevItem";
-            "space l" = "pane::ActivateNextItem";
+            "ctrl-left" = "pane::ActivatePrevItem";
+            "ctrl-right" = "pane::ActivateNextItem";
+            "ctrl-q" = "pane::CloseActiveItem";
+
+            "space s" = "vim::HelixJumpToWord";
           };
         }
         {
