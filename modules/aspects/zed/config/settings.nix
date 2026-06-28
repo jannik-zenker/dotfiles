@@ -95,7 +95,7 @@
           auto_indent_on_paste = true;
           # Hide code actions icon
           inline_code_actions = false;
-          format_on_save = "off";
+          format_on_save = "on";
           extend_comment_on_newline = false;
           horizontal_scroll_margin = 1;
           vertical_scroll_margin = 1;

@@ -4,7 +4,8 @@
       programs.zed-editor.userSettings = {
         #--- Nix ---#
         languages.Nix = {
-          language_servers = [
+        tab_size = 2;
+        language_servers = [
             "nixd"
             "!nil"
           ];
