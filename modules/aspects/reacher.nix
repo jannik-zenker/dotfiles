@@ -42,7 +42,7 @@
         disko.devices = {
           disk = {
             system = {
-              device = "/dev/disk/by-id/nvme-eui.e8238fa6bf530001001b448b46dff49d";
+              device = "/dev/disk/by-id/nvme-eui.00000000000000000026b76866e30415";
               type = "disk";
               content = {
                 type = "gpt";
@@ -72,24 +72,6 @@
                         "@home".mountpoint = "/home";
                         "@nix".mountpoint = "/nix";
                       };
-                    };
-                  };
-                };
-              };
-            };
-
-            games = {
-              device = "/dev/disk/by-id/nvme-eui.00000000000000000026b76866e30415";
-              type = "disk";
-              content = {
-                type = "gpt";
-                partitions = {
-                  GAMES = {
-                    size = "100%";
-                    content = {
-                      type = "filesystem";
-                      format = "ext4";
-                      mountpoint = "/games";
                     };
                   };
                 };
