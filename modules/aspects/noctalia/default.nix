@@ -56,6 +56,7 @@
               "notifications"
             ];
             margin_ends = 300;
+            margin_edge = 3;
             scale = 1.1000000089406967;
             start = [
               "control-center"
