@@ -10,7 +10,6 @@
       den.aspects.ghostty
       den.aspects.git
       den.aspects.gtk
-      den.aspects.helix
       den.aspects.modernCli
       den.aspects.nemo
       den.aspects.nextcloudClient
