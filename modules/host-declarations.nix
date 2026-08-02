@@ -1,3 +1,4 @@
+{ inputs, ... }:
 {
   den.hosts.x86_64-linux.hauler = {
     bootloader = "grub";
@@ -17,6 +18,8 @@
     bootloader = "systemd-boot";
     gpu = "amd";
     profile = "server";
+    instantiate = inputs.nixpkgs-stable.lib.nixosSystem;
+    home-manager.module = inputs.home-manager-stable.nixosModules.home-manager;
 
     users.admin-jannik = { };
   };
