@@ -26,7 +26,7 @@
 
         gum style "Please choose the nixos-configuration you would like to install."
         printf "\n"
-        SELECTION=$(gum choose "Hauler" "Reacher" "Sirene" "Abort")
+        SELECTION=$(gum choose "Hauler" "Lumiere" "Reacher" "Sirene" "Abort")
 
         if [[ "$SELECTION" == "Abort" ]]; then
             gum style --foreground "#889ac8" "Exiting..."
