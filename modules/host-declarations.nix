@@ -13,6 +13,13 @@
     };
   };
 
+  den.hosts.x86_64-linux.lumiere = {
+    bootloader = "systemdboot";
+    profile = "server";
+
+    users.admin-jannik = { };
+  };
+
   den.hosts.x86_64-linux.reacher = {
     bootloader = "grub";
     gpu = "nvidia";
