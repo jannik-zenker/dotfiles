@@ -57,6 +57,17 @@
         keyMap = "de-latin1";
         font = "Lat2-Terminus16";
       };
+
+      # Automatic updates
+      system.autoUpgrade = {
+        enable = host.profile == "server";
+        flake = "github:jannik-zenker/dotfiles";
+        flags = [
+          "--print-build-logs"
+        ];
+        dates = "05:00";
+        randomizedDelaySec = "45min";
+      };
     };
   };
 }
