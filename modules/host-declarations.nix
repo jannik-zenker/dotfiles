@@ -14,7 +14,8 @@
   };
 
   den.hosts.x86_64-linux.lumiere = {
-    bootloader = "systemdboot";
+    bootloader = "systemd-boot";
+    gpu = "amd";
     profile = "server";
 
     users.admin-jannik = { };
