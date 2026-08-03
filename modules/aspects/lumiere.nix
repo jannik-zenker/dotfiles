@@ -85,12 +85,12 @@
             DHCP = "ipv4";
             IPv6AcceptRA = true;
           };
-          "50-wg0" = {
-            address = [
-              "10.0.0.1/32"
-              "fd00::1/128"
-            ];
-          };
+        };
+        "50-wg0" = {
+          address = [
+            "10.0.0.1/32"
+            "fd00::1/128"
+          ];
         };
 
         netdevs."50-wg0".wireguardPeers = [
