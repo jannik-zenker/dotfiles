@@ -2,6 +2,7 @@
 {
   den.aspects.lumiere = {
     includes = [
+      den.aspects.openssh
       den.aspects.systemdNetworkd
       den.aspects.wireguardPeer
     ];
@@ -74,7 +75,10 @@
         };
 
         # Wireguard & Networkd settings
-        networking.firewall.allowedUDPPorts = [ 51820 ];
+        networking.firewall = {
+          allowedUDPPorts = [ 51820 ];
+          interfaces.wg0.allowedTCPPorts = [ 22 ]; # allow ssh only via wireguard interface
+        };
 
         systemd.network = {
           networks = {
