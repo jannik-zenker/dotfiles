@@ -25,7 +25,7 @@
           };
 
           wireguardConfig = {
-            PrivateKeyFile = config.sops.secrets.wgPrivateKey.path;
+            PrivateKeyFile = config.sops.secrets."wireguard/privateKey".path;
             RouteTable = "main";
           };
         };
