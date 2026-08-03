@@ -86,24 +86,25 @@
             IPv6AcceptRA = true;
           };
         };
+
         "50-wg0" = {
           address = [
             "10.0.0.1/32"
             "fd00::1/128"
           ];
         };
-
-        netdevs."50-wg0".wireguardPeers = [
-          {
-            # Reacher
-            PublicKey = "a78TwYlxGWx6QZed+RP8i4ulmtaJvV/DR9bKQovqZV8=";
-            AllowedIPs = [
-              "10.0.0.2/128"
-              "fd00::2/128"
-            ];
-          }
-        ];
       };
+
+      netdevs."50-wg0".wireguardPeers = [
+        {
+          # Reacher
+          PublicKey = "a78TwYlxGWx6QZed+RP8i4ulmtaJvV/DR9bKQovqZV8=";
+          AllowedIPs = [
+            "10.0.0.2/32"
+            "fd00::2/128"
+          ];
+        }
+      ];
     };
 
     # Set home.stateVersion to system.Stateversion since hm is a nixos module
