@@ -11,6 +11,7 @@
       den.aspects.sddm
       den.aspects.niri
       den.aspects.texlive
+      den.aspects.wireguardPeer
       den.aspects.zswap
     ];
 
@@ -106,6 +107,27 @@
         # Add local adress for server to /etc/hosts
         networking.hosts = {
           "192.168.0.2" = [ "cloud.jannikzenker.de" ];
+        };
+
+        # Wireguard settings
+        # Wireguard settings
+        systemd.network.networks."50-wg0" = {
+          address = [
+            "10.0.0.2/32"
+            "fd00::2/128"
+          ];
+
+          wireguardConfig.wireguardPeers = [
+            {
+              PublicKey = "ti/IIUhRinAC0YYy/CxlfI/TYr9EBhBvX3lewPtuGy0=";
+              Endpoint = "jannikzenker.de/51820";
+              AllowedIPs = [
+                "10.0.0.1/32"
+                "fd00::1/128"
+              ];
+              PersistentKeepalive = 25;
+            }
+          ];
         };
       };
 

@@ -25,6 +25,7 @@
           };
 
           wireguardConfig = {
+            ListenPort = 51820;
             PrivateKeyFile = config.sops.secrets."wireguard/privateKey".path;
             RouteTable = "main";
           };

@@ -86,10 +86,23 @@
         # Wireguard settings
         networking.firewall.allowedUDPPorts = [ 51820 ];
 
-        systemd.network.networks."50-wg0".address = [
-          "10.0.0.1/32"
-          "fd00::1/128"
-        ];
+        systemd.network.networks."50-wg0" = {
+          address = [
+            "10.0.0.1/32"
+            "fd00::1/128"
+          ];
+
+          wireguardConfig.wireguardPeers = [
+            {
+              # Reacher
+              PublicKey = "a78TwYlxGWx6QZed+RP8i4ulmtaJvV/DR9bKQovqZV8=";
+              AllowedIPs = [
+                "10.0.0.2/128"
+                "fd00::2/128"
+              ];
+            }
+          ];
+        };
       };
 
     # Set home.stateVersion to system.Stateversion since hm is a nixos module
