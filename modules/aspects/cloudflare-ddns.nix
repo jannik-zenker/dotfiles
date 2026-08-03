@@ -1,6 +1,6 @@
 {
   den.aspects.cloudflareDdns = {
-    nixos = { config, ... }: {
+    nixos = { config, host, ... }: {
       # Create user for rootless implementation
       users.groups.cloudflare-ddns = {
         gid = 990;
@@ -32,7 +32,7 @@
 
       # Get API-Token secret file
       sops.secrets."cloudflare-api-token" = {
-        sopsFile = ../../secrets/cloudflare-ddns.yaml;
+        sopsFile = ../../secrets/${host.name}/cloudflare-ddns.yaml;
         owner = "cloudflare-ddns";
         group = "cloudflare-ddns";
         mode = "0400";
