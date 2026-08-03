@@ -80,6 +80,17 @@
           interfaces.wg0.allowedTCPPorts = [ 22 ]; # allow ssh only via wireguard interface
         };
 
+        services.openssh.listenAddresses = [
+          {
+            addr = "10.0.0.1";
+            port = 22;
+          }
+          {
+            addr = "fd00::1";
+            port = 22;
+          }
+        ];
+
         systemd.network = {
           networks = {
             "10-lan" = {
