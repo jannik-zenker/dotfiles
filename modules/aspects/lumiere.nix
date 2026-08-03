@@ -2,6 +2,7 @@
 {
   den.aspects.lumiere = {
     includes = [
+      den.aspects.cloudflareDdns
       den.aspects.openssh
       den.aspects.systemdNetworkd
       den.aspects.wireguardPeer
