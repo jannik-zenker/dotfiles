@@ -73,6 +73,16 @@
           };
         };
 
+        # Systemd-Networkd settings
+        systemd.network.networks."10-lan" = {
+          matchConfig.Name = "enp0s1";
+
+          networkConfig = {
+            DHCP = "ipv4";
+            IPv6AcceptRA = true;
+          };
+        };
+
         # Wireguard settings
         networking.firewall.allowedUDPPorts = [ 51820 ];
 
