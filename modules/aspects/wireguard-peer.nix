@@ -1,9 +1,8 @@
 {
   den.aspects.wireguardPeer = {
     nixos = { config, host, ... }: {
-      sops.secrets.wgPrivateKey = {
+      sops.secrets."wireguard/privateKey" = {
         sopsFile = ../../secrets/${host.name}/wireguard.yaml;
-        key = "wireguard.privateKey";
 
         owner = "systemd-network";
         group = "systemd-network";
