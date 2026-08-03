@@ -1,24 +1,30 @@
 keys:
-  - hosts:
-    - &hauler age1jvluk2m8pmcsl69jhx6ranshf7hawqzef8j9drv74k4854fqvessnrpnwa
-    - &reacher age1qu45ggdnwc5wwa76kwgpr75fgjcelmtep835mve8pspms08wqy5spe47p8
-    - &sirene age1pzjxn5a5j93cdcfn872jkchtp9uvha7y6wqzpya3emcq0urckgps045apx
-  - users:
-    - &admin age164anyv82py96qhkgu0rfrylha0gkpg4cgez68ul8s0rth9kd45rsdgptwu
+    - hosts:
+          - &hauler age1jvluk2m8pmcsl69jhx6ranshf7hawqzef8j9drv74k4854fqvessnrpnwa
+          - &reacher age1qu45ggdnwc5wwa76kwgpr75fgjcelmtep835mve8pspms08wqy5spe47p8
+          - &sirene age1pzjxn5a5j93cdcfn872jkchtp9uvha7y6wqzpya3emcq0urckgps045apx
+          - &lumiere age10xfvqded0800e7em4g63d3gy04sks0u9ndj3250xlgrrgewy5ucse4saqk
+    - users:
+          - &admin age14rdy778sqy8r4xy4vqfhfquw862wxws7eh9ksvm3j608cp0slykqj08h6u
 
 creation_rules:
-  - path_regex: secrets/reacher/.*\.(yaml|json|env|ini)$
-    key_groups:
-    - age:
-      - *admin
-      - *reacher
-  - path_regex: secrets/hauler/.*\.(yaml|json|env|ini)$
-    key_groups:
-    - age:
-      - *admin
-      - *hauler
-  - path_regex: secrets/sirene/.*\.(yaml|json|env|ini)$
-    key_groups:
-    - age:
-      - *admin
-      - *sirene
+    - path_regex: secrets/reacher/.*\.(yaml|json|env|ini)$
+      key_groups:
+          - age:
+                - *admin
+                - *reacher
+    - path_regex: secrets/hauler/.*\.(yaml|json|env|ini)$
+      key_groups:
+          - age:
+                - *admin
+                - *hauler
+    - path_regex: secrets/sirene/.*\.(yaml|json|env|ini)$
+      key_groups:
+          - age:
+                - *admin
+                - *sirene
+    - path_regex: secrets/lumiere/.*\.(yaml|json|env|ini)$
+      key_groups:
+          - age:
+                - *admin
+                - *lumiere
