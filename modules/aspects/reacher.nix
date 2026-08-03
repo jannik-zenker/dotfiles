@@ -111,13 +111,15 @@
 
         # Wireguard settings
         # Wireguard settings
-        systemd.network.networks."50-wg0" = {
-          address = [
-            "10.0.0.2/32"
-            "fd00::2/128"
-          ];
+        systemd.network = {
+          networks."50-wg0" = {
+            address = [
+              "10.0.0.2/32"
+              "fd00::2/128"
+            ];
+          };
 
-          wireguardConfig.wireguardPeers = [
+          netdevs."50-wg0".wireguardPeers = [
             {
               PublicKey = "ti/IIUhRinAC0YYy/CxlfI/TYr9EBhBvX3lewPtuGy0=";
               Endpoint = "jannikzenker.de/51820";
