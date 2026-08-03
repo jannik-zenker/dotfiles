@@ -75,7 +75,7 @@
 
         # Systemd-Networkd settings
         systemd.network.networks."10-lan" = {
-          matchConfig.Name = "enp0s1";
+          matchConfig.Name = "enp1s0";
 
           networkConfig = {
             DHCP = "ipv4";
