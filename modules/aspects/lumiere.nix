@@ -11,9 +11,14 @@
       {
         config,
         modulesPath,
+        pkgs,
         ...
       }:
       {
+        environment.systemPackages = with pkgs; [
+          ghostty
+        ];
+
         system.stateVersion = "26.05";
 
         # Hardware Configuration
