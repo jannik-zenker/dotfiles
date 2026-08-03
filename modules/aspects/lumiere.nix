@@ -3,6 +3,7 @@
   den.aspects.lumiere = {
     includes = [
       den.aspects.systemdNetworkd
+      den.aspects.wireguardPeer
     ];
 
     nixos =
@@ -71,6 +72,14 @@
             };
           };
         };
+
+        # Wireguard settings
+        networking.firewall.allowedUDPPorts = [ 51820 ];
+
+        systemd.network.networks."50-wg0".address = [
+          "10.0.0.1/32"
+          "fd00::1/128"
+        ];
       };
 
     # Set home.stateVersion to system.Stateversion since hm is a nixos module
