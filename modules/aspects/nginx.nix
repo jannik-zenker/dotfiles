@@ -3,11 +3,13 @@
     nixos = {
       services.nginx = {
         enable = true;
+
         recommendedProxySettings = true;
         recommendedTlsSettings = true;
         recommendedGzipSettings = true;
+        recommendedOptimisation = true;
 
-        services.nginx.commonHttpConfig = ''
+        commonHttpConfig = ''
           real_ip_header CF-Connecting-IP;
           real_ip_recursive on;
 
@@ -37,7 +39,6 @@
           set_real_ip_from 2a06:98c0::/29;
           set_real_ip_from 2c0f:f248::/32;
         '';
-        };
       };
 
       security.acme = {
