@@ -18,7 +18,14 @@
           adminpassFile = config.sops.secrets.nextcloud-admin-pass.path;
         };
 
+        # Double PHP OPcache
+        phpOptions = {
+          "opcache.interned_strings_buffer" = "16";
+        };
+
         settings = {
+          maintenance_window_start = 2;
+
           trusted_proxies = [
             "173.245.48.0/20"
             "103.21.244.0/22"
