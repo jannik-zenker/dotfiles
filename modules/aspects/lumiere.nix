@@ -92,7 +92,7 @@
             port = 22;
           }
           {
-            addr = "fd00::1";
+            addr = "fd24:be81:dfe9:1::1";
             port = 22;
           }
         ];
