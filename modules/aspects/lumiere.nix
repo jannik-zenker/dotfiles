@@ -3,6 +3,8 @@
   den.aspects.lumiere = {
     includes = [
       den.aspects.cloudflareDdns
+      den.aspects.nextcloud
+      den.aspects.nginx
       den.aspects.openssh
       den.aspects.systemdNetworkd
       den.aspects.wireguardPeer
