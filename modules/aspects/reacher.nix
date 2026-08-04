@@ -125,7 +125,7 @@
               Endpoint = "192.168.0.2:51820";
               AllowedIPs = [
                 "10.0.0.1/32"
-                "fd00::1/128"
+                "fd24:be81:dfe9:1::1/128"
               ];
               PersistentKeepalive = 25;
             }
