@@ -52,6 +52,11 @@
             "2c0f:f248::/32"
           ];
         };
+
+        extraAppsEnable = true;
+        extraApps = {
+          inherit (config.services.nextcloud.package.packages.apps) calendar contacts mail;
+        };
       };
 
       services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
