@@ -59,7 +59,7 @@
           hostname = "podman-foundry";
           podman.user = "foundry";
 
-          volumes = [ "${config.users.users.foundry.home}:/data:U" ];
+          volumes = [ "${config.users.users.foundry.home}:/data" ];
 
           environment = {
             CONTAINER_CACHE = "/data/container_cache";
@@ -101,6 +101,7 @@
             "--cap-drop=all"
             "--security-opt=no-new-privileges:true"
             "--replace"
+            "--userns=keep-id"
           ];
 
           autoStart = true;
