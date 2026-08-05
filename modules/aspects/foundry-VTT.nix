@@ -59,7 +59,7 @@
           hostname = "podman-foundry";
           podman.user = "foundry";
 
-          volumes = [ "${config.users.users.foundry.home}:/data" ];
+          volumes = [ "${config.users.users.foundry.home}:/data:U" ];
 
           environment = {
             CONTAINER_CACHE = "/data/container_cache";
