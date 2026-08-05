@@ -6,6 +6,7 @@
       den.aspects.nextcloud
       den.aspects.nginx
       den.aspects.openssh
+      den.aspects.paperless
       den.aspects.systemdNetworkd
       den.aspects.wireguardPeer
     ];
