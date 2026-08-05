@@ -1,4 +1,4 @@
- 
+{
   den.aspects.foundryVTT = {
     nixos = { config, host, ... }: {
       users.groups.foundry = {
@@ -119,3 +119,5 @@
     };
   };
 }
+
+So?
