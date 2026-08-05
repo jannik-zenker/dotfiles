@@ -3,6 +3,7 @@
   den.aspects.lumiere = {
     includes = [
       den.aspects.cloudflareDdns
+      den.aspects.foundryVTT
       den.aspects.immich
       den.aspects.nextcloud
       den.aspects.nginx
