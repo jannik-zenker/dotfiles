@@ -125,7 +125,15 @@
               PublicKey = "a78TwYlxGWx6QZed+RP8i4ulmtaJvV/DR9bKQovqZV8=";
               AllowedIPs = [
                 "10.0.0.2/32"
-                "fd00::2/128"
+                "fd24:be81:dfe9:1::2/128"
+              ];
+            }
+            {
+              # Pixel 10
+              PublicKey = "9tLdYR3HsOHTbqM29qyH8UpvyMQmCoxm8kbpA2X8OEk=";
+              AllowedIPs = [
+                "10.0.0.4/32"
+                "fd24:be81:dfe9:1::4/128"
               ];
             }
           ];
