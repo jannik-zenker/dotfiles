@@ -1,13 +1,13 @@
-{
+ 
   den.aspects.foundryVTT = {
     nixos = { config, host, ... }: {
       users.groups.foundry = {
-        gid = 989;
+        gid = 300;
       };
 
       users.users.foundry = {
         isSystemUser = true;
-        uid = 989;
+        uid = 300;
         group = "foundry";
         linger = true;
 
