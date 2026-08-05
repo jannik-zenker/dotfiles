@@ -102,6 +102,7 @@
             "--security-opt=no-new-privileges:true"
             "--replace"
             "--userns=keep-id"
+            "--user=300:300"
           ];
 
           autoStart = true;
