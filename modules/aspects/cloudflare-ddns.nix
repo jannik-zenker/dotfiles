@@ -47,7 +47,7 @@
           podman.user = "cloudflare-ddns";
 
           environment = {
-            DOMAINS = "jannikzenker.de,cloud.jannikzenker.de";
+            DOMAINS = "jannikzenker.de,cloud.jannikzenker.de,lumiere.jannikzenker.de";
           };
 
           environmentFiles = [
