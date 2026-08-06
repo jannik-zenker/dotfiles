@@ -10,6 +10,7 @@
 
           volume."/" = {
             target = "/mnt/backup";
+            snapshot_dir = "/snapshots";
 
             subvolume = {
               "/var/lib/foundry" = { };
@@ -41,13 +42,18 @@
         script = ''
           set -euo pipefail
 
+          cleanup() {
+            sync
+            systemctl stop mnt-backup.mount
+          }
+
+          trap cleanup EXIT
+
           systemctl start mnt-backup.mount
 
           sudo -u postgres psql -c "CHECKPOINT;"
 
-          sudo btrbk run
-
-          systemctl stop mnt-backup.mount
+          btrbk -c /etc/btrbk/local.conf run
         '';
       };
 
