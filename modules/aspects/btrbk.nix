@@ -37,7 +37,6 @@
 
         path = with pkgs; [
           systemd
-          sudo
           postgresql
           btrbk
           coreutils
@@ -45,21 +44,17 @@
 
         serviceConfig = {
           Type = "oneshot";
+          ExecStopPost = "${pkgs.systemd}/bin/systemctl stop mnt-backup.mount";
         };
 
         script = ''
           set -euo pipefail
 
-          cleanup() {
-            sync
-            systemctl stop mnt-backup.mount
-          }
-
-          trap cleanup EXIT
-
           systemctl start mnt-backup.mount
 
-          sudo -u postgres psql -c "CHECKPOINT;"
+          trap 'systemctl start postgresql.service || true' EXIT
+
+          systemctl stop postgresql.service
 
           btrbk -c /etc/btrbk/local.conf run
         '';
