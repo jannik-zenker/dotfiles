@@ -25,7 +25,7 @@
 
       systemd.mounts = [
         {
-          what = "/dev/disk/by-id/ata-INTENSO_SSD_AA000000000000000304";
+          what = "/dev/disk/by-id/ata-INTENSO_SSD_AA000000000000000304-part1";
           where = "/mnt/backup";
           type = "btrfs";
           options = "subvol=/";
