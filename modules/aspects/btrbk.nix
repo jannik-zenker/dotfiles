@@ -1,6 +1,6 @@
 {
   den.aspects.btrbk = {
-    nixos = {
+    nixos = { pkgs, ... }: {
 
       services.btrbk.instances.local = {
         onCalendar = null;
@@ -34,6 +34,14 @@
 
       systemd.services.backup-local = {
         description = "Run local backup";
+
+        path = with pkgs; [
+          systemd
+          sudo
+          postgresql
+          btrbk
+          coreutils
+        ];
 
         serviceConfig = {
           Type = "oneshot";
