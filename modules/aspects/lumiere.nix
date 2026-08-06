@@ -73,15 +73,69 @@
                     content = {
                       type = "btrfs";
                       subvolumes = {
-                        "@root".mountpoint = "/";
-                        "@nix".mountpoint = "/nix";
-                        "@varlib".mountpoint = "/var/lib";
-
-                        "@varlib/foundry".mountpoint = "/var/lib/foundry";
-                        "@varlib/immich".mountpoint = "/var/lib/immich";
-                        "@varlib/paperless".mountpoint = "/var/lib/paperless";
-                        "@varlib/nextcloud".mountpoint = "/var/lib/nextcloud";
-                        "@varlib/postgresql".mountpoint = "/var/lib/postgresql";
+                        "@root" = {
+                          mountpoint = "/";
+                          mountOptions = [
+                            "compress=zstd"
+                            "noatime"
+                          ];
+                        };
+                        "@nix" = {
+                          mountpoint = "/nix";
+                          mountOptions = [
+                            "compress=zstd"
+                            "noatime"
+                          ];
+                        };
+                        "@varlib" = {
+                          mountpoint = "/var/lib";
+                          mountOptions = [
+                            "compress=zstd"
+                            "noatime"
+                          ];
+                        };
+                        "@snapshots" = {
+                          mountpoint = "/snapshots";
+                          mountOptions = [
+                            "compress=zstd"
+                            "noatime"
+                          ];
+                        };
+                        "@varlib/foundry" = {
+                          mountpoint = "/var/lib/foundry";
+                          mountOptions = [
+                            "compress=zstd"
+                            "noatime"
+                          ];
+                        };
+                        "@varlib/immich" = {
+                          mountpoint = "/var/lib/immich";
+                          mountOptions = [
+                            "compress=zstd"
+                            "noatime"
+                          ];
+                        };
+                        "@varlib/paperless" = {
+                          mountpoint = "/var/lib/paperless";
+                          mountOptions = [
+                            "compress=zstd"
+                            "noatime"
+                          ];
+                        };
+                        "@varlib/nextcloud" = {
+                          mountpoint = "/var/lib/nextcloud";
+                          mountOptions = [
+                            "compress=zstd"
+                            "noatime"
+                          ];
+                        };
+                        "@varlib/postgresql" = {
+                          mountpoint = "/var/lib/postgresql";
+                          mountOptions = [
+                            "compress=zstd"
+                            "noatime"
+                          ];
+                        };
                       };
                     };
                   };
