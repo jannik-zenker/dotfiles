@@ -9,7 +9,7 @@
         ];
         optimise = {
           automatic = true;
-          dates = [ "05:00" ];
+          dates = [ "04:00" ];
         };
         # Automatic garbage collection
         gc = {
