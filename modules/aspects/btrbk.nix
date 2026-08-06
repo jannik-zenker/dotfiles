@@ -36,6 +36,7 @@
         description = "Run local backup";
 
         path = with pkgs; [
+          sudo
           systemd
           postgresql
           btrbk
