@@ -12,11 +12,11 @@
             target = "/mnt/backup";
 
             subvolume = {
-              "@varlib/foundry" = { };
-              "@varlib/immich" = { };
-              "@varlib/nextcloud" = { };
-              "@varlib/paperless" = { };
-              "@varlib/postgresql" = { };
+              "/var/lib/foundry" = { };
+              "/var/lib/immich" = { };
+              "/var/lib/nextcloud" = { };
+              "/var/lib/paperless" = { };
+              "/var/lib/postgresql" = { };
             };
           };
         };
