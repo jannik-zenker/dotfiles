@@ -77,11 +77,11 @@
                         "@nix".mountpoint = "/nix";
                         "@varlib".mountpoint = "/var/lib";
 
-                        "@foundry".mountpoint = "/var/lib/foundry";
-                        "@immich".mountpoint = "/var/lib/immich";
-                        "@paperless".mountpoint = "/var/lib/paperless";
-                        "@nextcloud".mountpoint = "/var/lib/nextcloud";
-                        "@postgresql".mountpoint = "/var/lib/postgresql";
+                        "@varlib/foundry".mountpoint = "/var/lib/foundry";
+                        "@varlib/immich".mountpoint = "/var/lib/immich";
+                        "@varlib/paperless".mountpoint = "/var/lib/paperless";
+                        "@varlib/nextcloud".mountpoint = "/var/lib/nextcloud";
+                        "@varlib/postgresql".mountpoint = "/var/lib/postgresql";
                       };
                     };
                   };
