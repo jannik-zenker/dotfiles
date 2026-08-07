@@ -16,7 +16,7 @@
               range_start = "192.168.0.53";
               range_end = "192.168.0.253";
 
-              lease_duration = 86400; # 1 Tag bis Adressen erneuert werden
+              lease_duration = 86401; # 1 Tag bis Adressen erneuert werden
             };
           };
 
