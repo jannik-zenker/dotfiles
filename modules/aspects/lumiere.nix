@@ -2,7 +2,6 @@
 {
   den.aspects.lumiere = {
     includes = [
-      den.aspects.adguardHome
       den.aspects.btrbk
       den.aspects.cloudflareDdns
       den.aspects.foundryVTT
