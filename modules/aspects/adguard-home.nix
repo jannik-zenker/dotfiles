@@ -21,6 +21,10 @@
           };
 
           dns = {
+            bind_hosts = [
+              "192.168.0.2"
+            ];
+
             upstream_dns = [
               "9.9.9.9#dns.quad9.net"
               "149.112.112.112#dns.quad9.net"
