@@ -1,6 +1,6 @@
 {
   den.aspects.adguardHome = {
-    nixos = {
+    nixos = { pkgs, ... }: {
       services.adguardhome = {
         enable = true;
         host = "10.0.0.1";
@@ -81,6 +81,8 @@
       networking.firewall.interfaces."enp1s0".allowedUDPPorts = [ 53 ];
 
       networking.firewall.interfaces."wg0".allowedTCPPorts = [ 3000 ];
+
+      systemd.services.adguardhome.path = [ pkgs.iproute2 ];
     };
   };
 }
