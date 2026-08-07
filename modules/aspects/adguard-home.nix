@@ -27,26 +27,26 @@
               "2620:fe::fe#dns.quad9.net"
               "2620:fe::9#dns.quad9.net"
             ];
-
-            rewrites = [
-              {
-                domain = "jannikzenker.de";
-                answer = "192.168.0.2";
-              }
-              {
-                domain = "cloud.jannikzenker.de";
-                answer = "192.168.0.2";
-              }
-              {
-                domain = "foundry.jannikzenker.de";
-                answer = "192.168.0.2";
-              }
-              {
-                domain = "lumiere.jannikzenker.de";
-                answer = "192.168.0.2";
-              }
-            ];
           };
+
+          rewrites = [
+            {
+              domain = "jannikzenker.de";
+              answer = "192.168.0.2";
+            }
+            {
+              domain = "cloud.jannikzenker.de";
+              answer = "192.168.0.2";
+            }
+            {
+              domain = "foundry.jannikzenker.de";
+              answer = "192.168.0.2";
+            }
+            {
+              domain = "lumiere.jannikzenker.de";
+              answer = "192.168.0.2";
+            }
+          ];
 
           filtering = {
             protection_enabled = true;
