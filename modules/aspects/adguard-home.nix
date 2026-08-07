@@ -28,7 +28,18 @@
             upstream_dns = [
               "tls://dns.quad9.net"
             ];
+          };
 
+          filtering = {
+            protection_enabled = true;
+            filtering_enabled = true;
+
+            parental_enabled = false; # Parental control-based DNS requests filtering.
+            safe_search = {
+              enabled = false; # Enforcing "Safe search" option for search engines, when possible.
+            };
+
+            rewrites_enabled = true;
             rewrites = [
               {
                 domain = "jannikzenker.de";
@@ -47,16 +58,6 @@
                 answer = "192.168.0.2";
               }
             ];
-          };
-
-          filtering = {
-            protection_enabled = true;
-            filtering_enabled = true;
-
-            parental_enabled = false; # Parental control-based DNS requests filtering.
-            safe_search = {
-              enabled = false; # Enforcing "Safe search" option for search engines, when possible.
-            };
           };
           filters =
             map
