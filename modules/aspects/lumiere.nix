@@ -2,6 +2,7 @@
 {
   den.aspects.lumiere = {
     includes = [
+      den.aspects.adguardHome
       den.aspects.btrbk
       den.aspects.cloudflareDdns
       den.aspects.foundryVTT
@@ -167,8 +168,19 @@
           networks = {
             "10-lan" = {
               matchConfig.Name = "enp1s0";
+              # Manually setup ip adress since lumiere is the dhcp server
+              address = [
+                "192.168.0.2/24"
+              ];
+
+              routes = [
+                {
+                  Gateway = "192.168.0.1";
+                }
+              ];
+
               networkConfig = {
-                DHCP = "ipv4";
+                DNS = "127.0.0.1";
                 IPv6AcceptRA = true;
               };
             };
