@@ -42,18 +42,22 @@
             rewrites_enabled = true;
             rewrites = [
               {
+                enabled = true;
                 domain = "jannikzenker.de";
                 answer = "192.168.0.2";
               }
               {
+                enabled = true;
                 domain = "cloud.jannikzenker.de";
                 answer = "192.168.0.2";
               }
               {
+                enabled = true;
                 domain = "foundry.jannikzenker.de";
                 answer = "192.168.0.2";
               }
               {
+                enabled = true;
                 domain = "lumiere.jannikzenker.de";
                 answer = "192.168.0.2";
               }
