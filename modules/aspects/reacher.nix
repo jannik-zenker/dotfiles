@@ -104,11 +104,6 @@
           "d /games 0775 root gaming - -"
         ];
 
-        # Add local adress for server to /etc/hosts
-        networking.hosts = {
-          "192.168.0.2" = [ "cloud.jannikzenker.de" ];
-        };
-
         # Wireguard settings
         # Wireguard settings
         systemd.network = {
