@@ -46,6 +46,7 @@
           };
 
           bar.default = {
+            background_opacity = 0.40;
             end = [
               "media"
               "tray"
@@ -55,7 +56,7 @@
               "battery"
               "notifications"
             ];
-            margin_ends = 300;
+            margin_ends = 600;
             margin_edge = 3;
             scale = 1.1000000089406967;
             start = [
@@ -155,16 +156,16 @@
             animation.speed = 0.90000000000000002;
             panel = {
               borders = false;
-              launcher_categories = false;
               open_near_click_control_center = true;
-              transparency_mode = "soft";
-              wallpaper_placement = "centered";
+              transparency_mode = "glass";
+              wallpaper_placement = "attached";
             };
             screenshot = {
               copy_to_clipboard = false;
               freeze_screen = false;
               save_to_file = false;
             };
+            settings_window_translucent = true;
           };
 
           system.monitor.enabled = false;
