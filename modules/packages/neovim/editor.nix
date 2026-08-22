@@ -65,6 +65,36 @@
 
       # Icons
       visuals.nvim-web-devicons.enable = true;
+
+      # Diagnostics
+      diagnostics = {
+        enable = true;
+
+        config = {
+          virtual_text = true;
+          virtual_lines = false;
+        };
+      };
+
+      luaConfigRC.diagnosticVirtualLines = ''
+        local function update_virtual_lines()
+          vim.diagnostic.config({
+            virtual_text = true,
+            virtual_lines = {
+              current_line = true,
+            },
+          })
+        end
+
+        vim.api.nvim_create_autocmd(
+          { "CursorMoved", "CursorMovedI", "DiagnosticChanged", "BufEnter" },
+          {
+            callback = update_virtual_lines,
+          }
+        )
+
+        update_virtual_lines()
+      '';
     };
   };
 }
