@@ -56,6 +56,7 @@
 
         containers.foundry = {
           image = "ghcr.io/felddy/foundryvtt:14";
+          pull = "newer";
           hostname = "podman-foundry";
           podman.user = "foundry";
 

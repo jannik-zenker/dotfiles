@@ -43,6 +43,7 @@
 
         containers.cloudflare-ddns = {
           image = "favonia/cloudflare-ddns:1";
+          pull = "newer";
 
           podman.user = "cloudflare-ddns";
 
