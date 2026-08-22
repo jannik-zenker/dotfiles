@@ -13,7 +13,7 @@
           ];
           # Font settings
           font-family = "MonaspiceNe Nerd Font Mono";
-          font-size = 12;
+          font-size = 14;
           # Behaviour
           mouse-scroll-multiplier = 3;
           # Styling

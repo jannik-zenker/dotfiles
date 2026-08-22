@@ -12,6 +12,7 @@
       den.aspects.gtk
       den.aspects.modernCli
       den.aspects.nemo
+      den.aspects.neovim
       den.aspects.nextcloudClient
       den.aspects.niri
       den.aspects.noctalia
@@ -21,7 +22,6 @@
       den.aspects.starship
       den.aspects.thunderbird
       den.aspects.vesktop
-      den.aspects.zedEditor
       den.aspects.zenBrowser
       den.aspects.zsh
       den.batteries.primary-user
