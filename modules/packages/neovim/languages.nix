@@ -2,9 +2,15 @@
   den.aspects.nvfConfiguration = {
     # Language support
     vim = {
+      treesitter = {
+        enable = true;
+        highlight.enable = true;
+        indent.enable = true;
+      };
       lsp = {
         enable = true;
         formatOnSave = true;
+        presets.tailwindcss-language-server.enable = true;
       };
       languages = {
         enableTreesitter = true;
@@ -14,32 +20,14 @@
           enable = true;
           format.type = [ "nixfmt" ];
         };
+
         python.enable = true;
+
+        css.enable = true;
+        html.enable = true;
+        tsx.enable = true;
+        typescript.enable = true;
       };
-
-      luaConfigRC.nixIndent = ''
-        vim.api.nvim_create_autocmd("FileType", {
-          pattern = "nix",
-          callback = function()
-            vim.opt_local.tabstop = 2
-            vim.opt_local.shiftwidth = 2
-            vim.opt_local.softtabstop = 2
-            vim.opt_local.expandtab = true
-          end,
-        })
-      '';
-
-      luaConfigRC.pythonIndent = ''
-        vim.api.nvim_create_autocmd("FileType", {
-          pattern = "python",
-          callback = function()
-            vim.opt_local.tabstop = 4
-            vim.opt_local.shiftwidth = 4
-            vim.opt_local.softtabstop = 4
-            vim.opt_local.expandtab = true
-          end,
-        })
-      '';
     };
   };
 }
