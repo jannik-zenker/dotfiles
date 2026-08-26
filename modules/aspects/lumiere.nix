@@ -6,6 +6,7 @@
       den.aspects.cloudflareDdns
       den.aspects.foundryVTT
       den.aspects.immich
+      den.aspects.jellyfin
       den.aspects.nextcloud
       den.aspects.nginx
       den.aspects.openssh
