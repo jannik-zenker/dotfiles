@@ -6,7 +6,7 @@
       user = "jellyfin";
       group = "jellyfin";
 
-      forceEncodingConfig = true; # Disable imperative editing of encoding config
+      forceEncodingConfig = true; # Since nginx redirects connections locally
 
       # Hardware acceleration settings
       hardwareAcceleration = {
@@ -40,8 +40,14 @@
         };
       };
     };
+    services.nginx.virtualHosts."jellyfin.jannikzenker.de" = {
+      enableACME = true;
+      forceSSL = true;
 
-    # Open http-port in vpn for setup
-    networking.firewall.interfaces.wg0.allowedTCPPorts = [ 8096 ];
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:8096";
+        proxyWebsockets = true;
+      };
+    };
   };
 }
