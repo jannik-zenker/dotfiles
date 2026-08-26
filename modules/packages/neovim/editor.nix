@@ -1,6 +1,6 @@
 {
   den.aspects.nvfConfiguration = { theme, ... }: {
-    vim = {
+    vim = { pkgs, ... }: {
       theme = {
         enable = true;
         name = theme.name;
@@ -73,6 +73,13 @@
         config = {
           virtual_text = true;
           virtual_lines = false;
+        };
+      };
+
+      extraPlugins = {
+        guess-indent = {
+          package = pkgs.vimPlugins.guess-indent-nvim;
+          setup = "require('guess-indent').setup {}";
         };
       };
 
