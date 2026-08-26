@@ -33,7 +33,10 @@
             "nvme"
             "usbhid"
           ];
-          kernelModules = [ "kvm-intel" ];
+          kernelModules = [
+            "kvm-intel"
+            "sg"
+          ];
         };
 
         nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
