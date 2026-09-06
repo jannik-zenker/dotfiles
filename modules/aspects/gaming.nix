@@ -26,6 +26,7 @@
         heroic
         faugus-launcher
         lutris
+        prismlauncher
       ];
     };
   };

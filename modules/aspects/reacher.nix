@@ -7,7 +7,7 @@
       den.aspects.fonts
       den.aspects.gaming
       den.aspects.networkManager
-      den.aspects.plymouth
+      #      den.aspects.plymouth
       den.aspects.sddm
       den.aspects.niri
       den.aspects.texlive
