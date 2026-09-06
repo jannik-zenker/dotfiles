@@ -22,10 +22,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager-stable = {
-      url = "github:nix-community/home-manager/release-26.05";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
-    };
     import-tree.url = "github:vic/import-tree";
     mac-style-plymouth = {
       url = "github:SergioRibera/s4rchiso-plymouth-theme";
@@ -33,7 +29,6 @@
     };
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-26.05";
     noctalia.url = "github:noctalia-dev/noctalia";
     nvf.url = "github:notashelf/nvf";
     pixie-sddm = {
