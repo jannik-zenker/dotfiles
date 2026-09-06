@@ -5,6 +5,7 @@
     includes = [
       den.aspects.bitwardenDesktop
       den.aspects.cava
+      den.aspects.claudeCode
       den.aspects.desktopTools
       den.aspects.fonts
       den.aspects.ghostty
