@@ -10,6 +10,7 @@
       den.aspects.sddm
       den.aspects.niri
       den.aspects.texlive
+      den.aspects.wireguard
       den.aspects.zswap
     ];
 
