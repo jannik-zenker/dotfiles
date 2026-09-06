@@ -20,8 +20,6 @@
     cpu = "amd";
     gpu = "amd";
     profile = "server";
-    instantiate = inputs.nixpkgs-stable.lib.nixosSystem;
-    home-manager.module = inputs.home-manager-stable.nixosModules.home-manager;
 
     users.admin-jannik = { };
   };
