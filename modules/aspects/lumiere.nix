@@ -22,70 +22,16 @@
           device = "/dev/disk/by-id/nvme-eui.0026b76874b6e5f5";
           content = {
             type = "btrfs";
-            subvolumes = {
-              "@root" = {
-                mountpoint = "/";
-                mountOptions = [
-                  "compress=zstd"
-                  "noatime"
-                ];
-              };
-              "@nix" = {
-                mountpoint = "/nix";
-                mountOptions = [
-                  "compress=zstd"
-                  "noatime"
-                ];
-              };
-              "@varlib" = {
-                mountpoint = "/var/lib";
-                mountOptions = [
-                  "compress=zstd"
-                  "noatime"
-                ];
-              };
-              "@snapshots" = {
-                mountpoint = "/snapshots";
-                mountOptions = [
-                  "compress=zstd"
-                  "noatime"
-                ];
-              };
-              "@varlib/foundry" = {
-                mountpoint = "/var/lib/foundry";
-                mountOptions = [
-                  "compress=zstd"
-                  "noatime"
-                ];
-              };
-              "@varlib/immich" = {
-                mountpoint = "/var/lib/immich";
-                mountOptions = [
-                  "compress=zstd"
-                  "noatime"
-                ];
-              };
-              "@varlib/paperless" = {
-                mountpoint = "/var/lib/paperless";
-                mountOptions = [
-                  "compress=zstd"
-                  "noatime"
-                ];
-              };
-              "@varlib/nextcloud" = {
-                mountpoint = "/var/lib/nextcloud";
-                mountOptions = [
-                  "compress=zstd"
-                  "noatime"
-                ];
-              };
-              "@varlib/postgresql" = {
-                mountpoint = "/var/lib/postgresql";
-                mountOptions = [
-                  "compress=zstd"
-                  "noatime"
-                ];
-              };
+            subvolumes = self.lib.mkSubvolumes {
+              "@root" = "/";
+              "@nix" = "/nix";
+              "@varlib" = "/var/lib";
+              "@snapshots" = "/snapshots";
+              "@varlib/foundry" = "/var/lib/foundry";
+              "@varlib/immich" = "/var/lib/immich";
+              "@varlib/paperless" = "/var/lib/paperless";
+              "@varlib/nextcloud" = "/var/lib/nextcloud";
+              "@varlib/postgresql" = "/var/lib/postgresql";
             };
           };
         })
