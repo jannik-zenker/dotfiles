@@ -11,6 +11,14 @@
           ];
         };
 
+        cpu = lib.mkOption {
+          type = lib.types.enum [
+            "amd"
+            "intel"
+          ];
+          description = "CPU manufacturer";
+        };
+
         gpu = lib.mkOption {
           type = lib.types.enum [
             "nvidia"

@@ -8,9 +8,16 @@
           config,
           host,
           lib,
+          modulesPath,
           ...
         }:
         {
+          # Every physical host needs its scanned hardware-configuration import
+          # and a platform + microcode setup derived from its own metadata.
+          imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+          nixpkgs.hostPlatform = lib.mkDefault host.system;
+          hardware.cpu.${host.cpu}.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
           nixpkgs.config.allowUnfree = true; # needed for proprietary firmware
           hardware.enableAllFirmware = true;
           services.fwupd.enable = true;
@@ -47,9 +54,12 @@
             };
         };
 
-      homeManager = {
-        nixpkgs.config.allowUnfree = true;
-      };
+      homeManager =
+        { osConfig, ... }:
+        {
+          nixpkgs.config.allowUnfree = true;
+          home.stateVersion = osConfig.system.stateVersion;
+        };
     };
 
     schema = {

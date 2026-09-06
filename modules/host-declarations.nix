@@ -2,6 +2,7 @@
 {
   den.hosts.x86_64-linux.hauler = {
     bootloader = "grub";
+    cpu = "amd";
     gpu = "amd";
     profile = "laptop";
 
@@ -16,6 +17,7 @@
 
   den.hosts.x86_64-linux.lumiere = {
     bootloader = "systemd-boot";
+    cpu = "amd";
     gpu = "amd";
     profile = "server";
     instantiate = inputs.nixpkgs-stable.lib.nixosSystem;
@@ -26,6 +28,7 @@
 
   den.hosts.x86_64-linux.reacher = {
     bootloader = "grub";
+    cpu = "intel";
     gpu = "nvidia";
     profile = "desktop";
 
@@ -40,6 +43,7 @@
 
   den.hosts.x86_64-linux.sirene = {
     bootloader = "grub";
+    cpu = "intel";
     gpu = "intel";
     profile = "desktop";
 
