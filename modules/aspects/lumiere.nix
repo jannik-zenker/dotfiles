@@ -107,70 +107,37 @@
             kernelModules = [ "kvm-amd" ];
           };
 
-          # Wireguard & Networkd settings
-          networking.firewall = {
-            allowedUDPPorts = [ 51820 ];
-            interfaces.wg0.allowedTCPPorts = [ 22 ]; # allow ssh only via wireguard interface
-          };
+          # allow ssh only via the wireguard interface
+          networking.firewall.interfaces.wg0.allowedTCPPorts = [ 22 ];
 
           services.openssh.listenAddresses = [
             {
-              addr = "10.0.0.1";
+              addr = self.data.wireguardNetwork.peers.lumiere.ip4;
               port = 22;
             }
             {
-              addr = "[fd24:be81:dfe9:1::1]";
+              addr = "[${self.data.wireguardNetwork.peers.lumiere.ip6}]";
               port = 22;
             }
           ];
 
-          systemd.network = {
-            networks = {
-              "10-lan" = {
-                matchConfig.Name = "enp1s0";
-                # Manually setup ip adress since lumiere is the dhcp server
-                address = [
-                  "192.168.0.2/24"
-                ];
+          systemd.network.networks."10-lan" = {
+            matchConfig.Name = "enp1s0";
+            # Manually setup ip adress since lumiere is the dhcp server
+            address = [
+              "192.168.0.2/24"
+            ];
 
-                routes = [
-                  {
-                    Gateway = "192.168.0.1";
-                  }
-                ];
-
-                networkConfig = {
-                  DNS = "127.0.0.1";
-                  IPv6AcceptRA = true;
-                };
-              };
-
-              "50-wg0" = {
-                address = [
-                  "10.0.0.1/32"
-                  "fd24:be81:dfe9:1::1/128"
-                ];
-              };
-            };
-
-            netdevs."50-wg0".wireguardPeers = [
+            routes = [
               {
-                # Reacher
-                PublicKey = "a78TwYlxGWx6QZed+RP8i4ulmtaJvV/DR9bKQovqZV8=";
-                AllowedIPs = [
-                  "10.0.0.2/32"
-                  "fd24:be81:dfe9:1::2/128"
-                ];
-              }
-              {
-                # Pixel 10
-                PublicKey = "9tLdYR3HsOHTbqM29qyH8UpvyMQmCoxm8kbpA2X8OEk=";
-                AllowedIPs = [
-                  "10.0.0.4/32"
-                  "fd24:be81:dfe9:1::4/128"
-                ];
+                Gateway = "192.168.0.1";
               }
             ];
+
+            networkConfig = {
+              DNS = "127.0.0.1";
+              IPv6AcceptRA = true;
+            };
           };
         }
       ];

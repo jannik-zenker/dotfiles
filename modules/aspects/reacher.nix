@@ -67,28 +67,6 @@
           systemd.tmpfiles.rules = [
             "d /games 0775 root gaming - -"
           ];
-
-          # Wireguard settings
-          systemd.network = {
-            networks."50-wg0" = {
-              address = [
-                "10.0.0.2/32"
-                "fd00::2/128"
-              ];
-            };
-
-            netdevs."50-wg0".wireguardPeers = [
-              {
-                PublicKey = "ti/IIUhRinAC0YYy/CxlfI/TYr9EBhBvX3lewPtuGy0=";
-                Endpoint = "192.168.0.2:51820";
-                AllowedIPs = [
-                  "10.0.0.1/32"
-                  "fd24:be81:dfe9:1::1/128"
-                ];
-                PersistentKeepalive = 25;
-              }
-            ];
-          };
         }
       ];
 
