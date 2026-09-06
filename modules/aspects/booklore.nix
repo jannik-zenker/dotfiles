@@ -58,8 +58,8 @@
               environment = {
                 # MariaDB ultimately runs as UID/GID 301. With keep-id this
                 # maps directly to the booklore user on the host.
-                PUID = "301";
-                PGID = "301";
+                PUID = "0";
+                PGID = "0";
 
                 TZ = config.time.timeZone;
                 MYSQL_DATABASE = "booklore";
@@ -72,10 +72,6 @@
               ];
 
               extraOptions = [
-                # linuxserver/s6-overlay must initially start as root inside
-                # the rootless user namespace before dropping to PUID/PGID.
-                "--user=0:0"
-
                 # Capabilities required by the linuxserver MariaDB image.
                 "--cap-drop=all"
                 "--cap-add=CHOWN"
@@ -85,7 +81,6 @@
 
                 "--security-opt=no-new-privileges:true"
                 "--replace"
-                "--userns=keep-id"
                 "--network=host"
               ];
 
@@ -111,8 +106,8 @@
               environment = {
                 # BookLore's entrypoint switches to this UID/GID after
                 # initialization. keep-id maps 301 -> host UID/GID 301.
-                USER_ID = "301";
-                GROUP_ID = "301";
+                USER_ID = "0";
+                GROUP_ID = "0";
 
                 TZ = config.time.timeZone;
 
@@ -127,13 +122,8 @@
               ];
 
               extraOptions = [
-                # BookLore's entrypoint needs to create/select USER_ID and
-                # GROUP_ID and chown its data directories before su-exec.
-                "--user=0:0"
-
                 "--security-opt=no-new-privileges:true"
                 "--replace"
-                "--userns=keep-id"
                 "--network=host"
               ];
 
