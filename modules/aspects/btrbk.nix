@@ -13,6 +13,7 @@
             snapshot_dir = "/snapshots";
 
             subvolume = {
+              "/var/lib/booklore" = { };
               "/var/lib/foundry" = { };
               "/var/lib/immich" = { };
               "/var/lib/nextcloud" = { };

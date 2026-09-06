@@ -2,7 +2,12 @@
 {
   den.aspects.cloudflareDdns = {
     nixos =
-      { config, host, lib, ... }:
+      {
+        config,
+        host,
+        lib,
+        ...
+      }:
       lib.mkMerge [
         (self.lib.mkRootlessContainerUser {
           name = "cloudflare-ddns";

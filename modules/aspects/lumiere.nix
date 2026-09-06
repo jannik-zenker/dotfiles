@@ -2,6 +2,7 @@
 {
   den.aspects.lumiere = {
     includes = [
+      den.aspects.booklore
       den.aspects.btrbk
       den.aspects.cloudflareDdns
       den.aspects.foundryVTT
@@ -27,6 +28,7 @@
               "@nix" = "/nix";
               "@varlib" = "/var/lib";
               "@snapshots" = "/snapshots";
+              "@varlib/booklore" = "/var/lib/booklore";
               "@varlib/foundry" = "/var/lib/foundry";
               "@varlib/immich" = "/var/lib/immich";
               "@varlib/paperless" = "/var/lib/paperless";
