@@ -12,6 +12,7 @@
     nixos = {
       users.users.admin-jannik.openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOrMujlvICa7sJv9zY8HhOdd+YyZwttibJ3LtJsv+eH9 jannik@reacher"
+        "AAAAC3NzaC1lZDI1NTE5AAAAICGjnLVxIAjADjDt6nLiGaAQvx9YPfEFpMCigWrwIwFP jannik@hauler"
       ];
     };
   };
