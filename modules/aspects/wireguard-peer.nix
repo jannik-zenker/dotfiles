@@ -16,7 +16,15 @@
 
           networking = {
             useNetworkd = true;
-            firewall.allowedUDPPorts = [ 51820 ];
+
+            # Only the hub is ever dialed - spokes have no configured
+            # Endpoint on the hub's side, so the hub can't initiate to
+            # them, and a spoke's own reply traffic on a flow it started
+            # is already allowed by firewall connection tracking without
+            # opening this port.
+            firewall.allowedUDPPorts = lib.optional (
+              host.name == self.data.wireguardNetwork.hub
+            ) 51820;
           };
 
           systemd.network = {
