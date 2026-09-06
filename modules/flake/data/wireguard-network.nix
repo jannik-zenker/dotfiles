@@ -18,14 +18,20 @@
       lumiere = {
         ip4 = "10.0.0.1";
         ip6 = "fd24:be81:dfe9:1::1";
-        publicKey = "ti/IIUhRinAC0YYy/CxlfI/TYr9EBhBvX3lewPtuGy0=";
+        publicKey = "C4ThvVyYO6lloK4/BH4V9lMlkwodUUqUQ4qLHl0JKAE=";
       };
 
       reacher = {
         ip4 = "10.0.0.2";
         ip6 = "fd24:be81:dfe9:1::2";
-        publicKey = "a78TwYlxGWx6QZed+RP8i4ulmtaJvV/DR9bKQovqZV8=";
+        publicKey = "B3gPKfSf2gozG2MVBiPImClHTaCZnf7KHz3Mi16VTik=";
         endpoint = "192.168.0.2:51820"; # on the same LAN as lumiere
+      };
+
+      hauler = {
+        ip4 = "10.0.0.3";
+        ip6 = "fd24:be81:dfe9:1::3";
+        publicKey = "LPaI6fh+Q0yxa0/rOl7j5sGudqnytW3Cnc7SgrvgogQ=";
       };
 
       pixel10 = {
