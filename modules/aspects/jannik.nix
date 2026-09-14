@@ -17,6 +17,7 @@
       den.aspects.nextcloudClient
       den.aspects.niri
       den.aspects.noctalia
+      den.aspects.obsidian
       den.aspects.office
       den.aspects.pywalfox
       den.aspects.qt

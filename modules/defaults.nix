@@ -16,7 +16,8 @@
           # and a platform + microcode setup derived from its own metadata.
           imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
           nixpkgs.hostPlatform = lib.mkDefault host.system;
-          hardware.cpu.${host.cpu}.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+          hardware.cpu.${host.cpu}.updateMicrocode =
+            lib.mkDefault config.hardware.enableRedistributableFirmware;
 
           nixpkgs.config.allowUnfree = true; # needed for proprietary firmware
           hardware.enableAllFirmware = true;

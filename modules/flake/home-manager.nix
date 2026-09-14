@@ -5,4 +5,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
+  den.ctx.hm-host.nixos.home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+  };
 }

@@ -31,6 +31,10 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     noctalia.url = "github:noctalia-dev/noctalia";
     nvf.url = "github:notashelf/nvf";
+    obsidian-extensions = {
+      url = "github:karaolidis/nix-obsidian-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     pixie-sddm = {
       url = "github:xCaptaiN09/pixie-sddm";
       inputs.nixpkgs.follows = "nixpkgs";
