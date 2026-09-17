@@ -11,6 +11,9 @@
           modulesPath,
           ...
         }:
+        let
+          passwordUsers = (lib.attrNames host.users) ++ [ "root" ];
+        in
         {
           # Every physical host needs its scanned hardware-configuration import
           # and a platform + microcode setup derived from its own metadata.
@@ -30,35 +33,20 @@
           users.mutableUsers = false;
 
           # Get user/root password sops secrets
-          sops.secrets =
-            lib.mapAttrs' (
-              name: _:
-              lib.nameValuePair "${name}-password" {
-                sopsFile = ../secrets/${host.name}/passwords.yaml;
-                neededForUsers = true;
-              }
-            ) host.users
-            // {
-              "root-password" = {
-                sopsFile = ../secrets/${host.name}/passwords.yaml;
-                neededForUsers = true;
-              };
-            };
+          sops.secrets = lib.genAttrs (map (name: "${name}-password") passwordUsers) (_: {
+            sopsFile = ../secrets/${host.name}/passwords.yaml;
+            neededForUsers = true;
+          });
 
           # Set passwords for root and users
-          users.users =
-            lib.mapAttrs (name: _: {
-              hashedPasswordFile = config.sops.secrets."${name}-password".path;
-            }) host.users
-            // {
-              root.hashedPasswordFile = config.sops.secrets."root-password".path;
-            };
+          users.users = lib.genAttrs passwordUsers (name: {
+            hashedPasswordFile = config.sops.secrets."${name}-password".path;
+          });
         };
 
       homeManager =
         { osConfig, ... }:
         {
-          nixpkgs.config.allowUnfree = true;
           home.stateVersion = osConfig.system.stateVersion;
         };
     };
@@ -85,7 +73,7 @@
         # Enable home-manager class evaluation by default for every user
         classes = lib.mkDefault [ "homeManager" ];
         # Create users from user declarations in host declarations
-        includes = with den.batteries; [ define-user ];
+        includes = [ den.batteries.define-user ];
       };
     };
   };

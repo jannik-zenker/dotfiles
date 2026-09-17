@@ -6,8 +6,12 @@
     };
   };
 
-  den.ctx.hm-host.nixos.home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-  };
+  den.schema.hm-host.includes = [
+    {
+      nixos.home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+      };
+    }
+  ];
 }
