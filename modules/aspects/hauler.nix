@@ -8,7 +8,6 @@
       den.aspects.networkManager
       den.aspects.plymouth
       den.aspects.plasmaLoginManager
-      den.aspects.niri
       den.aspects.texlive
       den.aspects.wireguardPeer
       den.aspects.zswap

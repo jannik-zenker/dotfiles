@@ -8,7 +8,6 @@
       den.aspects.kde
       den.aspects.networkManager
       den.aspects.plasmaLoginManager
-      den.aspects.niri
       den.aspects.texlive
       den.aspects.wireguardPeer
       den.aspects.zswap
