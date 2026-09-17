@@ -21,7 +21,7 @@
 
       settings.formatter.prettier.excludes = [
         "secrets/**/*.yaml"
-        ".claude/skills/**/skill.md"
+        ".claude/skills/**/SKILL.md"
         "CLAUDE.md"
       ];
     };
