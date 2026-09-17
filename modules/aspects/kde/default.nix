@@ -1,5 +1,12 @@
-{
+{ inputs, ... }: {
   den.aspects.kde = {
+    flake-file.inputs.plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     nixos = { pkgs, ... }: {
       services.desktopManager.plasma6.enable = true;
       environment.plasma6.excludePackages = with pkgs.kdePackages; [
@@ -30,7 +37,7 @@
     };
 
     homeManager = {
-
+      imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
     };
   };
 }
