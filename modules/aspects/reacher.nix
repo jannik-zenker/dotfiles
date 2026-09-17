@@ -6,7 +6,7 @@
       den.aspects.fonts
       den.aspects.gaming
       den.aspects.networkManager
-      den.aspects.sddm
+      den.aspects.plasmaLoginManager
       den.aspects.niri
       den.aspects.texlive
       den.aspects.wireguardPeer
