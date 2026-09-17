@@ -10,7 +10,6 @@
                 proportion 0.5
                 proportion 0.66667
             }
-            // preset-window-heights { }
             default-column-width { proportion 0.5; }
             focus-ring {
                 off
@@ -29,7 +28,6 @@
                 softness 30
                 spread 7
                 offset x=0 y=0
-                // color "#0007"
             }
             struts {
                 left 10

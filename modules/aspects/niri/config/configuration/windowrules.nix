@@ -52,13 +52,10 @@
         window-rule {
             open-maximized true
 
-            match app-id="firefox"
-            match app-id="librewolf"
             match app-id="thunderbird"
             match app-id="eu.betterbird.Betterbird"
             match app-id="steam"
             match app-id="vesktop"
-            match app-id="zen-beta"
         };
         // Steam friends list floating
         window-rule {
