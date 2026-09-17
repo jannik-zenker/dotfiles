@@ -19,7 +19,6 @@
       den.aspects.obsidian
       den.aspects.office
       den.aspects.pywalfox
-      den.aspects.qt
       den.aspects.starship
       den.aspects.thunderbird
       den.aspects.vesktop
