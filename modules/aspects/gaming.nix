@@ -1,5 +1,4 @@
-{ inputs, ... }:
-{
+{ inputs, ... }: {
   flake-file.inputs = {
     millennium = {
       url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
@@ -12,9 +11,7 @@
       programs.steam = {
         enable = true;
         package = pkgs.millennium-steam;
-        extraCompatPackages = with pkgs; [
-          proton-ge-bin
-        ];
+        extraCompatPackages = with pkgs; [ proton-ge-bin ];
       };
 
       # Create group "gaming" for multi-user access to game drives

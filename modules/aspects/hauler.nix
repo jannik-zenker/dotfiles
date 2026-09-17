@@ -1,5 +1,4 @@
-{ den, self, ... }:
-{
+{ den, self, ... }: {
   den.aspects.hauler = {
     includes = [
       den.aspects.bluetooth

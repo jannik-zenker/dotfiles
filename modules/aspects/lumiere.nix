@@ -1,5 +1,4 @@
-{ den, self, ... }:
-{
+{ den, self, ... }: {
   den.aspects.lumiere = {
     includes = [
       den.aspects.booklore
@@ -38,9 +37,7 @@
           };
         })
         {
-          environment.systemPackages = with pkgs; [
-            ghostty
-          ];
+          environment.systemPackages = with pkgs; [ ghostty ];
 
           system.stateVersion = "26.05";
 
@@ -72,15 +69,9 @@
           systemd.network.networks."10-lan" = {
             matchConfig.Name = "enp1s0";
             # Manually setup ip adress since lumiere is the dhcp server
-            address = [
-              "192.168.0.2/24"
-            ];
+            address = [ "192.168.0.2/24" ];
 
-            routes = [
-              {
-                Gateway = "192.168.0.1";
-              }
-            ];
+            routes = [ { Gateway = "192.168.0.1"; } ];
 
             networkConfig = {
               DNS = "127.0.0.1";

@@ -1,5 +1,4 @@
-{ inputs, lib, ... }:
-{
+{ inputs, lib, ... }: {
   flake-file = {
     inputs = {
       noctalia = {
@@ -22,9 +21,7 @@
         power-profiles-daemon.enable = host.profile == "laptop";
         upower.enable = host.profile == "laptop";
       };
-      environment.systemPackages = lib.mkIf (host.profile == "desktop") [
-        pkgs.ddcutil
-      ];
+      environment.systemPackages = lib.mkIf (host.profile == "desktop") [ pkgs.ddcutil ];
     };
 
     homeManager = { pkgs, ... }: {

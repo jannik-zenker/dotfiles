@@ -1,5 +1,4 @@
-{ self, lib, ... }:
-{
+{ self, lib, ... }: {
   den.aspects.nginx = {
     nixos = {
       services.nginx = {

@@ -1,5 +1,4 @@
-{ self, ... }:
-{
+{ self, ... }: {
   den.aspects.booklore = {
     nixos =
       {
@@ -51,9 +50,7 @@
               # Podman itself still runs rootless as the booklore host user.
               podman.user = "booklore";
 
-              volumes = [
-                "${config.users.users.booklore.home}/mariadb/config:/config"
-              ];
+              volumes = [ "${config.users.users.booklore.home}/mariadb/config:/config" ];
 
               environment = {
                 # MariaDB ultimately runs as UID/GID 301. With keep-id this
@@ -117,9 +114,7 @@
                 DISK_TYPE = "LOCAL";
               };
 
-              environmentFiles = [
-                config.sops.secrets."booklore-db-password".path
-              ];
+              environmentFiles = [ config.sops.secrets."booklore-db-password".path ];
 
               extraOptions = [
                 "--security-opt=no-new-privileges:true"

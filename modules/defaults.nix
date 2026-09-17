@@ -1,6 +1,5 @@
 # Contains global settings across all hosts, users and standalone homes
-{ lib, den, ... }:
-{
+{ lib, den, ... }: {
   den = {
     default = {
       nixos =
@@ -44,11 +43,7 @@
           });
         };
 
-      homeManager =
-        { osConfig, ... }:
-        {
-          home.stateVersion = osConfig.system.stateVersion;
-        };
+      homeManager = { osConfig, ... }: { home.stateVersion = osConfig.system.stateVersion; };
     };
 
     schema = {

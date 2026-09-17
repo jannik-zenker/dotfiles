@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{ lib, ... }: {
   den.aspects.defaultPackages = { host, ... }: {
     nixos = { pkgs, ... }: {
       environment.systemPackages =

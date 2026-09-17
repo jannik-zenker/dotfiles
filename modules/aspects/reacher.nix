@@ -1,5 +1,4 @@
-{ den, self, ... }:
-{
+{ den, self, ... }: {
   den.aspects.reacher = {
     includes = [
       den.aspects.bluetooth
@@ -63,9 +62,7 @@
           };
 
           # Add access to /games drive for "gaming" group
-          systemd.tmpfiles.rules = [
-            "d /games 0775 root gaming - -"
-          ];
+          systemd.tmpfiles.rules = [ "d /games 0775 root gaming - -" ];
         }
       ];
 

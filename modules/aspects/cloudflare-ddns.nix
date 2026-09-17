@@ -1,5 +1,4 @@
-{ self, ... }:
-{
+{ self, ... }: {
   den.aspects.cloudflareDdns = {
     nixos =
       {
@@ -36,9 +35,7 @@
                 DOMAINS = "jannikzenker.de,cloud.jannikzenker.de,foundry.jannikzenker.de,jellyfin.jannikzenker.de,lumiere.jannikzenker.de";
               };
 
-              environmentFiles = [
-                config.sops.secrets."cloudflare-api-token".path
-              ];
+              environmentFiles = [ config.sops.secrets."cloudflare-api-token".path ];
 
               extraOptions = [
                 "--cap-drop=all"

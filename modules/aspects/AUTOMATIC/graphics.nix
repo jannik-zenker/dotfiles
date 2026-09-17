@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{ lib, ... }: {
   den.aspects.graphics = { host, ... }: {
     nixos =
       { config, pkgs, ... }:
@@ -22,9 +21,7 @@
             initrd.kernelModules = [ "i915" ];
           };
         })
-        (lib.mkIf (host.gpu == "amd") {
-          boot.initrd.kernelModules = [ "amdgpu" ];
-        })
+        (lib.mkIf (host.gpu == "amd") { boot.initrd.kernelModules = [ "amdgpu" ]; })
         (lib.mkIf (host.gpu == "nvidia") {
           services.xserver.videoDrivers = [ "nvidia" ];
           hardware.nvidia = {

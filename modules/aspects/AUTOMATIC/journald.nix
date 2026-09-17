@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{ lib, ... }: {
   den.aspects.journald = { host, ... }: {
     nixos = {
       services.journald.settings.Journal = lib.mkDefault (

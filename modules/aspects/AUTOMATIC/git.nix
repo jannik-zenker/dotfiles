@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{ lib, ... }: {
   den.aspects.git = { user, ... }: {
     nixos = {
       programs.git = {
@@ -8,9 +7,7 @@
       };
     };
 
-    homeManager = { pkgs, ... }: {
-      home.packages = with pkgs; [ lazygit ];
-    };
+    homeManager = { pkgs, ... }: { home.packages = with pkgs; [ lazygit ]; };
 
     provides.to-users.homeManager = {
       programs.git = {

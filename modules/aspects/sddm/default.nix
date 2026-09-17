@@ -1,5 +1,4 @@
-{ inputs, ... }:
-{
+{ inputs, ... }: {
   flake-file.inputs = {
     pixie-sddm = {
       url = "github:xCaptaiN09/pixie-sddm";

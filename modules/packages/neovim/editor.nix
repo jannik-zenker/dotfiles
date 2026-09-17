@@ -1,11 +1,11 @@
 {
   den.aspects.nvfConfiguration = { theme, ... }: {
-    vim = { pkgs, ... }: {
+    vim = _: {
       theme = {
         enable = true;
-        name = theme.name;
-        style = theme.style;
-        transparent = theme.transparent;
+        inherit (theme) name;
+        inherit (theme) style;
+        inherit (theme) transparent;
       };
 
       # Fuzzy finder

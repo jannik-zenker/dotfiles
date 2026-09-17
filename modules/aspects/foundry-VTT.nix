@@ -1,8 +1,12 @@
-{ self, ... }:
-{
+{ self, ... }: {
   den.aspects.foundryVTT = {
     nixos =
-      { config, host, lib, ... }:
+      {
+        config,
+        host,
+        lib,
+        ...
+      }:
       lib.mkMerge [
         (self.lib.mkRootlessContainerUser {
           name = "foundry";

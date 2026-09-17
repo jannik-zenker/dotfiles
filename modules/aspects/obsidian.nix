@@ -8,9 +8,7 @@
 
   den.aspects.obsidian = {
     provides.to-hosts = {
-      nixos.nixpkgs.overlays = [
-        inputs.obsidian-extensions.overlays.default
-      ];
+      nixos.nixpkgs.overlays = [ inputs.obsidian-extensions.overlays.default ];
     };
 
     homeManager = { pkgs, ... }: {
@@ -41,9 +39,7 @@
           settings = {
             appearance.theme = "moonstone";
 
-            themes = with pkgs.obsidianThemes; [
-              its-theme
-            ];
+            themes = with pkgs.obsidianThemes; [ its-theme ];
 
             corePlugins = [
               "backlink"
@@ -129,9 +125,7 @@
                 pkg = supercharged-links-obsidian;
 
                 settings = {
-                  targetAttributes = [
-                    "type"
-                  ];
+                  targetAttributes = [ "type" ];
 
                   targetTags = true;
                   getFromInlineField = false;

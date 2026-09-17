@@ -1,6 +1,5 @@
 # Modified from github:MrSom3body/dotfiles
-{ lib, ... }:
-{
+{ lib, ... }: {
   den.aspects.security = {
     nixos = { config, ... }: {
       boot = {

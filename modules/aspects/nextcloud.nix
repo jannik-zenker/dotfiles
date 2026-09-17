@@ -1,5 +1,4 @@
-{ self, ... }:
-{
+{ self, ... }: {
   den.aspects.nextcloud = {
     nixos = { config, host, ... }: {
       sops.secrets."nextcloud-admin-pass" = {
@@ -31,9 +30,7 @@
         };
 
         extraAppsEnable = true;
-        extraApps = {
-          inherit (config.services.nextcloud.package.packages.apps) calendar contacts mail;
-        };
+        extraApps = { inherit (config.services.nextcloud.package.packages.apps) calendar contacts mail; };
       };
 
       services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {

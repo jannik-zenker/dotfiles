@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   perSystem = { pkgs, ... }: {
     packages.nixos-install = pkgs.writeShellApplication {
       name = "nixos-install";

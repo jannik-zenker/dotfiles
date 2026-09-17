@@ -1,5 +1,4 @@
-{ den, self, ... }:
-{
+{ den, self, ... }: {
   den.aspects.sirene = {
     includes = [
       den.aspects.bluetooth

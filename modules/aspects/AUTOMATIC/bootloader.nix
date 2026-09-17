@@ -1,6 +1,5 @@
 # Installs a bootloader based on metadata of the host
-{ inputs, lib, ... }:
-{
+{ inputs, lib, ... }: {
   # Get flake input for distro grub themes
   flake-file.inputs = {
     distro-grub-themes = {

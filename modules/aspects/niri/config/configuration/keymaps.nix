@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{ lib, ... }: {
   den.aspects.niri = { user, ... }: {
     homeManager = { config, ... }: {
       xdg.configFile."niri/configuration/keymaps.kdl".text = ''
@@ -144,24 +143,24 @@
 
       ''
       + lib.optionalString (lib.attrByPath [ "programs" "noctalia" "enable" ] false config) ''
-            Mod+D hotkey-overlay-title="Run an Application: noctalia-launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
-            Mod+T hotkey-overlay-title="Run an Application: noctalia-wallpaper" { spawn-sh "noctalia msg panel-toggle wallpaper"; }
-            Mod+Y hotkey-overlay-title="Run an Application: rofi-cliphist" { spawn-sh "noctalia msg panel-toggle clipboard"; }
-            Mod+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn-sh "noctalia msg session lock"; }
-            Mod+P hotkey-overlay-title="Call powermenu: wlogout" { spawn-sh "noctalia msg panel-toggle session"; }
+        Mod+D hotkey-overlay-title="Run an Application: noctalia-launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
+        Mod+T hotkey-overlay-title="Run an Application: noctalia-wallpaper" { spawn-sh "noctalia msg panel-toggle wallpaper"; }
+        Mod+Y hotkey-overlay-title="Run an Application: rofi-cliphist" { spawn-sh "noctalia msg panel-toggle clipboard"; }
+        Mod+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn-sh "noctalia msg session lock"; }
+        Mod+P hotkey-overlay-title="Call powermenu: wlogout" { spawn-sh "noctalia msg panel-toggle session"; }
 
-            XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up 5"; }
-            XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down 5"; }
-            XF86AudioMute        allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
-            XF86AudioMicMute     allow-when-locked=true { spawn-sh "noctalia msg mic-volume mute"; }
+        XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up 5"; }
+        XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down 5"; }
+        XF86AudioMute        allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
+        XF86AudioMicMute     allow-when-locked=true { spawn-sh "noctalia msg mic-volume mute"; }
 
-            XF86AudioPlay        allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
-            XF86AudioStop        allow-when-locked=true { spawn-sh "noctalia msg media stop"; }
-            XF86AudioPrev        allow-when-locked=true { spawn-sh "noctalia msg media previous"; }
-            XF86AudioNext        allow-when-locked=true { spawn-sh "noctalia msg media next"; }
+        XF86AudioPlay        allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
+        XF86AudioStop        allow-when-locked=true { spawn-sh "noctalia msg media stop"; }
+        XF86AudioPrev        allow-when-locked=true { spawn-sh "noctalia msg media previous"; }
+        XF86AudioNext        allow-when-locked=true { spawn-sh "noctalia msg media next"; }
 
-            XF86MonBrightnessUp allow-when-locked=true { spawn-sh "noctalia msg brightness-up current 5"; }
-            XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia msg brightness-down current 5"; }
+        XF86MonBrightnessUp allow-when-locked=true { spawn-sh "noctalia msg brightness-up current 5"; }
+        XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia msg brightness-down current 5"; }
 
       ''
       + ''

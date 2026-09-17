@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{ lib, ... }: {
   den.aspects.xdg = {
     provides.to-users.homeManager = { host, ... }: {
       xdg = {

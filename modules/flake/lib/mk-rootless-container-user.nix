@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   # Creates a rootless system user + group for running a rootless OCI
   # container (podman), including the subuid/subgid ranges podman needs to
   # map container-internal uids. Merge the result into a NixOS config, e.g.:

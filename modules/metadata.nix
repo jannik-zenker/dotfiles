@@ -1,6 +1,5 @@
 # Define Metadata that has to be set by every host
-{ lib, ... }:
-{
+{ lib, ... }: {
   den.schema = {
     host = {
       options = {

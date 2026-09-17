@@ -1,8 +1,6 @@
 {
   den.aspects.texlive = {
-    nixos = { pkgs, ... }: {
-      environment.systemPackages = with pkgs; [ texliveFull ];
-    };
+    nixos = { pkgs, ... }: { environment.systemPackages = with pkgs; [ texliveFull ]; };
 
     provides.to-users.homeManager = { config, ... }: {
       home.sessionVariables = {

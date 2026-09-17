@@ -1,9 +1,8 @@
-{ den, ... }:
-{
+{ den, ... }: {
   den.aspects.qt = {
     includes = [ den.aspects.gtk ];
 
-    homeManager = { pkgs, config, ... }: {
+    homeManager = _: {
       qt = {
         enable = true;
         platformTheme.name = "gtk3";

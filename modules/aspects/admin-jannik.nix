@@ -1,5 +1,4 @@
-{ den, ... }:
-{
+{ den, ... }: {
   # user aspect
   den.aspects.admin-jannik = {
     includes = [

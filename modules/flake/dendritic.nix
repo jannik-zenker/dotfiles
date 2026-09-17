@@ -1,5 +1,4 @@
-{ inputs, ... }:
-{
+{ inputs, ... }: {
   flake-file.inputs = {
     den.url = "github:denful/den";
     flake-file.url = "github:vic/flake-file";
