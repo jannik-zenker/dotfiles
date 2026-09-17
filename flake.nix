@@ -29,7 +29,6 @@
     };
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    noctalia.url = "github:noctalia-dev/noctalia";
     nvf.url = "github:notashelf/nvf";
     obsidian-extensions = {
       url = "github:karaolidis/nix-obsidian-extensions";
@@ -38,6 +37,13 @@
     pixie-sddm = {
       url = "github:xCaptaiN09/pixie-sddm";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs = {
+        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
