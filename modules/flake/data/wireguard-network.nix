@@ -1,4 +1,3 @@
-{ ... }:
 {
   # Single source of truth for the WireGuard mesh: a hub-and-spoke network
   # where every spoke peers only with the hub (`hub`), and the hub peers
