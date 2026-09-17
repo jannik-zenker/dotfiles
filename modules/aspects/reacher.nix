@@ -5,6 +5,7 @@
       den.aspects.documentIo
       den.aspects.fonts
       den.aspects.gaming
+      den.aspects.kde
       den.aspects.networkManager
       den.aspects.plasmaLoginManager
       den.aspects.niri

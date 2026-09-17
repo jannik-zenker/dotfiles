@@ -6,6 +6,10 @@
         useNautilus = true;
       };
 
+      # Keep niri as the default session even when other desktop
+      # environments (e.g. plasma) are also installed.
+      services.displayManager.defaultSession = "niri";
+
       # Install dependencies
       security.polkit.enable = true;
       services.gnome.gnome-keyring.enable = true;

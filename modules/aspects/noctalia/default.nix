@@ -19,7 +19,7 @@
       # Enable laptop services for power management
       services = {
         power-profiles-daemon.enable = host.profile == "laptop";
-        upower.enable = host.profile == "laptop";
+        upower.enable = lib.mkDefault (host.profile == "laptop");
       };
       environment.systemPackages = lib.mkIf (host.profile == "desktop") [ pkgs.ddcutil ];
     };

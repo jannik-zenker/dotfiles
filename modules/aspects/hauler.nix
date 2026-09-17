@@ -4,6 +4,7 @@
       den.aspects.bluetooth
       den.aspects.documentIo
       den.aspects.fonts
+      den.aspects.kde
       den.aspects.networkManager
       den.aspects.plymouth
       den.aspects.plasmaLoginManager
