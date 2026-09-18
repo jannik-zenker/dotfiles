@@ -9,29 +9,29 @@
   den.aspects.kde = {
     nixos = { pkgs, ... }: {
       services.desktopManager.plasma6.enable = true;
+      # Trim the default Plasma bundle to what this setup actually uses;
+      # several defaults are covered by dedicated aspects instead.
       environment.plasma6.excludePackages = with pkgs.kdePackages; [
-        plasma-browser-integration # Browser-/Plasma-Integration
-        plasma-workspace-wallpapers # KDE-Standardwallpaper
-        konsole # Terminal
-        kwin-x11 # X11-KWin
+        plasma-browser-integration
+        plasma-workspace-wallpapers
+        konsole
+        kwin-x11
+        elisa
+        gwenview
+        okular
+        kate
+        ktexteditor
+        khelpcenter
 
-        elisa # Musikplayer
-        gwenview # Bildbetrachter
-        okular # PDF-/Dokumentviewer
-        kate # Texteditor
-        ktexteditor # Kate/KDE-Texteditor-Framework
-        khelpcenter # KDE-Hilfe
+        krdp
 
-        spectacle # Screenshots/Screen Recording
-        krdp # Remote Desktop
+        plasma-keyboard
+        qtvirtualkeyboard
 
-        plasma-keyboard # Bildschirmtastatur
-        qtvirtualkeyboard # Qt-Bildschirmtastatur
-
-        union # Plasma-Hilfstool
-        qrca # QR-Code-App
-        qtsensors # Sensor-Unterstützung
-        discover # Software-Center
+        union
+        qrca
+        qtsensors
+        discover # package management is declarative via Nix, not a GUI store
       ];
     };
 
@@ -39,6 +39,10 @@
       imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
       programs.plasma.enable = true;
       programs.plasma.overrideConfig = false;
+
+      # To avoid homeManager activation fail
+      gtk.gtk2.force = true;
+      xdg.configFile."fontconfig/conf.d/10-hm-fonts.conf".force = true;
     };
   };
 }

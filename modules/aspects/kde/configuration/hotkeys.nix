@@ -1,0 +1,41 @@
+{
+  den.aspects.kde.homeManager = { host, user, ... }: {
+    programs.plasma = {
+      shortcuts = {
+        kwin = {
+          "Window Close" = "Meta+Q";
+          "Switch to Desktop 1" = "Meta+1";
+          "Switch to Desktop 2" = "Meta+2";
+          "Switch to Desktop 3" = "Meta+3";
+          "Switch to Desktop 4" = "Meta+4";
+          "Switch to Desktop 5" = "Meta+5";
+          "Switch to Desktop 6" = "Meta+6";
+        };
+
+        krunner = {
+          "run command" = "Meta+D";
+        };
+      };
+
+      hotkeys.commands = {
+        terminal = {
+          name = "Open Terminal";
+          key = "Meta+Return";
+          command = "${host.users.user.defaultTerminal}";
+        };
+
+        browser = {
+          name = "Open Browser";
+          key = "Meta+B";
+          command = "${host.users.user.defaultBrowser}";
+        };
+
+        fileManager = {
+          name = "Open File Manager";
+          key = "Meta+E";
+          command = "dolphin";
+        };
+      };
+    };
+  };
+}
