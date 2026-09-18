@@ -1,7 +1,7 @@
 {
   den.aspects.kde.homeManager = {
     programs.plasma.workspace = {
-      enableModdleClickPaste = false;
+      enableMiddleClickPaste = false;
       clickItemTo = "open";
       colorScheme = "BreezeDark";
       cursor = {
@@ -17,7 +17,10 @@
       theme = "breeze-dark";
       tooltipDelay = 50;
       widgetStyle = "breeze";
-      windowDecorations.library = "org.kde.kwin.aurorae";
+      windowDecorations = {
+        library = "org.kde.breeze";
+        theme = "Breeze";
+      };
     };
   };
 }

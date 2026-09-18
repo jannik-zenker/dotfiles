@@ -14,7 +14,6 @@
         plasma-workspace-wallpapers # KDE-Standardwallpaper
         konsole # Terminal
         kwin-x11 # X11-KWin
-        qttools # Qt-Entwicklungswerkzeuge
 
         elisa # Musikplayer
         gwenview # Bildbetrachter
@@ -38,6 +37,8 @@
 
     homeManager = {
       imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
+      programs.plasma.enable = true;
+      programs.plasma.overrideConfig = false;
     };
   };
 }

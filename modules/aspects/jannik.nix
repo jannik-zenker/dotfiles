@@ -10,6 +10,7 @@
       den.aspects.ghostty
       den.aspects.git
       den.aspects.gtk
+      den.aspects.kde
       den.aspects.modernCli
       den.aspects.nemo
       den.aspects.neovim
