@@ -6,7 +6,7 @@
     profile = "laptop";
 
     users.jannik = {
-      defaultBrowser = "zen-beta";
+      defaultBrowser = "firefox";
       defaultTerminal = "alacritty";
       gitName = "Jannik Zenker";
       gitMail = "accounts@jannikzenker.de";
@@ -29,7 +29,7 @@
     profile = "desktop";
 
     users.jannik = {
-      defaultBrowser = "zen-beta";
+      defaultBrowser = "firefox";
       defaultTerminal = "alacritty";
       gitName = "Jannik Zenker";
       gitMail = "accounts@jannikzenker.de";
@@ -43,7 +43,7 @@
     profile = "desktop";
 
     users.jannik = {
-      defaultBrowser = "zen-beta";
+      defaultBrowser = "firefox";
       defaultTerminal = "alacritty";
       gitName = "Jannik Zenker";
       gitMail = "accounts@jannikzenker.de";
