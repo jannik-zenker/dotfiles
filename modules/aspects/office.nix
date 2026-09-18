@@ -1,7 +1,7 @@
 {
   den.aspects.office.homeManager = { pkgs, ... }: {
     home.packages = with pkgs; [
-      libreoffice
+      onlyoffice-desktopeditors
       slack
       teams-for-linux
     ];
