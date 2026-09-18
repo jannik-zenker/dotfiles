@@ -7,7 +7,6 @@
 
     users.jannik = {
       defaultBrowser = "zen-beta";
-      defaultFileManager = "dolphin";
       defaultTerminal = "alacritty";
       gitName = "Jannik Zenker";
       gitMail = "accounts@jannikzenker.de";
@@ -31,7 +30,6 @@
 
     users.jannik = {
       defaultBrowser = "zen-beta";
-      defaultFileManager = "dolphin";
       defaultTerminal = "alacritty";
       gitName = "Jannik Zenker";
       gitMail = "accounts@jannikzenker.de";
@@ -46,7 +44,6 @@
 
     users.jannik = {
       defaultBrowser = "zen-beta";
-      defaultFileManager = "dolphin";
       defaultTerminal = "alacritty";
       gitName = "Jannik Zenker";
       gitMail = "accounts@jannikzenker.de";
