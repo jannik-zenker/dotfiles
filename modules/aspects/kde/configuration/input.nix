@@ -1,5 +1,5 @@
 {
-  den.aspects.kde = {
+  den.aspects.kde.homeManager = {
     programs.plasma.input = {
       keyboard = {
         layouts = [ { layout = "de"; } ];
