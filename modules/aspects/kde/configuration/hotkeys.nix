@@ -1,9 +1,16 @@
 {
-  den.aspects.kde.homeManager = { host, user, ... }: {
+  den.aspects.kde.homeManager = { user, ... }: {
     programs.plasma = {
       shortcuts = {
         kwin = {
+          # Remove default hotkey to be able to use it elsewhere
+          "Show Desktop" = [ ];
+
           "Window Close" = "Meta+Q";
+
+          "Window Maximize" = "Meta+F";
+          "Window Fullscreen" = "Meta+Shift+F";
+
           "Switch to Desktop 1" = "Meta+1";
           "Switch to Desktop 2" = "Meta+2";
           "Switch to Desktop 3" = "Meta+3";
@@ -15,19 +22,31 @@
         krunner = {
           "run command" = "Meta+D";
         };
+
+        plasmashell = {
+          # Remove default hotkeys to be able to use them elsewhere
+          "manage activities" = [ ];
+
+          "activate task manager entry 1" = [ ];
+          "activate task manager entry 2" = [ ];
+          "activate task manager entry 3" = [ ];
+          "activate task manager entry 4" = [ ];
+          "activate task manager entry 5" = [ ];
+          "activate task manager entry 6" = [ ];
+        };
       };
 
       hotkeys.commands = {
         terminal = {
           name = "Open Terminal";
           key = "Meta+Return";
-          command = "${host.users.user.defaultTerminal}";
+          command = "${user.defaultTerminal}";
         };
 
         browser = {
           name = "Open Browser";
           key = "Meta+B";
-          command = "${host.users.user.defaultBrowser}";
+          command = "${user.defaultBrowser}";
         };
 
         fileManager = {
@@ -35,6 +54,10 @@
           key = "Meta+E";
           command = "dolphin";
         };
+      };
+      configFile.kwinrc.Desktops.Number = {
+        value = 6;
+        immutable = true;
       };
     };
   };
