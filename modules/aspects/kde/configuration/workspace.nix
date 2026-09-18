@@ -2,7 +2,7 @@
   den.aspects.kde.homeManager = {
     programs.plasma.workspace = {
       enableMiddleClickPaste = false;
-      clickItemTo = "open";
+      clickItemTo = "select";
       colorScheme = "BreezeDark";
       cursor = {
         animationTime = 5;
