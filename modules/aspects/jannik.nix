@@ -6,8 +6,7 @@
       den.aspects.cava
       den.aspects.claudeCode
       den.aspects.desktopTools
-      den.aspects.fonts
-      den.aspects.ghostty
+      den.aspects.alacritty
       den.aspects.git
       den.aspects.gtk
       den.aspects.kde

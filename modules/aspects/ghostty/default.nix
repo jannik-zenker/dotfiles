@@ -1,13 +1,11 @@
 {
   den.aspects.ghostty = {
-    homeManager = {
+    homeManager = { pkgs, ... }: {
       programs.ghostty = {
         enable = true;
         enableZshIntegration = true;
         systemd.enable = true;
         settings = {
-          # Import color file if existent
-          config-file = [ "?themes/colors" ];
           # Font settings
           font-family = "MonaspiceNe Nerd Font Mono";
           font-size = 14;
@@ -23,6 +21,9 @@
           custom-shader = "shaders/cursor_warp.glsl";
         };
       };
+
+      fonts.fontconfig.enable = true;
+      home.packages = [ pkgs.nerd-fonts.monaspace ];
 
       xdg.configFile."ghostty/shaders".source = ./shaders;
     };
