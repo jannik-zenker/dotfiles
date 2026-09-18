@@ -67,6 +67,6 @@
       ];
 
     # Provide "gaming" group to users for access to /games drive
-    provides.to-users.extraGroups = [ "gaming" ];
+    provides.to-users.user.extraGroups = [ "gaming" ];
   };
 }

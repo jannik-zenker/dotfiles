@@ -1,110 +1,108 @@
 { self, ... }: {
-  den.aspects.foundryVTT = {
-    nixos =
+  den.aspects.foundryVTT.nixos =
+    {
+      config,
+      host,
+      lib,
+      ...
+    }:
+    lib.mkMerge [
+      (self.lib.mkRootlessContainerUser {
+        name = "foundry";
+        id = 300;
+        subIdStart = 165536;
+      })
       {
-        config,
-        host,
-        lib,
-        ...
-      }:
-      lib.mkMerge [
-        (self.lib.mkRootlessContainerUser {
-          name = "foundry";
-          id = 300;
-          subIdStart = 165536;
-        })
-        {
-          # Get username and password from secret file
-          sops.secrets."foundry-username" = {
-            sopsFile = ../../secrets/${host.name}/foundry.yaml;
-            owner = "foundry";
-            group = "foundry";
-            mode = "0400";
-          };
+        # Get username and password from secret file
+        sops.secrets."foundry-username" = {
+          sopsFile = ../../secrets/${host.name}/foundry.yaml;
+          owner = "foundry";
+          group = "foundry";
+          mode = "0400";
+        };
 
-          sops.secrets."foundry-password" = {
-            sopsFile = ../../secrets/${host.name}/foundry.yaml;
-            owner = "foundry";
-            group = "foundry";
-            mode = "0400";
-          };
+        sops.secrets."foundry-password" = {
+          sopsFile = ../../secrets/${host.name}/foundry.yaml;
+          owner = "foundry";
+          group = "foundry";
+          mode = "0400";
+        };
 
-          sops.secrets."foundry-admin-key" = {
-            sopsFile = ../../secrets/${host.name}/foundry.yaml;
-            owner = "foundry";
-            group = "foundry";
-            mode = "0400";
-          };
+        sops.secrets."foundry-admin-key" = {
+          sopsFile = ../../secrets/${host.name}/foundry.yaml;
+          owner = "foundry";
+          group = "foundry";
+          mode = "0400";
+        };
 
-          virtualisation.oci-containers = {
-            backend = "podman";
+        virtualisation.oci-containers = {
+          backend = "podman";
 
-            containers.foundry = {
-              image = "ghcr.io/felddy/foundryvtt:14";
-              pull = "newer";
-              hostname = "podman-foundry";
-              podman.user = "foundry";
+          containers.foundry = {
+            image = "ghcr.io/felddy/foundryvtt:14";
+            pull = "newer";
+            hostname = "podman-foundry";
+            podman.user = "foundry";
 
-              volumes = [ "${config.users.users.foundry.home}:/data" ];
+            volumes = [ "${config.users.users.foundry.home}:/data" ];
 
-              environment = {
-                CONTAINER_CACHE = "/data/container_cache";
-                CONTAINER_CACHE_SIZE = "3";
-                CONTAINER_PRESERVE_CONFIG = "true";
-                CONTAINER_VERBOSE = "false";
-                FOUNDRY_COMPRESS_WEBSOCKET = "true";
-                FOUNDRY_CSS_THEME = "fantasy";
+            environment = {
+              CONTAINER_CACHE = "/data/container_cache";
+              CONTAINER_CACHE_SIZE = "3";
+              CONTAINER_PRESERVE_CONFIG = "true";
+              CONTAINER_VERBOSE = "false";
+              FOUNDRY_COMPRESS_WEBSOCKET = "true";
+              FOUNDRY_CSS_THEME = "fantasy";
 
-                FOUNDRY_HOSTNAME = "foundry.jannikzenker.de";
+              FOUNDRY_HOSTNAME = "foundry.jannikzenker.de";
 
-                FOUNDRY_HOT_RELOAD = "false"; # Only recommended for developers
-                FOUNDRY_IP_DISCOVERY = "false";
-                FOUNDRY_LANGUAGE = "en.core";
+              FOUNDRY_HOT_RELOAD = "false"; # Only recommended for developers
+              FOUNDRY_IP_DISCOVERY = "false";
+              FOUNDRY_LANGUAGE = "en.core";
 
-                FOUNDRY_LOG_SIZE = "64m";
-                FOUNDRY_MAX_LOGS = "7";
+              FOUNDRY_LOG_SIZE = "64m";
+              FOUNDRY_MAX_LOGS = "7";
 
-                FOUNDRY_MINIFY_STATIC_FILES = "true";
-                FOUNDRY_NO_BACKUPS = "true"; # since the server does external backups
-                FOUNDRY_PROXY_PORT = "443";
-                FOUNDRY_PROXY_SSL = "true";
+              FOUNDRY_MINIFY_STATIC_FILES = "true";
+              FOUNDRY_NO_BACKUPS = "true"; # since the server does external backups
+              FOUNDRY_PROXY_PORT = "443";
+              FOUNDRY_PROXY_SSL = "true";
 
-                FOUNDRY_TELEMETRY = "true";
-              };
-
-              environmentFiles = [
-                config.sops.secrets."foundry-username".path
-                config.sops.secrets."foundry-password".path
-                config.sops.secrets."foundry-admin-key".path
-              ];
-
-              ports = [
-                "127.0.0.1:30000:30000"
-                "[::1]:30000:30000"
-              ];
-
-              extraOptions = [
-                "--cap-drop=all"
-                "--security-opt=no-new-privileges:true"
-                "--replace"
-                "--userns=keep-id"
-                "--user=300:300"
-              ];
-
-              autoStart = true;
+              FOUNDRY_TELEMETRY = "true";
             };
-          };
 
-          services.nginx.virtualHosts."foundry.jannikzenker.de" = {
-            enableACME = true;
-            forceSSL = true;
+            environmentFiles = [
+              config.sops.secrets."foundry-username".path
+              config.sops.secrets."foundry-password".path
+              config.sops.secrets."foundry-admin-key".path
+            ];
 
-            locations."/" = {
-              proxyPass = "http://127.0.0.1:30000";
-              proxyWebsockets = true;
-            };
+            ports = [
+              "127.0.0.1:30000:30000"
+              "[::1]:30000:30000"
+            ];
+
+            extraOptions = [
+              "--cap-drop=all"
+              "--security-opt=no-new-privileges:true"
+              "--replace"
+              "--userns=keep-id"
+              "--user=300:300"
+            ];
+
+            autoStart = true;
           };
-        }
-      ];
-  };
+        };
+
+        services.nginx.virtualHosts."foundry.jannikzenker.de" = {
+          enableACME = true;
+          forceSSL = true;
+
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:30000";
+            proxyWebsockets = true;
+          };
+        };
+      }
+    ];
 }

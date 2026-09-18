@@ -6,17 +6,15 @@
     };
   };
 
-  den.aspects.sopsNix = {
-    nixos = {
-      imports = [ inputs.sops-nix.nixosModules.sops ];
+  den.aspects.sopsNix.nixos = {
+    imports = [ inputs.sops-nix.nixosModules.sops ];
 
-      sops = {
-        validateSopsFiles = true;
+    sops = {
+      validateSopsFiles = true;
 
-        age = {
-          # automatically import host SSH key as age key
-          sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-        };
+      age = {
+        # automatically import host SSH key as age key
+        sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
       };
     };
   };

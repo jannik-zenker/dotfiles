@@ -13,10 +13,6 @@
         subIdStart = 231072;
       })
       {
-        # Populate with:
-        #   booklore-db-password:            "DATABASE_PASSWORD=<password>"
-        #   booklore-mariadb-password:       "MYSQL_PASSWORD=<same password as above>"
-        #   booklore-mariadb-root-password:  "MYSQL_ROOT_PASSWORD=<root password>"
         sops.secrets."booklore-db-password" = {
           sopsFile = ../../secrets/${host.name}/booklore.yaml;
           owner = "booklore";

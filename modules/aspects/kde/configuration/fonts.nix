@@ -1,6 +1,6 @@
 {
   den.aspects.kde = {
-    homeManager = _: {
+    homeManager = {
       programs.plasma.fonts = {
         general = {
           family = "Inter";

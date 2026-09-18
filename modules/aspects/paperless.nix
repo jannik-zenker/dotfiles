@@ -1,3 +1,8 @@
+{ self, ... }:
+let
+  hub = self.data.wireguardNetwork.hub;
+  hubIpv4 = self.data.wireguardNetwork.peers.${hub}.ipv4;
+in
 {
   den.aspects.paperless.nixos = { config, host, ... }: {
     sops.secrets."paperless-admin-pass" = {
@@ -12,9 +17,9 @@
       passwordFile = config.sops.secrets."paperless-admin-pass".path;
       user = "paperless";
 
-      address = "10.0.0.1";
+      address = hubIpv4;
       port = 8000;
-      domain = "10.0.0.1";
+      domain = hubIpv4;
       configureNginx = false;
 
       configureTika = true;
