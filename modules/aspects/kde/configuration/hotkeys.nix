@@ -3,9 +3,6 @@
     programs.plasma = {
       shortcuts = {
         kwin = {
-          # Remove default hotkey to be able to use it elsewhere
-          "Show Desktop" = [ ];
-
           "Window Close" = "Meta+Q";
 
           "Window Maximize" = "Meta+F";
@@ -19,8 +16,9 @@
           "Switch to Desktop 6" = "Meta+6";
         };
 
-        krunner = {
-          "run command" = "Meta+D";
+        # Remove default hotkey to be able to use it elsewhere
+        org_kde_powerdevil = {
+          powerProfile = [ ];
         };
 
         plasmashell = {
@@ -54,10 +52,6 @@
           key = "Meta+E";
           command = "dolphin";
         };
-      };
-      configFile.kwinrc.Desktops.Number = {
-        value = 6;
-        immutable = true;
       };
     };
   };

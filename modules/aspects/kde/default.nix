@@ -37,8 +37,11 @@
 
     homeManager = {
       imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
-      programs.plasma.enable = true;
-      programs.plasma.overrideConfig = false;
+      programs.plasma = {
+        enable = true;
+        overrideConfig = false;
+        immutableByDefault = true;
+      };
 
       # To avoid homeManager activation fail
       gtk.gtk2.force = true;
