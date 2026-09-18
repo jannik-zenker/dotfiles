@@ -1,7 +1,7 @@
 { self, ... }:
 let
   hub = self.data.wireguardNetwork.hub;
-  hubIpv4 = self.data.wireguardNetwork.peers.${hub}.ipv4;
+  hubIpv4 = self.data.wireguardNetwork.peers.${hub}.ip4;
 in
 {
   den.aspects.paperless.nixos = { config, host, ... }: {
