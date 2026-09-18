@@ -63,8 +63,6 @@ in
         };
       };
 
-    inherit mkSubvolume;
-
     # Builds a disko btrfs `subvolumes` attrset from a plain name -> mountpoint
     # mapping, applying mkSubvolume's default mountOptions to each one. Pass a
     # full { mountpoint; mountOptions; } attrset instead of a string for any
