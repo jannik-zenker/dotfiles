@@ -1,12 +1,6 @@
-{
+{ den, ... }: {
   den.aspects.gtk = {
-    nixos = { pkgs, ... }: {
-
-      # Fix gtk3 apps not finding schemas
-      environment.sessionVariables.XDG_DATA_DIRS = [
-        "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
-      ];
-    };
+    includes = [ den.aspects.papirusIconTheme ];
 
     homeManager = { pkgs, ... }: {
       gtk = {
@@ -36,6 +30,13 @@
         cursor-size = 24;
         font-name = "Inter 11";
       };
+    };
+
+    provides.to-hosts.nixos = { pkgs, ... }: {
+      # Fix gtk3 apps not finding schemas
+      environment.sessionVariables.XDG_DATA_DIRS = [
+        "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
+      ];
     };
   };
 }

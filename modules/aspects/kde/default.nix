@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ inputs, den, ... }: {
   flake-file.inputs.plasma-manager = {
     url = "github:nix-community/plasma-manager";
 
@@ -7,6 +7,8 @@
   };
 
   den.aspects.kde = {
+    includes = [ den.aspects.papirusIconTheme ];
+
     nixos = { pkgs, ... }: {
       services.desktopManager.plasma6.enable = true;
       # Trim the default Plasma bundle to what this setup actually uses;
