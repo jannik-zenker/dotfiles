@@ -16,6 +16,7 @@
       den.aspects.nextcloudClient
       den.aspects.obsidian
       den.aspects.office
+      den.aspects.spotify
       den.aspects.starship
       den.aspects.vesktop
       den.aspects.zsh

@@ -66,6 +66,37 @@
             "jid1-BoFifL9Vbdl2zQ@jetpack" = extension "decentraleyes";
           };
       };
+      profiles.default = {
+        search = {
+          default = "startpage";
+
+          engines = {
+            startpage = {
+              name = "Startpage";
+
+              urls = [
+                {
+                  template = "https://www.startpage.com/sp/search";
+                  params = [
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+
+              definedAliases = [ "@sp" ];
+            };
+          };
+
+          order = [
+            "startpage"
+            "ddg"
+            "google"
+          ];
+        };
+      };
     };
   };
 }
