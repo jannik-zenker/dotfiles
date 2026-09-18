@@ -2,11 +2,12 @@
   den.aspects.kde.homeManager = {
     programs.plasma.panels = [
       {
-        screen = "all";
+        screen = 0;
 
         location = "bottom";
         floating = true;
         alignment = "center";
+        hiding = "dodgewindows";
 
         lengthMode = "fit";
 
