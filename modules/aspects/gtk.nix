@@ -19,8 +19,7 @@
           name = "Papirus-Dark";
         };
         cursorTheme = {
-          name = "Bibata-Modern-Classic";
-          package = pkgs.bibata-cursors;
+          name = "Breeze_Snow";
           size = 24;
         };
         font = {
@@ -33,7 +32,7 @@
       dconf.settings."org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
         icon-theme = "Papirus-Dark";
-        cursor-theme = "Bibata-Modern-Classic";
+        cursor-theme = "Breeze_Snow";
         cursor-size = 24;
         font-name = "Inter 11";
       };

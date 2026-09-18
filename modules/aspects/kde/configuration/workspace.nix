@@ -12,7 +12,6 @@
         theme = "Breeze_Snow";
       };
       iconTheme = "Papirus";
-      lookAndFeel = "org.kde.breezedark.desktop";
       soundTheme = "ocean";
       theme = "breeze-dark";
       tooltipDelay = 50;

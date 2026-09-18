@@ -5,12 +5,7 @@
         rm -f "${config.xdg.configHome}/cava/config"
       '';
 
-      programs.cava = {
-        enable = true;
-        settings = {
-          color.theme = lib.mkIf (lib.attrByPath [ "programs" "noctalia" "enable" ] false config) "noctalia";
-        };
-      };
+      programs.cava.enable = true;
     };
   };
 }

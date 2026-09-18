@@ -7,10 +7,7 @@
         systemd.enable = true;
         settings = {
           # Import color file if existent
-          config-file = [
-            "?themes/colors"
-            "?themes/noctalia"
-          ];
+          config-file = [ "?themes/colors" ];
           # Font settings
           font-family = "MonaspiceNe Nerd Font Mono";
           font-size = 14;

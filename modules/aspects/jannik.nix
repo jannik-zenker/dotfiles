@@ -12,14 +12,11 @@
       den.aspects.gtk
       den.aspects.kde
       den.aspects.modernCli
-      den.aspects.nemo
       den.aspects.neovim
       den.aspects.nextcloudClient
       den.aspects.obsidian
       den.aspects.office
-      den.aspects.pywalfox
       den.aspects.starship
-      den.aspects.thunderbird
       den.aspects.vesktop
       den.aspects.zenBrowser
       den.aspects.zsh

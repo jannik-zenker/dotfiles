@@ -2,11 +2,7 @@
   den.aspects.kde = {
     programs.plasma.input = {
       keyboard = {
-        layouts = [
-          {
-            layout = "de";
-          }
-        ];
+        layouts = [ { layout = "de"; } ];
 
         numlockOnStartup = "on";
         repeatDelay = 200;

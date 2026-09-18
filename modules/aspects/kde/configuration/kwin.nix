@@ -63,9 +63,7 @@
       scripts.polonium.enable = false;
 
       titlebarButtons = {
-        left = [
-          "application-menu"
-        ];
+        left = [ "application-menu" ];
         right = [
           "minimize"
           "maximize"
