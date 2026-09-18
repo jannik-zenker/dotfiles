@@ -8,8 +8,8 @@
       effects = {
         blur = {
           enable = true;
-          noiseStrength = 8;
-          strength = 5;
+          noiseStrength = 2;
+          strength = 13;
         };
 
         cube.enable = false;
