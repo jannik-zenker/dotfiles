@@ -18,6 +18,7 @@
       den.aspects.obsidian
       den.aspects.office
       den.aspects.spotify
+      den.aspects.sshAgent
       den.aspects.starship
       den.aspects.vesktop
       den.aspects.zsh

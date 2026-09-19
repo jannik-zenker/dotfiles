@@ -11,6 +11,16 @@
 
     nixos = { pkgs, ... }: {
       services.desktopManager.plasma6.enable = true;
+
+      # Let ssh-add prompt for key passphrases via KWallet instead of a TTY.
+      programs.ssh = {
+        askPassword = "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
+        enableAskPassword = true;
+      };
+      # Force KWallet prompt even when using a terminal emulator
+      # WARNING: This could cause problems in non-graphical tty-sessions
+      environment.sessionVariables.SSH_ASKPASS_REQUIRE = "force";
+
       # Trim the default Plasma bundle to what this setup actually uses;
       # several defaults are covered by dedicated aspects instead.
       environment.plasma6.excludePackages = with pkgs.kdePackages; [
