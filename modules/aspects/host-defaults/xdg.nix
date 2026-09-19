@@ -144,6 +144,11 @@
 
           inherit defaultApplications;
         };
+
+        terminal-exec = lib.mkIf (builtins.hasAttr "terminal" cfg) {
+          enable = true;
+          settings.default = [ cfg.terminal.desktopFile ];
+        };
       };
     };
 }
