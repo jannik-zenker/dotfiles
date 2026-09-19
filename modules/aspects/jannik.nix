@@ -6,12 +6,12 @@
       den.aspects.bitwardenDesktop
       den.aspects.cava
       den.aspects.claudeCode
-      den.aspects.desktopTools
       den.aspects.firefox
       den.aspects.git
       den.aspects.gtk
       den.aspects.kde
       den.aspects.modernCli
+      den.aspects.mpv
       den.aspects.neovim
       den.aspects.nextcloudClient
       den.aspects.obsidian
