@@ -145,6 +145,10 @@
           inherit defaultApplications;
         };
 
+        # GUI default-app pickers (e.g. KDE's Default Applications) write
+        # mimeapps.list directly, replacing the symlink; force it back.
+        configFile."mimeapps.list".force = true;
+
         terminal-exec = lib.mkIf (builtins.hasAttr "terminal" cfg) {
           enable = true;
           settings.default = [ cfg.terminal.desktopFile ];

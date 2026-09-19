@@ -73,6 +73,10 @@
       };
       profiles.default = {
         search = {
+          # Firefox replaces this symlink with a real file on every launch,
+          # so home-manager must be allowed to clobber it back on switch.
+          force = true;
+
           default = "startpage";
 
           engines = {
