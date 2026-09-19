@@ -44,6 +44,7 @@
         # Create users from user declarations in host declarations
         includes = [
           den.batteries.define-user
+          den.aspects.environment
           den.aspects.xdg
         ];
       };
