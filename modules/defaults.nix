@@ -4,43 +4,16 @@
     default = {
       nixos =
         {
-          config,
           host,
           lib,
           modulesPath,
           ...
         }:
-        let
-          passwordUsers = (lib.attrNames host.users) ++ [ "root" ];
-        in
         {
           # Every physical host needs its scanned hardware-configuration import
-          # and a platform + microcode setup derived from its own metadata.
+          # and a platform setup derived from its own metadata.
           imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
           nixpkgs.hostPlatform = lib.mkDefault host.system;
-          hardware.cpu.${host.cpu}.updateMicrocode =
-            lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-          nixpkgs.config.allowUnfree = true; # needed for proprietary firmware
-          hardware.enableAllFirmware = true;
-          services.fwupd.enable = true;
-
-          # Generate host ssh-keys by default
-          services.openssh.generateHostKeys = true;
-
-          # Turn off mutable users since they are managed decleratively
-          users.mutableUsers = false;
-
-          # Get user/root password sops secrets
-          sops.secrets = lib.genAttrs (map (name: "${name}-password") passwordUsers) (_: {
-            sopsFile = ../secrets/${host.name}/passwords.yaml;
-            neededForUsers = true;
-          });
-
-          # Set passwords for root and users
-          users.users = lib.genAttrs passwordUsers (name: {
-            hashedPasswordFile = config.sops.secrets."${name}-password".path;
-          });
         };
 
       homeManager = { osConfig, ... }: { home.stateVersion = osConfig.system.stateVersion; };
@@ -53,6 +26,7 @@
           den.aspects.bootloader
           den.aspects.defaultPackages
           den.aspects.disko
+          den.aspects.firmware
           den.aspects.git
           den.aspects.graphics
           den.aspects.journald
