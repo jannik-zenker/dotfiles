@@ -42,7 +42,10 @@
         # Enable home-manager class evaluation by default for every user
         classes = lib.mkDefault [ "homeManager" ];
         # Create users from user declarations in host declarations
-        includes = [ den.batteries.define-user ];
+        includes = [
+          den.batteries.define-user
+          den.aspects.xdg
+        ];
       };
     };
   };

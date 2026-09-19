@@ -1,5 +1,5 @@
 { lib, ... }: {
-  den.aspects.xdg.provides.to-users.homeManager =
+  den.aspects.xdg.homeManager =
     { config, host, ... }:
     let
       cfg = config.defaultApps;
