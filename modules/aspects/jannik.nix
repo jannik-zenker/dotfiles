@@ -18,6 +18,7 @@
       den.aspects.nextcloudClient
       den.aspects.obsidian
       den.aspects.office
+      den.aspects.okular
       den.aspects.spotify
       den.aspects.sshAgent
       den.aspects.starship
