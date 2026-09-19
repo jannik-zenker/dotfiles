@@ -10,6 +10,7 @@
       den.aspects.firefox
       den.aspects.git
       den.aspects.gtk
+      den.aspects.gwenview
       den.aspects.kde
       den.aspects.modernCli
       den.aspects.mpv
