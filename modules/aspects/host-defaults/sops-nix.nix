@@ -7,7 +7,12 @@
   };
 
   den.aspects.sopsNix.nixos =
-    { config, host, lib, ... }:
+    {
+      config,
+      host,
+      lib,
+      ...
+    }:
     let
       passwordUsers = (lib.attrNames host.users) ++ [ "root" ];
     in
