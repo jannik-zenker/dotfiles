@@ -39,6 +39,19 @@
 
     homeManager = {
       imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
+
+      defaultApps = {
+        fileManager = {
+          command = "dolphin";
+          desktopFile = "org.kde.dolphin.desktop";
+        };
+
+        archiveManager = {
+          command = "ark";
+          desktopFile = "org.kde.ark.desktop";
+        };
+      };
+
       programs.plasma = {
         enable = true;
         overrideConfig = false;

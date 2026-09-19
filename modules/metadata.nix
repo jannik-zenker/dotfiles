@@ -41,18 +41,6 @@
 
     user = {
       options = {
-        defaultBrowser = lib.mkOption {
-          type = lib.types.str;
-          default = "";
-          description = "Default browser command";
-        };
-
-        defaultTerminal = lib.mkOption {
-          type = lib.types.str;
-          default = "";
-          description = "Default terminal command";
-        };
-
         gitName = lib.mkOption {
           type = lib.types.nullOr lib.types.str;
           default = null;

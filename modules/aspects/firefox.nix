@@ -1,5 +1,10 @@
 {
   den.aspects.firefox.homeManager = { config, ... }: {
+    defaultApps.browser = {
+      command = "firefox";
+      desktopFile = "firefox.desktop";
+    };
+
     programs.firefox = {
       enable = true;
 

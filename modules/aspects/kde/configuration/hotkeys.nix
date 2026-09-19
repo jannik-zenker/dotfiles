@@ -1,5 +1,5 @@
 {
-  den.aspects.kde.homeManager = { user, ... }: {
+  den.aspects.kde.homeManager = { config, ... }: {
     programs.plasma = {
       shortcuts = {
         kwin = {
@@ -38,19 +38,19 @@
         terminal = {
           name = "Open Terminal";
           key = "Meta+Return";
-          command = "${user.defaultTerminal}";
+          command = config.defaultApps.terminal.command;
         };
 
         browser = {
           name = "Open Browser";
           key = "Meta+B";
-          command = "${user.defaultBrowser}";
+          command = config.defaultApps.browser.command;
         };
 
         fileManager = {
           name = "Open File Manager";
           key = "Meta+E";
-          command = "dolphin";
+          command = config.defaultApps.fileManager.command;
         };
       };
     };

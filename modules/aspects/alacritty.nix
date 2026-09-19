@@ -1,5 +1,10 @@
 {
   den.aspects.alacritty.homeManager = { pkgs, ... }: {
+    defaultApps.terminal = {
+      command = "alacritty";
+      desktopFile = "Alacritty.desktop";
+    };
+
     programs.alacritty = {
       enable = true;
 
