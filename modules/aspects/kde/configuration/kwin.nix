@@ -30,7 +30,7 @@
 
         minimization = {
           animation = "magiclamp";
-          duration = 50;
+          duration = 200;
         };
 
         shakeCursor.enable = false;
