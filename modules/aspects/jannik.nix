@@ -6,6 +6,7 @@
       den.aspects.bitwardenDesktop
       den.aspects.cava
       den.aspects.claudeCode
+      den.aspects.dolphin
       den.aspects.firefox
       den.aspects.git
       den.aspects.gtk
