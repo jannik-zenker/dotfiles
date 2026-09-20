@@ -13,14 +13,8 @@
         sops.secrets.ATTIC_SERVER_TOKEN_RS256_SECRET_BASE64 = {
           sopsFile = ../../secrets/${host.name}/attic.env;
           format = "dotenv";
-        };
-
-        sops.templates."attic.env" = {
+          key = "";
           mode = "0400";
-
-          content = ''
-            ATTIC_SERVER_TOKEN_RS256_SECRET_BASE64=${config.sops.placeholder.ATTIC_SERVER_TOKEN_RS256_SECRET_BASE64}
-          '';
         };
 
         services.atticd = {
@@ -31,7 +25,7 @@
           user = "atticd";
           group = "atticd";
 
-          environmentFile = config.sops.templates."attic.env".path;
+          environmentFile = config.sops.secrets."attic.env".path;
         };
 
         services.nginx.virtualHosts.${cacheDomain} = {
