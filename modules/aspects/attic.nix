@@ -13,7 +13,6 @@
         sops.secrets."attic.env" = {
           sopsFile = ../../secrets/${host.name}/attic.env;
           format = "dotenv";
-          key = "";
 
           owner = "atticd";
           group = "atticd";
