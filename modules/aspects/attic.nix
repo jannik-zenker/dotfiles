@@ -10,13 +10,17 @@
         cacheDomain = "cache.jannikzenker.de";
       in
       {
-        sops.secrets."attic.env" = {
+        sops.secrets.ATTIC_SERVER_TOKEN_RS256_SECRET_BASE64 = {
           sopsFile = ../../secrets/${host.name}/attic.env;
           format = "dotenv";
+        };
 
-          owner = "atticd";
-          group = "atticd";
+        sops.templates."attic.env" = {
           mode = "0400";
+
+          content = ''
+            ATTIC_SERVER_TOKEN_RS256_SECRET_BASE64=${config.sops.placeholder.ATTIC_SERVER_TOKEN_RS256_SECRET_BASE64}
+          '';
         };
 
         services.atticd = {
