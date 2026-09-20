@@ -10,7 +10,7 @@
         cacheDomain = "cache.jannikzenker.de";
       in
       {
-        sops.secrets.ATTIC_SERVER_TOKEN_RS256_SECRET_BASE64 = {
+        sops.secrets."attic.env" = {
           sopsFile = ../../secrets/${host.name}/attic.env;
           format = "dotenv";
           key = "";
