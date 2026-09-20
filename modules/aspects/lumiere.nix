@@ -1,6 +1,7 @@
 { den, self, ... }: {
   den.aspects.lumiere = {
     includes = [
+      den.aspects.attic
       den.aspects.booklore
       den.aspects.btrbk
       den.aspects.cloudflareDdns
