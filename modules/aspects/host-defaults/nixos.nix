@@ -9,12 +9,8 @@
         ];
 
         # Add this repos binary cache that contains already built machine configurations
-        extra-substituters = [
-          "https://cache.jannikzenker.de/dotfiles"
-        ];
-        extra-trusted-public-keys = [
-          "dotfiles:2EaWL5tiEyYzC5KdZeR6f/V9DbVQZUQthxiVg19I3nk="
-        ];
+        extra-substituters = [ "https://cache.jannikzenker.de/dotfiles" ];
+        extra-trusted-public-keys = [ "dotfiles:2EaWL5tiEyYzC5KdZeR6f/V9DbVQZUQthxiVg19I3nk=" ];
       };
       optimise = {
         automatic = true;

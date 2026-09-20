@@ -7,70 +7,70 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v6
-      with:
-        ref: main
-        token: ${{ secrets.UPDATE_BOT_TOKEN }}
-    - name: Install Nix
-      uses: DeterminateSystems/nix-installer-action@main
-    - name: Update flake.lock
-      run: nix flake update
-    - id: changes
-      name: Check for changes
-      run: |-
-        if git diff --quiet -- flake.lock; then
-          echo "changed=false" >> "$GITHUB_OUTPUT"
-        else
-          echo "changed=true" >> "$GITHUB_OUTPUT"
-        fi
-    - if: steps.changes.outputs.changed == 'true'
-      name: Configure git
-      run: |-
-        git config user.name "github-actions[bot]"
-        git config user.email \
-          "41898282+github-actions[bot]@users.noreply.github.com"
-    - if: steps.changes.outputs.changed == 'true'
-      name: Commit update
-      run: |-
-        git add flake.lock
-        git commit -m "chore: update flake.lock"
-    - if: steps.changes.outputs.changed == 'true'
-      name: Push update branch
-      run: |-
-        git fetch origin bot/flake-update \
-          || true
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          token: ${{ secrets.UPDATE_BOT_TOKEN }}
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+      - name: Update flake.lock
+        run: nix flake update
+      - id: changes
+        name: Check for changes
+        run: |-
+          if git diff --quiet -- flake.lock; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - if: steps.changes.outputs.changed == 'true'
+        name: Configure git
+        run: |-
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+      - if: steps.changes.outputs.changed == 'true'
+        name: Commit update
+        run: |-
+          git add flake.lock
+          git commit -m "chore: update flake.lock"
+      - if: steps.changes.outputs.changed == 'true'
+        name: Push update branch
+        run: |-
+          git fetch origin bot/flake-update \
+            || true
 
-        git switch -C bot/flake-update
-        git push \
-          --force-with-lease \
-          --set-upstream origin bot/flake-update
-    - env:
-        GH_TOKEN: ${{ secrets.UPDATE_BOT_TOKEN }}
-      if: steps.changes.outputs.changed == 'true'
-      name: Create pull request
-      run: |-
-        if ! gh pr view bot/flake-update \
-          --repo "$GITHUB_REPOSITORY" \
-          >/dev/null 2>&1
-        then
-          gh pr create \
+          git switch -C bot/flake-update
+          git push \
+            --force-with-lease \
+            --set-upstream origin bot/flake-update
+      - env:
+          GH_TOKEN: ${{ secrets.UPDATE_BOT_TOKEN }}
+        if: steps.changes.outputs.changed == 'true'
+        name: Create pull request
+        run: |-
+          if ! gh pr view bot/flake-update \
             --repo "$GITHUB_REPOSITORY" \
-            --base main \
-            --head bot/flake-update \
-            --title "chore: update flake.lock" \
-            --body "Automated daily flake input update."
-        fi
+            >/dev/null 2>&1
+          then
+            gh pr create \
+              --repo "$GITHUB_REPOSITORY" \
+              --base main \
+              --head bot/flake-update \
+              --title "chore: update flake.lock" \
+              --body "Automated daily flake input update."
+          fi
 
-        gh pr merge bot/flake-update \
-          --repo "$GITHUB_REPOSITORY" \
-          --auto \
-          --squash
+          gh pr merge bot/flake-update \
+            --repo "$GITHUB_REPOSITORY" \
+            --auto \
+            --squash
     timeout-minutes: 60
 name: Update flake
-'on':
+"on":
   schedule:
-  - cron: 0 4 * * *
+    - cron: 0 4 * * *
   workflow_dispatch: {}
 permissions:
   contents: write

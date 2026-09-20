@@ -23,9 +23,7 @@
         sessionVariables.SSH_ASKPASS_REQUIRE = "force";
 
         # Clipboard provider for terminal programs like vim
-        systemPackages = [
-          pkgs.wl-clipboard
-        ];
+        systemPackages = [ pkgs.wl-clipboard ];
 
         # Trim the default Plasma bundle to what this setup actually uses;
         # several defaults are covered by dedicated aspects instead.

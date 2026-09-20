@@ -39,7 +39,7 @@
             extra-trusted-public-keys = ${attic.publicKey}
           '';
 
-          nixosHosts = lib.mapAttrsToList (name: config: {
+          nixosHosts = lib.mapAttrsToList (name: _: {
             hostname = name;
             output = "nixosConfigurations.${name}.config.system.build.toplevel";
           }) self.nixosConfigurations;
@@ -47,7 +47,7 @@
           commonSteps = [
             {
               name = "Checkout";
-              uses = "actions/checkout@v6";
+              uses = "actions/checkout@v7";
             }
 
             {
