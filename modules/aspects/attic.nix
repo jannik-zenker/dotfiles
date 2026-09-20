@@ -31,7 +31,7 @@
           user = "atticd";
           group = "atticd";
 
-          environmentFile = config.sops.secrets."attic.env".path;
+          environmentFile = config.sops.templates."attic.env".path;
         };
 
         services.nginx.virtualHosts.${cacheDomain} = {
