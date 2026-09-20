@@ -171,8 +171,6 @@
           on = {
             pull_request = { };
 
-            push.branches = [ "main" ];
-
             workflow_dispatch = { };
           };
 
