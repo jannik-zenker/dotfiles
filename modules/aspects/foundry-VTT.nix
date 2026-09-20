@@ -57,7 +57,7 @@
               FOUNDRY_COMPRESS_WEBSOCKET = "true";
               FOUNDRY_CSS_THEME = "fantasy";
 
-              FOUNDRY_HOSTNAME = "${foundryDomain}";
+              FOUNDRY_HOSTNAME = foundryDomain;
 
               FOUNDRY_HOT_RELOAD = "false"; # Only recommended for developers
               FOUNDRY_IP_DISCOVERY = "false";

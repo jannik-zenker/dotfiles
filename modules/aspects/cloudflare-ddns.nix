@@ -1,5 +1,8 @@
 { self, ... }: {
   den.aspects.cloudflareDdns.nixos =
+    let
+      domains = "jannikzenker.de,*.jannikzenker.de,lumiere.jannikzenker.de";
+    in
     {
       config,
       host,
@@ -31,7 +34,7 @@
             podman.user = "cloudflare-ddns";
 
             environment = {
-              DOMAINS = "jannikzenker.de,cloud.jannikzenker.de,foundry.jannikzenker.de,jellyfin.jannikzenker.de,lumiere.jannikzenker.de";
+              DOMAINS = domains;
             };
 
             environmentFiles = [ config.sops.secrets."cloudflare-api-token".path ];
