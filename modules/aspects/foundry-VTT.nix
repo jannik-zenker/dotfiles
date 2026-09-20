@@ -1,5 +1,8 @@
 { self, ... }: {
   den.aspects.foundryVTT.nixos =
+    let
+      foundryDomain = "foundry.jannikzenker.de";
+    in
     {
       config,
       host,
@@ -54,7 +57,7 @@
               FOUNDRY_COMPRESS_WEBSOCKET = "true";
               FOUNDRY_CSS_THEME = "fantasy";
 
-              FOUNDRY_HOSTNAME = "foundry.jannikzenker.de";
+              FOUNDRY_HOSTNAME = "${foundryDomain}";
 
               FOUNDRY_HOT_RELOAD = "false"; # Only recommended for developers
               FOUNDRY_IP_DISCOVERY = "false";
@@ -94,7 +97,7 @@
           };
         };
 
-        services.nginx.virtualHosts."foundry.jannikzenker.de" = {
+        services.nginx.virtualHosts.${foundryDomain} = {
           enableACME = true;
           forceSSL = true;
 

@@ -17,36 +17,43 @@
         askPassword = "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
         enableAskPassword = true;
       };
-      # Force KWallet prompt even when using a terminal emulator
-      # WARNING: This could cause problems in non-graphical tty-sessions
-      environment.sessionVariables.SSH_ASKPASS_REQUIRE = "force";
+      environment = {
+        # Force KWallet prompt even when using a terminal emulator
+        # WARNING: This could cause problems in non-graphical tty-sessions
+        sessionVariables.SSH_ASKPASS_REQUIRE = "force";
 
-      # Trim the default Plasma bundle to what this setup actually uses;
-      # several defaults are covered by dedicated aspects instead.
-      environment.plasma6.excludePackages = with pkgs.kdePackages; [
-        plasma-browser-integration
-        plasma-workspace-wallpapers
-        konsole
-        kwin-x11
-        elisa
-        gwenview
-        okular
-        kate
-        ktexteditor
-        khelpcenter
-        dolphin
-        ark
+        # Clipboard provider for terminal programs like vim
+        systemPackages = [
+          pkgs.wl-clipboard
+        ];
 
-        krdp
+        # Trim the default Plasma bundle to what this setup actually uses;
+        # several defaults are covered by dedicated aspects instead.
+        plasma6.excludePackages = with pkgs.kdePackages; [
+          plasma-browser-integration
+          plasma-workspace-wallpapers
+          konsole
+          kwin-x11
+          elisa
+          gwenview
+          okular
+          kate
+          ktexteditor
+          khelpcenter
+          dolphin
+          ark
 
-        plasma-keyboard
-        qtvirtualkeyboard
+          krdp
 
-        union
-        qrca
-        qtsensors
-        discover # package management is declarative via Nix, not a GUI store
-      ];
+          plasma-keyboard
+          qtvirtualkeyboard
+
+          union
+          qrca
+          qtsensors
+          discover # package management is declarative via Nix, not a GUI store
+        ];
+      };
     };
 
     homeManager = {
