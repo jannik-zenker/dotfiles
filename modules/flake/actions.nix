@@ -112,7 +112,7 @@
                 name = "Create pull request";
                 "if" = "steps.changes.outputs.changed == 'true'";
 
-                env.GH_TOKEN = "\${{ secrets.GITHUB_TOKEN }}";
+                env.GH_TOKEN = "\${{ secrets.UPDATE_BOT_TOKEN }}";
 
                 run = ''
                   if ! gh pr view bot/flake-update \
@@ -126,6 +126,11 @@
                       --title "chore: update flake.lock" \
                       --body "Automated daily flake input update."
                   fi
+
+                  gh pr merge bot/flake-update \
+                    --repo "$GITHUB_REPOSITORY" \
+                    --auto \
+                    --squash
                 '';
               }
             ];
