@@ -97,6 +97,9 @@
                 "if" = "steps.changes.outputs.changed == 'true'";
 
                 run = ''
+                  git fetch origin bot/flake-update \
+                    || true
+
                   git switch -C bot/flake-update
                   git push \
                     --force-with-lease \
