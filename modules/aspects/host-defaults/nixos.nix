@@ -2,10 +2,20 @@
   den.aspects.nixos.nixos = { host, ... }: {
     nix = {
       # Enable flake functionality and new CLI
-      settings.experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
+      settings = {
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
+
+        # Add this repos binary cache that contains already built machine configurations
+        extra-substituters = [
+          "https://cache.jannikzenker.de/dotfiles"
+        ];
+        extra-trusted-public-keys = [
+          "dotfiles:2EaWL5tiEyYzC5KdZeR6f/V9DbVQZUQthxiVg19I3nk="
+        ];
+      };
       optimise = {
         automatic = true;
         dates = [ "04:00" ];
