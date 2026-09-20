@@ -14,6 +14,7 @@
 
   "packageRules": [
     {
+      "enabledManagers": ["nix"],
       "matchManagers": ["nix"],
       "automerge": true,
       "automergeType": "pr",
