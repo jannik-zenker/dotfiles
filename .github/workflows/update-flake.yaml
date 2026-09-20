@@ -46,7 +46,7 @@ jobs:
           --force-with-lease \
           --set-upstream origin bot/flake-update
     - env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_TOKEN: ${{ secrets.UPDATE_BOT_TOKEN }}
       if: steps.changes.outputs.changed == 'true'
       name: Create pull request
       run: |-
@@ -61,6 +61,11 @@ jobs:
             --title "chore: update flake.lock" \
             --body "Automated daily flake input update."
         fi
+
+        gh pr merge bot/flake-update \
+          --repo "$GITHUB_REPOSITORY" \
+          --auto \
+          --squash
     timeout-minutes: 60
 name: Update flake
 'on':
