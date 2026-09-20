@@ -37,7 +37,6 @@
           elisa
           gwenview
           okular
-          kate
           ktexteditor
           khelpcenter
           dolphin
