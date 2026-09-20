@@ -4,12 +4,15 @@
       {
         config,
         host,
+        pkgs,
         ...
       }:
       let
         cacheDomain = "cache.jannikzenker.de";
       in
       {
+        environment.systemPackages = [ pkgs.attic-server ];
+
         sops.secrets."attic.env" = {
           sopsFile = ../../secrets/${host.name}/attic.env;
           format = "dotenv";
