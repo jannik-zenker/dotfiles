@@ -43,6 +43,7 @@
 
                 "with" = {
                   ref = "main";
+                  token = "\${{ secrets.UPDATE_BOT_TOKEN }}";
                 };
               }
 

@@ -11,6 +11,7 @@ jobs:
       uses: actions/checkout@v6
       with:
         ref: main
+        token: ${{ secrets.UPDATE_BOT_TOKEN }}
     - name: Install Nix
       uses: DeterminateSystems/nix-installer-action@main
     - name: Update flake.lock
