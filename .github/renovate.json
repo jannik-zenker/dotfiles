@@ -9,16 +9,8 @@
 
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["before 5am every day"]
-  },
-
-  "packageRules": [
-    {
-      "enabledManagers": ["nix"],
-      "matchManagers": ["nix"],
-      "automerge": true,
-      "automergeType": "pr",
-      "automergeStrategy": "rebase"
-    }
-  ]
+    "schedule": ["before 5am every day"],
+    "automerge": true,
+    "automergeType": "pr"
+  }
 }
