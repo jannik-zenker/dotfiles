@@ -5,6 +5,13 @@
 
   "enabledManagers": ["nix"],
 
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest", "replacement"],
+      "enabled": false
+    }
+  ],
+
   "lockFileMaintenance": {
     "enabled": true,
     "schedule": ["before 5am"],
