@@ -19,10 +19,10 @@
           device = "/dev/disk/by-id/nvme-eui.fd5b42cebc8f9d54ace42e005215b9f8";
           content = {
             type = "btrfs";
-            subvolumes = {
-              "@root".mountpoint = "/";
-              "@home".mountpoint = "/home";
-              "@nix".mountpoint = "/nix";
+            subvolumes = self.lib.mkSubvolumes {
+              "@root" = "/";
+              "@home" = "/home";
+              "@nix" = "/nix";
             };
           };
         })
