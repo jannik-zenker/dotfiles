@@ -1,4 +1,6 @@
 { den, self, ... }: {
+  # Host meta-aspect for hauler (a laptop): an includes list of feature
+  # aspects, plus this host's own disk layout and hardware specifics below.
   den.aspects.hauler = {
     includes = [
       den.aspects.bluetooth
@@ -31,12 +33,14 @@
           system.stateVersion = "26.11";
 
           boot = {
+            # Needed at initrd time to find the NVMe boot media at all.
             initrd.availableKernelModules = [
               "nvme"
               "xhci_pci"
               "usb_storage"
               "sd_mod"
             ];
+            # Hardware virtualization support; hauler's CPU is AMD.
             kernelModules = [ "kvm-amd" ];
           };
         }

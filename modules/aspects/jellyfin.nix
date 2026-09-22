@@ -2,7 +2,7 @@
   den.aspects.jellyfin.nixos = {
     services.jellyfin = {
       enable = true;
-      openFirewall = false; # We are doing that manually below
+      openFirewall = false; # reached only via nginx's proxy, not directly
       user = "jellyfin";
       group = "jellyfin";
 

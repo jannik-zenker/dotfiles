@@ -23,6 +23,8 @@
           device = "/dev/disk/by-id/nvme-eui.0026b76874b6e5f5";
           content = {
             type = "btrfs";
+            # Each service gets its own subvolume (rather than sharing
+            # @varlib) so btrbk.nix can snapshot/back them up individually.
             subvolumes = self.lib.mkSubvolumes {
               "@root" = "/";
               "@nix" = "/nix";

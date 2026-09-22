@@ -10,7 +10,11 @@
       nixpkgs.overlays = [ inputs.millennium.overlays.default ];
       programs.steam = {
         enable = true;
+        # Millennium patches the Steam client to support custom
+        # themes/plugins.
         package = pkgs.millennium-steam;
+        # Community Proton build with extra compatibility fixes beyond
+        # Steam's bundled Proton versions.
         extraCompatPackages = with pkgs; [ proton-ge-bin ];
       };
 
@@ -18,6 +22,9 @@
       users.groups.gaming = { };
     };
 
+    # gaming.nixos is host-scoped, so homeManager content must be routed to
+    # users via provides.to-users rather than a flat homeManager key here,
+    # which would be inert at host scope.
     provides.to-users.homeManager = { pkgs, ... }: {
       home.packages = with pkgs; [
         heroic

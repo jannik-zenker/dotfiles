@@ -8,6 +8,8 @@ in
     services.immich = {
       enable = true;
 
+      # Bind only to the WireGuard tunnel address, not 0.0.0.0: reachable
+      # only over the mesh, never the LAN or public internet.
       host = hubIpv4;
       port = 2283;
       openFirewall = false;
@@ -28,9 +30,11 @@ in
 
       redis.enable = true;
 
+      # Updates are managed via nixpkgs, not Immich's own updater.
       settings.newVersionCheck.enabled = false;
     };
 
+    # Reachable only over the WireGuard network, not publicly.
     networking.firewall.interfaces."wg0".allowedTCPPorts = [ 2283 ];
   };
 }

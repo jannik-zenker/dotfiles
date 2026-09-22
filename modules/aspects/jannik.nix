@@ -1,5 +1,7 @@
 { den, ... }: {
-  # user aspect
+  # Full desktop-user aspect: composes every app/tool aspect this user wants
+  # on desktop/laptop hosts, plus the batteries that turn it into a real
+  # primary user with a login shell.
   den.aspects.jannik = {
     includes = [
       den.aspects.alacritty

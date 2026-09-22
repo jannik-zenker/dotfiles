@@ -16,7 +16,6 @@
         subIdStart = 165536;
       })
       {
-        # Get username and password from secret file
         sops.secrets."foundry-username" = {
           sopsFile = ../../secrets/${host.name}/foundry.yaml;
           owner = "foundry";
