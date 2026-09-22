@@ -1,6 +1,6 @@
 {
   den.aspects.zsh.homeManager = { pkgs, ... }: {
-    # Install dependencies
+    # Required by the fzf-tab plugin below.
     home.packages = with pkgs; [ fzf ];
 
     programs.zsh = {

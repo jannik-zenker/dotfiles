@@ -12,6 +12,8 @@
         sops.secrets."wireguard/privateKey" = {
           sopsFile = ../../secrets/${host.name}/wireguard.yaml;
 
+          # systemd-networkd (which reads PrivateKeyFile below) runs as this
+          # user, not root.
           owner = "systemd-network";
           group = "systemd-network";
           mode = "0400";
