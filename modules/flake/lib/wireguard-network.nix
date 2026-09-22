@@ -33,6 +33,9 @@ in
                 PublicKey = peers.${hub}.publicKey;
                 Endpoint = me.endpoint or "${hub}.jannikzenker.de:51820";
                 AllowedIPs = allowedIPsOf peers.${hub};
+                # Spokes dial out to the hub; keep sending traffic so the
+                # spoke's NAT/firewall mapping doesn't expire, or the hub
+                # loses its path back in.
                 PersistentKeepalive = 25;
               }
             ];
