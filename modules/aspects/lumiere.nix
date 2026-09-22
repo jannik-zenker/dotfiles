@@ -17,7 +17,7 @@
     ];
 
     nixos =
-      { lib, pkgs, ... }:
+      { lib, ... }:
       lib.mkMerge [
         (self.lib.mkStandardDisk {
           device = "/dev/disk/by-id/nvme-eui.0026b76874b6e5f5";
@@ -38,8 +38,6 @@
           };
         })
         {
-          environment.systemPackages = with pkgs; [ ghostty ];
-
           system.stateVersion = "26.05";
 
           boot = {

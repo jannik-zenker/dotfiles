@@ -5,26 +5,22 @@
     };
   };
 
-  den.aspects.gaming = {
-    nixos = { pkgs, ... }: {
-      nixpkgs.overlays = [ inputs.millennium.overlays.default ];
-      programs.steam = {
-        enable = true;
-        package = pkgs.millennium-steam;
-        extraCompatPackages = with pkgs; [ proton-ge-bin ];
-      };
-
-      # Create group "gaming" for multi-user access to game drives
-      users.groups.gaming = { };
+  den.aspects.gaming.nixos = { pkgs, ... }: {
+    nixpkgs.overlays = [ inputs.millennium.overlays.default ];
+    programs.steam = {
+      enable = true;
+      package = pkgs.millennium-steam;
+      extraCompatPackages = with pkgs; [ proton-ge-bin ];
     };
 
-    provides.to-users.homeManager = { pkgs, ... }: {
-      home.packages = with pkgs; [
-        heroic
-        faugus-launcher
-        lutris
-        prismlauncher
-      ];
-    };
+    # Create group "gaming" for multi-user access to game drives
+    users.groups.gaming = { };
+
+    environment.systemPackages = with pkgs; [
+      heroic
+      faugus-launcher
+      lutris
+      prismlauncher
+    ];
   };
 }
