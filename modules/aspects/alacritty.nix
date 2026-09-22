@@ -1,5 +1,10 @@
 {
   den.aspects.alacritty.homeManager = { pkgs, ... }: {
+    # Repo-defined, desktop-environment-agnostic option: feeds the $TERMINAL
+    # session variable (host-defaults/environment.nix) and XDG default-app
+    # associations (host-defaults/xdg.nix), and is also read directly by
+    # KDE-specific config (kde/configuration/{hotkeys,default-terminal}.nix)
+    # where no generic XDG/env-var mechanism covers the same action.
     defaultApps.terminal = {
       command = "alacritty";
       desktopFile = "Alacritty.desktop";
@@ -121,6 +126,7 @@
     };
 
     fonts.fontconfig.enable = true;
+    # Provides the "MonaspiceNe Nerd Font Mono" family referenced above.
     home.packages = [ pkgs.nerd-fonts.monaspace ];
   };
 }
