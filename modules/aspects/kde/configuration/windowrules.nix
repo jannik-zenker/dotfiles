@@ -1,4 +1,6 @@
 {
+  # Desktop_2/3/4 correspond by position to the "Work"/"Gaming"/"Multimedia"
+  # virtual desktops named in kwin.nix.
   den.aspects.kde.homeManager = {
     programs.plasma.window-rules = [
       {
