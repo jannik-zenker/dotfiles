@@ -2,6 +2,8 @@
   den.aspects.kde.homeManager = {
     programs.plasma.kwin = {
       borderlessMaximizedWindows = true;
+      # Barriers add cursor resistance at screen corners/edges (useful for
+      # precise multi-monitor edge crossing); disabled here.
       cornerBarrier = false;
       edgeBarrier = 0;
 

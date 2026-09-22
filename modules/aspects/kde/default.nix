@@ -58,7 +58,11 @@
 
       programs.plasma = {
         enable = true;
+        # Only touch the specific keys declared below/in kde/configuration/*,
+        # instead of wiping the rest of each config file's contents.
         overrideConfig = false;
+        # Lock declared settings against being changed via KDE's own GUI, so
+        # they can't silently drift out of sync with this config.
         immutableByDefault = true;
       };
 
