@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ self, den, ... }: {
   den.aspects.nextcloud.nixos =
     {
       config,
@@ -45,4 +45,6 @@
         forceSSL = true;
       };
     };
+
+  den.aspects.nextcloud.includes = [ den.aspects.nginx ];
 }
