@@ -1,5 +1,7 @@
 { lib, ... }: {
   den.aspects.journald.nixos = { host, ... }: {
+    # Servers run more services and need longer retention for debugging, so
+    # they get bigger storage/rate-limit budgets than desktops/laptops.
     services.journald.settings.Journal = lib.mkDefault (
       if host.profile == "server" then
         {

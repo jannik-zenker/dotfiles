@@ -4,6 +4,9 @@
     hardware.enableAllFirmware = true;
     services.fwupd.enable = true;
 
+    # host.cpu picks amd/intel dynamically; mirrors enableAllFirmware above
+    # (which implies enableRedistributableFirmware) instead of hardcoding a
+    # separate true/false.
     hardware.cpu.${host.cpu}.updateMicrocode =
       lib.mkDefault config.hardware.enableRedistributableFirmware;
   };

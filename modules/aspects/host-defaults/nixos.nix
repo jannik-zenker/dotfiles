@@ -35,7 +35,7 @@
         LC_CTYPE = "de_DE.UTF-8";
         LC_IDENTIFICATION = "de_DE.UTF-8";
         LC_MONETARY = "de_DE.UTF-8";
-        LC_MESSAGES = "en_GB.UTF-8";
+        LC_MESSAGES = "en_GB.UTF-8"; # deliberate exception: English error/UI messages
         LC_MEASUREMENT = "de_DE.UTF-8";
         LC_NAME = "de_DE.UTF-8";
         LC_NUMERIC = "de_DE.UTF-8";
@@ -63,7 +63,8 @@
       font = "Lat2-Terminus16";
     };
 
-    # Automatic updates
+    # Only servers auto-upgrade unattended; desktops/laptops are rebuilt
+    # manually since a user is around to notice and roll back breakage.
     system.autoUpgrade = {
       enable = host.profile == "server";
       flake = "github:jannik-zenker/dotfiles";
