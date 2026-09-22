@@ -4,6 +4,9 @@
   "timezone": "Europe/Berlin",
 
   "enabledManagers": ["nix"],
+  "nix": {
+    "enabled": true
+  },
 
   "packageRules": [
     {
