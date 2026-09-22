@@ -7,7 +7,14 @@
 
   "packageRules": [
     {
-      "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest", "replacement"],
+      "matchUpdateTypes": [
+        "major",
+        "minor",
+        "patch",
+        "pin",
+        "digest",
+        "replacement"
+      ],
       "enabled": false
     }
   ],
