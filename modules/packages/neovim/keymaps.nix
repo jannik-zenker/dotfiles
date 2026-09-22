@@ -52,6 +52,14 @@
         lua = true;
         desc = "Leap";
       }
+
+      # Vimtex
+      {
+        mode = "n";
+        key = "<leader>lc";
+        action = "<cmd>VimtexCompile<CR>";
+        desc = "VimTeX Compile";
+      }
     ];
   };
 }
