@@ -58,7 +58,7 @@
       lowBattery = {
         autoSuspend = {
           action = "sleep";
-          idleTimeout = 600;
+          idleTimeout = 300;
         };
 
         dimDisplay = {

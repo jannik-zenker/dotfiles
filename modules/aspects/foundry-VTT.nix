@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ self, den, ... }: {
   den.aspects.foundryVTT.nixos =
     let
       foundryDomain = "foundry.jannikzenker.de";
@@ -108,4 +108,6 @@
         };
       }
     ];
+
+  den.aspects.foundryVTT.includes = [ den.aspects.nginx ];
 }
