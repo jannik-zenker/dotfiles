@@ -7,6 +7,9 @@
   };
 
   den.aspects.obsidian = {
+    # obsidian is a user aspect, but overlays apply to nixpkgs at host scope,
+    # so this is routed via provides.to-hosts. Provides the
+    # pkgs.obsidianThemes/obsidianPlugins sets referenced below.
     provides.to-hosts = {
       nixos.nixpkgs.overlays = [ inputs.obsidian-extensions.overlays.default ];
     };
@@ -80,7 +83,6 @@
 
                   openWhenAllTabsClosed = true;
 
-                  # Für neue Tabs dieselbe Datei wie Home Base verwenden
                   useDifferentFileForNewTab = false;
                 };
               }
