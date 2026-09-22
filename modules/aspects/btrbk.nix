@@ -2,6 +2,8 @@
   den.aspects.btrbk.nixos = { pkgs, ... }: {
 
     services.btrbk.instances.local = {
+      # Disable btrbk's own timer; backup-local (below) drives it instead so
+      # the backup disk can be mounted and postgresql stopped around the run.
       onCalendar = null;
 
       settings = {
@@ -45,6 +47,7 @@
 
       serviceConfig = {
         Type = "oneshot";
+        # Only keep the backup disk mounted for the duration of the run.
         ExecStopPost = "${pkgs.systemd}/bin/systemctl stop mnt-backup.mount";
       };
 
@@ -53,6 +56,8 @@
 
         systemctl start mnt-backup.mount
 
+        # Stop postgresql so its data files are quiescent for the snapshot,
+        # then always restart it afterwards even if btrbk fails.
         trap 'systemctl start postgresql.service || true' EXIT
 
         systemctl stop postgresql.service

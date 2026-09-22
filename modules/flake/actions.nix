@@ -13,6 +13,9 @@
 
   imports = [ inputs.actions-nix.flakeModules.default ];
 
+  # Generates .github/workflows/ci.yaml from Nix (instead of hand-written
+  # YAML) so the workflow can share data with the rest of the flake, notably
+  # deriving its build matrix from every declared `den.hosts` entry below.
   flake.actions-nix = {
     defaultValues.jobs = {
       runs-on = "ubuntu-latest";
@@ -34,11 +37,17 @@
             github.event.pull_request.head.repo.full_name == github.repository
           '';
 
+          # Let CI substitute from the same Attic cache builds are pushed to,
+          # so a host whose toplevel was already built (by another job or
+          # locally) doesn't get rebuilt from scratch.
           nixConfig = ''
             extra-substituters = ${attic.endpoint}/${attic.cache}
             extra-trusted-public-keys = ${attic.publicKey}
           '';
 
+          # Derived from self.nixosConfigurations instead of hardcoded so
+          # every host declared via den.hosts automatically gets a CI build
+          # job with no workflow edit required.
           nixosHosts = lib.mapAttrsToList (name: _: {
             hostname = name;
             output = "nixosConfigurations.${name}.config.system.build.toplevel";

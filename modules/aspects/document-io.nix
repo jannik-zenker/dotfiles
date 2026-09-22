@@ -9,7 +9,6 @@
       openFirewall = true;
     };
 
-    # Enable scan support
     hardware.sane.enable = true;
   };
 }

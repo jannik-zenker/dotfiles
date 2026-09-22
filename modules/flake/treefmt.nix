@@ -19,6 +19,11 @@
         prettier.enable = true;
       };
 
+      # secrets/**/*.yaml: sops-encrypted files aren't meaningfully
+      # YAML-structured content — reformatting would just churn the diff.
+      # SKILL.md / CLAUDE.md: prettier's markdown reflow (e.g. prose wrap)
+      # would rewrite frontmatter and instruction text that must stay intact
+      # for skill discovery and Claude's own instruction parsing.
       settings.formatter.prettier.excludes = [
         "secrets/**/*.yaml"
         ".claude/skills/**/SKILL.md"

@@ -2,6 +2,9 @@
   den.aspects.nvfConfiguration = {
     # Language support
     vim = { pkgs, ... }: {
+      # latexmk/texlab/latexindent back the compiler/lsp/format config below.
+      # zathura is vimtex's configured PDF viewer; pstree/xdotool are vimtex
+      # dependencies for focusing the editor window back after viewing.
       extraPackages = with pkgs; [
         pstree
         texlivePackages.latexmk

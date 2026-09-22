@@ -43,10 +43,13 @@ _: {
 
         clear
 
+        # Last chance to Ctrl-C before the actually destructive step below.
         gum spin --spinner dot --title "Starting in 3..." -- sleep 1
         gum spin --spinner dot --title "Starting in 2..." -- sleep 1
         gum spin --spinner dot --title "Starting in 1..." -- sleep 1
 
+        # Fetched from GitHub rather than a local flake ref: this is meant to
+        # run from a fresh NixOS installer ISO, before the repo is cloned.
         nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- \
             --mode destroy,format,mount \
             --yes-wipe-all-disks \

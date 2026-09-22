@@ -17,12 +17,17 @@ in
       passwordFile = config.sops.secrets."paperless-admin-pass".path;
       user = "paperless";
 
+      # Bind directly to the WireGuard tunnel address rather than fronting
+      # with nginx like the other lumiere services; reachable only over the
+      # mesh, never the LAN or public internet.
       address = hubIpv4;
       port = 8000;
       domain = hubIpv4;
       configureNginx = false;
 
       configureTika = true;
+      # Let other users/scripts drop files into the consumption dir for OCR
+      # ingestion without needing the paperless group.
       consumptionDirIsPublic = true;
 
       database.createLocally = true;
@@ -36,6 +41,7 @@ in
       };
     };
 
+    # Reachable only over the WireGuard network, not publicly.
     networking.firewall.interfaces."wg0".allowedTCPPorts = [ 8000 ];
   };
 }

@@ -1,4 +1,8 @@
-# Define Metadata that has to be set by every host
+# Declares the freeform metadata schema for `host`/`user` entities. This is
+# pure data, not behavior: aspects elsewhere read these fields (e.g.
+# aspects/host-defaults/bootloader.nix reads `host.bootloader`) to decide
+# what to configure. Host fields have no default, so every host declared in
+# host-declarations.nix is forced to state these facts explicitly.
 { lib, ... }: {
   den.schema = {
     host = {
@@ -39,6 +43,9 @@
       };
     };
 
+    # Unlike host fields, these default to null: not every user needs git
+    # identity configured, and aspects/host-defaults/git.nix only sets
+    # `programs.git.settings.user.*` when a value is actually present.
     user = {
       options = {
         gitName = lib.mkOption {

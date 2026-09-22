@@ -1,5 +1,10 @@
 {
   den.aspects.firefox.homeManager = { config, ... }: {
+    # Repo-defined, desktop-environment-agnostic option: feeds the $BROWSER
+    # session variable (host-defaults/environment.nix) and the XDG
+    # default-app association for html/http mime types (host-defaults/xdg.nix),
+    # and is also read directly by KDE's browser hotkey
+    # (kde/configuration/hotkeys.nix).
     defaultApps.browser = {
       command = "firefox";
       desktopFile = "firefox.desktop";
@@ -28,11 +33,11 @@
         DisableProfileRefresh = true;
         DisableSetDesktopBackground = true;
         DisableTelemetry = true;
-        DisableFormHistory = false;
+        DisableFormHistory = false; # deliberate exception
         DisablePasswordReveal = true;
 
         # Access Restrictions
-        BlockAboutConfig = false;
+        BlockAboutConfig = false; # deliberate exception: keep advanced tweaking available
         BlockAboutProfiles = true;
         BlockAboutSupport = true;
 
@@ -54,6 +59,8 @@
             };
           in
           {
+            # Default-deny: no extension besides the force-installed set
+            # below can be installed at all.
             "*".installation_mode = "blocked";
 
             "uBlock0@raymondhill.net" = extension "ublock-origin";

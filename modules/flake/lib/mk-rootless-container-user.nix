@@ -22,6 +22,8 @@ _: {
         isSystemUser = true;
         uid = id;
         group = name;
+        # Keep the user's systemd instance (and its rootless podman service)
+        # running without an active login session.
         linger = true;
 
         inherit home;

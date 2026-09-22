@@ -1,3 +1,10 @@
+# Each `den.hosts.<system>.<name>` entry becomes a `nixosConfigurations.<name>`
+# flake output, and each `users.<name>` becomes its own entity whose aspect
+# is resolved by matching name (e.g. `users.jannik` pulls in
+# `den.aspects.jannik`). `lumiere` (the server) uses the separate
+# `admin-jannik` user aspect instead of `jannik` since it only needs a shell
+# and SSH access, not the desktop-oriented aspects (niri, firefox, ...) the
+# other hosts' `jannik` user includes.
 {
   den.hosts.x86_64-linux.hauler = {
     bootloader = "grub";

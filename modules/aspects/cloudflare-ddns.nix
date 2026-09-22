@@ -1,7 +1,7 @@
 { self, ... }: {
   den.aspects.cloudflareDdns.nixos =
     let
-      domains = "jannikzenker.de,*.jannikzenker.de,lumiere.jannikzenker.de";
+      domains = "jannikzenker.de,*.jannikzenker.de";
     in
     {
       config,
@@ -16,7 +16,6 @@
         subIdStart = 100000;
       })
       {
-        # Get API-Token secret file
         sops.secrets."cloudflare-api-token" = {
           sopsFile = ../../secrets/${host.name}/cloudflare-ddns.yaml;
           owner = "cloudflare-ddns";

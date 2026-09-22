@@ -1,6 +1,4 @@
-# Installs a bootloader based on metadata of the host
 { inputs, lib, ... }: {
-  # Get flake input for distro grub themes
   flake-file.inputs = {
     distro-grub-themes = {
       url = "github:AdisonCavani/distro-grub-themes";
@@ -9,8 +7,6 @@
   };
 
   den.aspects.bootloader.nixos = { host, ... }: {
-
-    # Install bootloader based on host metadata
     boot.loader = {
       efi.canTouchEfiVariables = true;
 
@@ -27,7 +23,6 @@
       };
     };
 
-    # Import distro-grub-themes module
     imports = [ inputs.distro-grub-themes.nixosModules.${host.system}.default ];
     distro-grub-themes = lib.mkIf (host.bootloader == "grub") {
       enable = true;

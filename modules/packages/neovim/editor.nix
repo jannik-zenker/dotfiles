@@ -43,7 +43,7 @@
           # Show LSP diagnostics in bufferline
           diagnostics = "nvim_lsp";
 
-          # Turn on numbers on buffers
+          # No numbers on buffers
           numbers = "none";
 
           # Only show close icons on hover

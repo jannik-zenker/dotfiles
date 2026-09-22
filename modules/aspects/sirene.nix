@@ -41,6 +41,7 @@
             kernelModules = [ "kvm-intel" ];
           };
 
+          # sirene's CPU has an on-die NPU for AI acceleration.
           hardware.cpu.intel.npu.enable = true;
         }
       ];

@@ -9,15 +9,20 @@
     url = "github:notashelf/nvf";
   };
 
-  # Function to generate a nvf configuration
+  # Neovim here isn't a host/user/home entity, so it never goes through
+  # Den's normal resolution pipeline; this builds it as a standalone package
+  # instead, via a one-off "nvf" class (see den.lib.nvf.module below).
+  # Consumed by flake/lib/mk-neovim.nix.
   den.lib.nvf.package =
     pkgs: vimAspect: args:
     (inputs.nvf.lib.neovimConfiguration {
       inherit pkgs;
-      modules = [ (den.lib.nvf.module vimAspect args) ]; # Uses funtion den.lib.module for module import
+      modules = [ (den.lib.nvf.module vimAspect args) ];
     }).neovim;
 
-  # Helper-Function to generate nvf modules from dendritic aspects
+  # Turns a normal dendritic `vim`-classed aspect (vimAspect) into an nvf
+  # module, by building a one-off forwarding class and resolving it
+  # directly.
   den.lib.nvf.module =
     vimAspect: args:
     let
@@ -33,7 +38,9 @@
           adaptArgs = lib.id;
         };
 
-      # Redefine aspect by applying the vimClass forward to vimAspect
+      # Pair the forwarding class with the caller's vim aspect so resolving
+      # this runs vimAspect's `vim.*` content through the vim -> nvf.vim
+      # forward.
       aspect = {
         includes = [
           vimClass
@@ -41,8 +48,10 @@
         ];
       };
 
-      # Resolve all contributions to class `nvf` from the aspect graph
-      # into a Nix module containing the resulting imports.
+      # den.lib.aspects.resolve is explicitly not a stable public API in
+      # Den; used directly here (rather than the normal schema/includes
+      # machinery) because this is exactly the "building a custom pipeline
+      # stage" case it's meant for.
       nvfModule = den.lib.aspects.resolve "nvf" aspect;
     in
     nvfModule;

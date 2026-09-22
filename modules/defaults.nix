@@ -1,7 +1,12 @@
-# Contains global settings across all hosts, users and standalone homes
+# The single place deciding which shared config/aspects apply to *every*
+# host, user and home, on top of whatever each entity's own aspect adds.
 { lib, den, ... }: {
   den = {
     default = {
+      # `den.default.*` injects config directly into every entity of a class
+      # (no `includes` wiring needed), unlike aspects which must be pulled in
+      # explicitly. Used here for config every physical host needs
+      # regardless of its own metadata.
       nixos =
         {
           host,
@@ -16,12 +21,15 @@
           nixpkgs.hostPlatform = lib.mkDefault host.system;
         };
 
+      # Tie home-manager's state version to the host's system state version
+      # instead of tracking a second value that could drift out of sync.
       homeManager = { osConfig, ... }: { home.stateVersion = osConfig.system.stateVersion; };
     };
 
     schema = {
       host = {
-        # Include host modules that should be active by default
+        # Aspects/batteries every host gets regardless of its own meta-aspect
+        # (sirene.nix, reacher.nix, ...); per-host aspects add on top of this.
         includes = [
           den.aspects.bootloader
           den.aspects.defaultPackages
@@ -39,9 +47,11 @@
       };
 
       user = {
-        # Enable home-manager class evaluation by default for every user
+        # mkDefault (not a plain assignment) so a specific user could opt out
+        # of home-manager entirely if it ever needed to.
         classes = lib.mkDefault [ "homeManager" ];
-        # Create users from user declarations in host declarations
+        # `define-user` is what turns the `users.<name> = { ... }` entries in
+        # host-declarations.nix into real user entities in the first place.
         includes = [
           den.batteries.define-user
           den.aspects.environment

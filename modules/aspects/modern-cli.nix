@@ -28,6 +28,8 @@
       zoxide = {
         enable = true;
         enableZshIntegration = true;
+        # Replace the `cd` builtin itself with zoxide's frecency-based jump,
+        # instead of zoxide's default separate `z`/`zi` commands.
         options = [ "--cmd cd" ];
       };
 
