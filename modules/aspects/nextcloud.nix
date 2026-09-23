@@ -16,7 +16,7 @@
 
       services.nextcloud = {
         enable = true;
-        package = pkgs.nextcloud34;
+        package = pkgs.nextcloud35;
         hostName = "cloud.jannikzenker.de";
         https = true;
         database.createLocally = true;
