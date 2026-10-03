@@ -6,6 +6,7 @@
         btop
         curl
         dnsutils
+        tldr
         tree
         vim
         wget
