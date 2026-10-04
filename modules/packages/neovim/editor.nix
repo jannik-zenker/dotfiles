@@ -1,6 +1,18 @@
 {
   den.aspects.nvfConfiguration = { theme, ... }: {
-    vim = _: {
+    vim = { pkgs, ... }: {
+      # latexmk/texlab/latexindent back the compiler/lsp/format config below.
+      # zathura is vimtex's configured PDF viewer; pstree/xdotool are vimtex
+      # dependencies for focusing the editor window back after viewing.
+      extraPackages = with pkgs; [
+        pstree
+        texlivePackages.latexmk
+        texlab
+        texlivePackages.latexindent
+        xdotool
+        zathura
+      ];
+
       theme = {
         enable = true;
         inherit (theme) name;
@@ -58,6 +70,9 @@
       # Modern command line
       ui.noice.enable = true;
 
+      # Show available keybinds interactively
+      binds.whichKey.enable = true;
+
       # Mini plugins
       mini = {
         indentscope.enable = true;
@@ -65,6 +80,35 @@
 
       # Icons
       visuals.nvim-web-devicons.enable = true;
+
+      # VimTeX (for LaTeX support)
+      extraPlugins.vimtex = {
+        package = pkgs.vimPlugins.vimtex;
+
+        setup = ''
+          vim.g.vimtex_view_method = "zathura"
+          vim.g.vimtex_view_automatic = 1
+          vim.g.vimtex_view_forward_search_on_start = 0
+
+          vim.g.vimtex_compiler_latexmk = {
+            aux_dir = "build",
+            callback = 1,
+            continuous = 1,
+            executable = "latexmk",
+            options = {
+              "-lualatex",
+              "-verbose",
+              "-file-line-error",
+              "-synctex=1",
+              "-interaction=nonstopmode",
+            },
+          }
+
+          vim.g.vimtex_compiler_latexmk_engines = {
+            ["_"] = "-lualatex",
+          }
+        '';
+      };
 
       # Diagnostics
       diagnostics = {
