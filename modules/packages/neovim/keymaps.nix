@@ -60,6 +60,30 @@
         action = "<cmd>VimtexCompile<CR>";
         desc = "VimTeX Compile";
       }
+      {
+        mode = "n";
+        key = "<leader>le";
+        action = "<cmd>VimtexErrors<CR>";
+        desc = "VimTeX Errors";
+      }
+      {
+        mode = "n";
+        key = "<leader>lo";
+        action = "<cmd>VimtexCompileOutput<CR>";
+        desc = "VimTeX Compile Output";
+      }
+      {
+        mode = "n";
+        key = "<leader>ll";
+        action = "<cmd>VimtexLog<CR>";
+        desc = "VimTeX Log";
+      }
+      {
+        mode = "n";
+        key = "<leader>lv";
+        action = "<cmd>VimtexView<CR>";
+        desc = "VimTeX View Document";
+      }
     ];
   };
 }
