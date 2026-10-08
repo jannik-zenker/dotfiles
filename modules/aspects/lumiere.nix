@@ -8,6 +8,7 @@
       den.aspects.foundryVTT
       den.aspects.immich
       den.aspects.jellyfin
+      den.aspects.minecraftServer
       den.aspects.nextcloud
       den.aspects.nginx
       den.aspects.openssh
@@ -33,6 +34,7 @@
               "@varlib/booklore" = "/var/lib/booklore";
               "@varlib/foundry" = "/var/lib/foundry";
               "@varlib/immich" = "/var/lib/immich";
+              "@varlib/minecraft" = "/var/lib/minecraft";
               "@varlib/paperless" = "/var/lib/paperless";
               "@varlib/nextcloud" = "/var/lib/nextcloud";
               "@varlib/postgresql" = "/var/lib/postgresql";

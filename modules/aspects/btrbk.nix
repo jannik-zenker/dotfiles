@@ -17,6 +17,7 @@
             "/var/lib/booklore" = { };
             "/var/lib/foundry" = { };
             "/var/lib/immich" = { };
+            "/var/lib/minecraft" = { };
             "/var/lib/nextcloud" = { };
             "/var/lib/paperless" = { };
             "/var/lib/postgresql" = { };
