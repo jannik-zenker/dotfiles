@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ inputs, den, ... }: {
   flake-file.inputs.nix-minecraft = {
     url = "github:Infinidoge/nix-minecraft";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -129,5 +129,20 @@
           };
         };
       };
+
+      services.nginx.virtualHosts."map.jannikzenker.de" = {
+        enableACME = true;
+        forceSSL = true;
+
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:8100";
+
+          extraConfig = ''
+            proxy_buffering off;
+          '';
+        };
+      };
     };
+
+  den.aspects.minecraftServer.includes = [ den.aspects.nginx ];
 }
