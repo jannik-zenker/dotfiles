@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ inputs, den, ... }: {
   flake-file.inputs.nix-minecraft = {
     url = "github:Infinidoge/nix-minecraft";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -143,4 +143,6 @@
         };
       };
     };
+
+  den.aspects.minecraftServer.includes = [ den.aspects.nginx ];
 }
