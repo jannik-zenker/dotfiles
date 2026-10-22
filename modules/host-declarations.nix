@@ -5,7 +5,7 @@
 # `admin-jannik` user aspect instead of `jannik` since it only needs a shell
 # and SSH access, not the desktop-oriented aspects (niri, firefox, ...) the
 # other hosts' `jannik` user includes.
-{
+{ inputs, ... }: {
   den.hosts.x86_64-linux.hauler = {
     bootloader = "grub";
     cpu = "amd";
@@ -25,6 +25,8 @@
     profile = "server";
 
     users.admin-jannik = { };
+
+    instantiate = inputs.nixpkgs-unstable-small.lib.nixosSystem;
   };
 
   den.hosts.x86_64-linux.reacher = {

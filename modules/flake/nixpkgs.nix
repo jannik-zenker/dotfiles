@@ -4,6 +4,7 @@
   # against this single nixpkgs revision instead of each dependency pulling
   # in its own.
   flake-file.inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-unstable-small.url = "github:NixOS/nixpkgs/nixos-unstable-small";
   };
 }

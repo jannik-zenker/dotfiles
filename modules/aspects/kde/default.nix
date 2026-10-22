@@ -31,7 +31,6 @@
           plasma-browser-integration
           plasma-workspace-wallpapers
           konsole
-          kwin-x11
           elisa
           gwenview
           okular
