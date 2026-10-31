@@ -9,6 +9,7 @@
       den.aspects.networkManager
       den.aspects.plasmaLoginManager
       den.aspects.texlive
+      den.aspects.virtualization
       den.aspects.wireguardPeer
       den.aspects.zswap
     ];
