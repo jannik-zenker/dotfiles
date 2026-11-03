@@ -15,6 +15,7 @@
         device = "nodev"; # For UEFI
         efiSupport = true;
         configurationLimit = 5;
+        useOSProber = true;
       };
 
       systemd-boot = lib.mkIf (host.bootloader == "systemd-boot") {
