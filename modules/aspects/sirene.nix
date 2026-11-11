@@ -10,6 +10,7 @@
       den.aspects.plasmaLoginManager
       den.aspects.texlive
       den.aspects.zswap
+      den.batteries.mutual-provider # Accept what this host's users deliver via `provides.to-hosts`
     ];
 
     nixos =
