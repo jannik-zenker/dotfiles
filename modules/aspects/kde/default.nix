@@ -63,6 +63,13 @@
         # Lock declared settings against being changed via KDE's own GUI, so
         # they can't silently drift out of sync with this config.
         immutableByDefault = true;
+        # Stop KDE's gtkconfig kded module from syncing Plasma's theme into GTK:
+        # it overwrites the home-manager-managed ~/.gtkrc-2.0 and
+        # gtk-3.0/settings.ini (see the gtk aspect) with regular files, which
+        # makes home-manager activation fail because they'd be clobbered.
+        configFile.kded5rc = {
+          "Module-gtkconfig"."autoload" = false;
+        };
       };
 
       xdg.configFile."fontconfig/conf.d/10-hm-fonts.conf".force = true;
