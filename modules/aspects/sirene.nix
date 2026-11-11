@@ -10,6 +10,7 @@
       den.aspects.plasmaLoginManager
       den.aspects.texlive
       den.aspects.zswap
+      den.batteries.mutual-provider
     ];
 
     nixos =

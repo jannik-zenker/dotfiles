@@ -13,6 +13,7 @@
       den.aspects.texlive
       den.aspects.wireguardPeer
       den.aspects.zswap
+      den.batteries.mutual-provider
     ];
 
     nixos =
