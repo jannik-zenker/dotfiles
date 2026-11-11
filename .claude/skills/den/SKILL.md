@@ -6,15 +6,20 @@ Read this file before touching anything under `den.*`.
 
 ## Pinned revision
 
-```
-flake.lock -> nodes.den.locked.rev = d50f0fce6fc1a8ba00fd0d310746d0e8ecc2f70d
+The pinned Den revision is whatever `flake.lock` currently says
+(`nodes.den.locked.rev`). It changes with every lock file update (Renovate
+runs regular lock file maintenance), so it is intentionally **not** written
+down here — always read it fresh from `flake.lock` at the start of a task:
+
+```bash
+grep -A5 '"den"' flake.lock | grep '"rev"' | cut -d'"' -f4
 ```
 
 Den evolves fast and breaks APIs across revisions (its own docs mark several
-old APIs deprecated). **Always check `flake.lock` for the exact rev before
-trusting any API detail**, including everything in this file. To verify an
-API against the pinned rev, fetch source/docs directly instead of guessing
-from generic Nix/Den knowledge, e.g.:
+old APIs deprecated). **Trust only the rev from the current `flake.lock`**,
+not any rev mentioned elsewhere, and treat every API detail in this file as
+possibly outdated for it. To verify an API against that rev, fetch
+source/docs directly instead of guessing from generic Nix/Den knowledge, e.g.:
 
 ```bash
 REV=$(grep -A5 '"den"' flake.lock | grep '"rev"' | cut -d'"' -f4)
@@ -256,10 +261,10 @@ options via the **deprecated** `den.ctx` shim:
 den.ctx.hm-host.nixos.home-manager = { useGlobalPkgs = true; useUserPackages = true; };
 ```
 
-At the pinned revision, `den.ctx` is a compatibility shim
-(`modules/compat/ctx-shim.nix`) that forwards `den.ctx.<name>` to
+When this section was written, `den.ctx` was a compatibility shim
+(`modules/compat/ctx-shim.nix`) that forwarded `den.ctx.<name>` to
 `den.schema.<name>.includes` with an evaluation-time `lib.warn`, scheduled
-for removal. The modern equivalent (per Den's own migration guide) is:
+for removal (re-check against the current `flake.lock` rev — it may be gone). The modern equivalent (per Den's own migration guide) is:
 
 ```nix
 den.schema.hm-host.includes = [
@@ -269,7 +274,7 @@ den.schema.hm-host.includes = [
 
 (`hm-host` is the entity kind the `home-manager` battery reads via
 `config.den.schema.hm-host.includes` in `modules/aspects/batteries/home-manager.nix`
-— confirmed by inspecting that file at the pinned rev.) Don't copy the
+— verify this against that file at the current `flake.lock` rev.) Don't copy the
 `den.ctx.*` pattern into new code; if asked to clean this up, migrate to
 `den.schema.hm-host.includes` and confirm `nixos-rebuild build --flake . 2>&1 | grep -i deprecated`
 is silent.
