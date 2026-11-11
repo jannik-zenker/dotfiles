@@ -5,6 +5,7 @@
     includes = [
       den.aspects.starship
       den.aspects.zsh
+      den.batteries.mutual-provider # Accept what this host's users deliver via `provides.to-hosts`
       den.batteries.primary-user
       (den.batteries.user-shell "zsh")
     ];
