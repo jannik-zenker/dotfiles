@@ -43,6 +43,8 @@
           den.aspects.sopsNix
           den.aspects.xdg
           den.batteries.hostname
+          # Accept what this host's users deliver via `provides.to-hosts`
+          den.batteries.mutual-provider
         ];
       };
 
