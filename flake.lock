@@ -24,11 +24,11 @@
     },
     "den": {
       "locked": {
-        "lastModified": 1794351978,
-        "narHash": "sha256-I9Fl+/4A0SBr76v1SLKY1u+8qd/5DHZHG+xyAc/NGHM=",
+        "lastModified": 1794428243,
+        "narHash": "sha256-xO3H84l+hCdmCZeYTz2ZCDR22WVa4eSLcUDaX4MhMU0=",
         "owner": "denful",
         "repo": "den",
-        "rev": "36c499ac9241eaa38038e6df5e0d9992caf7e495",
+        "rev": "a66a7789483bd5eb95276cee8df4b4ea138ed4f7",
         "type": "github"
       },
       "original": {
@@ -344,11 +344,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1794293811,
-        "narHash": "sha256-XjOqLH+M406ZA0cS2kSNfDXpOYB/BZz+D/lESZre7Uc=",
+        "lastModified": 1794376041,
+        "narHash": "sha256-U5J39EyPpqAw8aO47WetBREzl2w18GkjlAtLg5EIZgY=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "4a820d0fd584a048d49d8ec66545f7f4543bcf1c",
+        "rev": "c7ab225b64b33d5291622734a5c666ec2665c9b5",
         "type": "github"
       },
       "original": {
@@ -414,11 +414,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1794316515,
-        "narHash": "sha256-RX93978JJ7V9kdggYh3T8LeEltQvwT58vpRJn7OqU54=",
+        "lastModified": 1794399753,
+        "narHash": "sha256-Z1ns+bs5NjMHfv76h0FCLuiNNN8WsWXtvHlThaFEoWA=",
         "owner": "karaolidis",
         "repo": "nix-obsidian-extensions",
-        "rev": "7650df3939739d41d3526766909ecf6fac71936f",
+        "rev": "cc56dfa30e083f945a0f48bff7214e891e2d112f",
         "type": "github"
       },
       "original": {
