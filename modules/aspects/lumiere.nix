@@ -8,6 +8,7 @@
       den.aspects.foundryVTT
       den.aspects.immich
       den.aspects.jellyfin
+      den.aspects.komga
       den.aspects.minecraftServer
       den.aspects.nextcloud
       den.aspects.nginx
