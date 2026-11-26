@@ -11,6 +11,7 @@
       den.aspects.plymouth
       den.aspects.plasmaLoginManager
       den.aspects.texlive
+      den.aspects.virtualization
       den.aspects.wireguardPeer
       den.aspects.zswap
     ];
